@@ -1,8 +1,8 @@
 // Function to load HTML components (header and footer)
 function loadComponents() {
     const components = [
-        { selector: ".header-container", file: "components/header.html" },
-        { selector: ".footer-container", file: "components/footer.html" },
+        { selector: ".header-container", file: "static/header.html" },
+        { selector: ".footer-container", file: "static/footer.html" },
     ];
 
     components.forEach(component => {
