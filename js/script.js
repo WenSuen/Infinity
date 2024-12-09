@@ -17,3 +17,16 @@ function loadComponents() {
 
 // Load components on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", loadComponents);
+
+// Change header background on scroll
+document.addEventListener('scroll', () => {
+    const header = document.getElementById('main-header');
+    if (window.scrollY > 50) {
+        header.classList.add('solid-header');
+        header.classList.remove('transparent-header');
+    } else {
+        header.classList.add('transparent-header');
+        header.classList.remove('solid-header');
+    }
+});
+
