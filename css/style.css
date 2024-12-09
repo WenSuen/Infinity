@@ -37,7 +37,4 @@ footer.main-footer {
     color: white;
     text-align: center;
     padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
