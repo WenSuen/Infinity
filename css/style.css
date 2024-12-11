@@ -2,7 +2,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Monospace', Arial, sans-serif;
     scroll-behavior: smooth;
 }
 
@@ -50,7 +50,7 @@ body, html {
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 1px black;
     font-size: 1rem; /* Adjust font size */
-    font-weight: 300;
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
