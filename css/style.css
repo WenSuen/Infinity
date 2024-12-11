@@ -12,7 +12,7 @@ body, html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px; /* Adjusted header thickness */
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,12 +24,12 @@ body, html {
 
 #main-header.transparent-header {
     background-color: transparent;
-    height: 60px; /* Matches initial size */
+    height: 60px;
 }
 
 #main-header.solid-header {
     background-color: rgba(0, 0, 0, 0.9);
-    height: 60px; /* Consistent height */
+    height: 60px;
 }
 
 #main-header nav ul {
@@ -40,14 +40,9 @@ body, html {
     gap: 1.5em;
 }
 
-#main-header nav ul li {
-    display: inline-block;
-}
-
 #main-header nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 1rem; /* Adjust font size */
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -56,29 +51,18 @@ body, html {
     color: #4CAF50;
 }
 
-/* Logo Styling */
-#main-header .logo h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('your-background-image.jpg'); /* Replace with your background image path */
-    background-attachment: fixed; /* Parallax Effect */
+    background-image: url('images/background.jpg'); /* Replace with your background image */
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
     color: white;
-    z-index: 1;
 }
 
 .hero-content h1 {
@@ -90,16 +74,14 @@ body, html {
 
 .hero-content p {
     font-size: 1.5rem;
-    margin: 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Content Section */
+/* Content Sections */
 .content {
-    padding: 2em;
-    background-color: #f4f4f4;
-    color: #333;
+    padding: 2em 1em;
     text-align: center;
+    background-color: #f4f4f4;
 }
 
 .content h2 {
@@ -107,14 +89,66 @@ body, html {
     margin-bottom: 1em;
 }
 
-/* Parallax Effect */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Slight overlay to improve text visibility */
-    z-index: -1;
+/* Product Section */
+.product-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-item img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-item h3 {
+    margin: 10px 0 5px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #f9f9f9;
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial {
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Call-to-Action */
+.call-to-action {
+    background-color: #4CAF50;
+    color: white;
+    padding: 2em;
+    text-align: center;
+}
+
+.call-to-action .btn {
+    background-color: white;
+    color: #4CAF50;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.call-to-action .btn:hover {
+    background-color: #3e8e41;
+    color: white;
 }
