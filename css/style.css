@@ -69,7 +69,7 @@ body, html {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('your-background-image.jpg'); /* Replace with your background image path */
+    background-image: url('../images/background.png'); /* Replace with your background image path */
     background-attachment: fixed; /* Parallax Effect */
     background-size: cover;
     background-position: center;
