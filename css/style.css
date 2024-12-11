@@ -54,7 +54,7 @@ body, html {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('images/background.jpg'); /* Replace with your background image */
+    background-image: url('images/background.png'); /* Replace with your background image */
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
