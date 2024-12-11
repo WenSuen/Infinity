@@ -25,7 +25,7 @@ function preloadBackgroundImage() {
     const preloadLink = document.createElement('link');
     preloadLink.rel = 'preload';
     preloadLink.as = 'image';
-    preloadLink.href = 'images/background.png'; // Ensure the path is correct
+    preloadLink.href = '/images/background.png'; // Ensure the path is correct
     document.head.appendChild(preloadLink);
 }
 
