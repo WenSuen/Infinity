@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", loadComponents);
 
 // Change header background on scroll
 document.addEventListener('scroll', () => {
-    const header = document.getElementById('main-header');
+    const header = document.querySelector('.header-container');
     if (window.scrollY > 50) {
         header.classList.add('solid-header');
         header.classList.remove('transparent-header');
@@ -29,4 +29,3 @@ document.addEventListener('scroll', () => {
         header.classList.remove('solid-header');
     }
 });
-
