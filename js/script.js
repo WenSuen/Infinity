@@ -20,13 +20,13 @@ function loadComponents() {
     });
 }
 
-// Function to dynamically preload the background image
+// Dynamically preload the background image
 function preloadBackgroundImage() {
-    const preloadLink = document.createElement('link');
-    preloadLink.rel = 'preload';
-    preloadLink.as = 'image';
-    preloadLink.href = '/images/background.png'; // Ensure the path is correct
-    document.head.appendChild(preloadLink);
+    const img = new Image();
+    img.src = '/images/background.png'; // Ensure the path is correct
+    img.onload = () => {
+        document.querySelector('.hero').style.backgroundImage = `url('${img.src}')`;
+    };
 }
 
 // Add or remove header styles based on scroll position

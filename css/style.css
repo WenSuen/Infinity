@@ -14,9 +14,9 @@ body, html {
     width: 100%;
     height: 60px; /* Adjusted header thickness */
     display: flex;
-    justify-content: space-between; /* Space logo and nav */
+    justify-content: center; /* Centers the content container */
     align-items: center;
-    padding: 0 2em;
+    padding: 0;
     box-sizing: border-box;
     z-index: 1000;
     transition: background-color 0.3s ease, height 0.3s ease;
@@ -32,10 +32,19 @@ body, html {
     height: 60px; /* Consistent height */
 }
 
-#main-header .logo {
-    flex-shrink: 0; /* Prevent logo from shrinking */
+/* Header Container Styling */
+#main-header .container {
+    display: flex;
+    justify-content: space-between; /* Aligns logo and nav items horizontally */
+    align-items: center; /* Vertically centers items */
+    width: 100%;
+    max-width: 1200px; /* Optional: limit the width for better design */
+    margin: 0 auto; /* Centers the header content */
+    padding: 0 1em; /* Adjust horizontal padding */
+    box-sizing: border-box;
 }
 
+/* Logo Styling */
 #main-header .logo h2 {
     margin: 0;
     font-size: 1.5rem;
@@ -44,19 +53,13 @@ body, html {
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-#main-header nav {
-    flex-grow: 1; /* Allow nav to expand */
-    display: flex;
-    justify-content: flex-end; /* Align nav to the right */
-    align-items: center;
-}
-
+/* Navigation Styling */
 #main-header nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.5em; /* Space between links */
+    gap: 1.5em; /* Adds space between links */
 }
 
 #main-header nav ul li {
@@ -99,6 +102,17 @@ body, html {
     z-index: 1;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Slight overlay to improve text visibility */
+    z-index: -1;
+}
+
 .hero-content h1 {
     font-size: 4rem;
     font-weight: bold;
@@ -125,45 +139,29 @@ body, html {
     margin-bottom: 1em;
 }
 
-/* Parallax Effect */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Slight overlay to improve text visibility */
-    z-index: -1;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Adjust Header for Mobile */
     #main-header {
-        flex-wrap: wrap; /* Allow wrapping */
-        height: auto; /* Adjust height for multiple rows */
+        height: 50px;
         padding: 0 1em;
     }
 
-    #main-header .logo h2 {
-        font-size: 1.2rem; /* Smaller logo text */
-    }
-
     #main-header nav ul {
-        flex-direction: column; /* Stack links vertically */
-        gap: 0.8em; /* Adjust gap between links */
-        align-items: flex-start; /* Align links to the left */
+        flex-direction: column;
+        gap: 1em; /* Space between links in mobile view */
     }
 
     #main-header nav ul li a {
-        font-size: 1rem; /* Adjust font size for mobile */
+        font-size: 1rem; /* Smaller font size for mobile */
     }
 
+    /* Adjust Hero Section */
     .hero-content h1 {
-        font-size: 2.5rem; /* Smaller heading for mobile */
+        font-size: 2.5rem;
     }
 
     .hero-content p {
-        font-size: 1rem; /* Smaller paragraph */
+        font-size: 1rem;
     }
 }
