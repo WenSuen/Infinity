@@ -252,9 +252,34 @@ body, html {
 }
 
 .testimonial-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2em;
-    color: #333;
+    font-size: 3rem; /* Increased font size */
+    font-family: 'Oswald', sans-serif; /* Modern and clean font */
+    font-weight: 700;
+    color: #333; /* Neutral dark color */
+    text-transform: uppercase; /* All caps for emphasis */
+    letter-spacing: 2px; /* Spacing between letters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 1.5em; /* Spacing below heading */
+    position: relative; /* For adding decorative lines */
+    display: inline-block; /* Shrinks to text width */
+}
+
+.testimonial-section h2::before,
+.testimonial-section h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px; /* Length of the decorative line */
+    height: 3px; /* Thickness of the line */
+    background-color: #f00; /* Accent color */
+}
+
+.testimonial-section h2::before {
+    left: -60px; /* Positions the line to the left */
+}
+
+.testimonial-section h2::after {
+    right: -60px; /* Positions the line to the right */
 }
 
 .testimonial-slider {
