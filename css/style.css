@@ -397,14 +397,24 @@ body, html {
     margin: 0 auto;
 }
 
+/* About Us Section */
+.about-us-section {
+    padding: 4em 2em;
+    background-color: #f9f9f9;
+    text-align: center;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* About Us Header with Background */
 .about-us-header {
     background-image: url('../images/about-us.png'); /* Add the background image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 4em 2em;
-    color: white;
+    padding: 4em 2em; /* Added equal padding */
+    color: black; /* Changed font color to black */
     text-align: center;
     position: relative;
 }
@@ -416,8 +426,8 @@ body, html {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin: 0;
-    color: white;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    color: black; /* Black font color */
+    text-shadow: none; /* Removed shadow for clean text */
 }
 
 .about-us-container {
