@@ -243,12 +243,12 @@ body, html {
 
 /* Testimonial Section */
 .testimonial-section {
-    padding: 4em 2em; /* Adequate padding on both sides */
+    padding: 4em 2em;
     background-color: #fff;
     text-align: center;
     position: relative;
-    max-width: 1200px; /* Restrict the section to a max width */
-    margin: 0 auto; /* Center the section */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .testimonial-section h2 {
@@ -259,9 +259,17 @@ body, html {
     text-transform: uppercase; /* All caps for emphasis */
     letter-spacing: 2px; /* Spacing between letters */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin-bottom: 1.5em; /* Spacing below heading */
-    position: relative; /* For adding decorative lines */
-    display: inline-block; /* Shrinks to text width */
+    margin-bottom: 1.5em;
+    position: relative;
+    display: inline-flex; /* Aligns the icon inline */
+    align-items: center;
+    gap: 10px; /* Space between text and icon */
+}
+
+.testimonial-section .testimonial-icon {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1)); /* Subtle shadow for the icon */
 }
 
 .testimonial-section h2::before,
