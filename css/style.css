@@ -241,6 +241,125 @@ body, html {
     font-weight: bold;
 }
 
+/* Testimonial Section */
+.testimonial-section {
+    padding: 4em 1em;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.testimonial-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2em;
+    color: #333;
+}
+
+.testimonial-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.testimonial-container {
+    display: flex;
+    gap: 2em;
+    overflow: hidden;
+    width: 80%;
+}
+
+.testimonial-card {
+    background: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2em;
+    border-radius: 10px;
+    flex: 0 0 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.stars {
+    color: orange;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 1em 0;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+.testimonial-author h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+}
+
+.testimonial-author p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #888;
+}
+
+.testimonial-date {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 1em;
+}
+
+.slider-btn {
+    background: #fff;
+    border: 2px solid #f00;
+    color: #f00;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: 0 1em;
+    transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: #f00;
+    color: #fff;
+}
+
+.view-all-btn {
+    margin-top: 2em;
+    background: #f00;
+    color: #fff;
+    padding: 0.5em 2em;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background: #d00;
+}
+
 /* Footer */
 .main-footer {
     background-color: #333;

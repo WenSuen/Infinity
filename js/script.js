@@ -104,3 +104,26 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadBackgroundImage();
     initializeProductHoverEffects();
 });
+
+// Testimonial Slider
+document.addEventListener('DOMContentLoaded', () => {
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const container = document.querySelector('.testimonial-container');
+    const cards = document.querySelectorAll('.testimonial-card');
+    let currentIndex = 0;
+
+    function updateSlider() {
+        container.style.transform = `translateX(-${currentIndex * 50}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateSlider();
+    });
+});
