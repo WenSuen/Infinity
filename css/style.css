@@ -12,9 +12,9 @@ body, html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px; /* Adjusted header thickness */
+    height: 60px;
     display: flex;
-    justify-content: center; /* Centers the content container */
+    justify-content: center;
     align-items: center;
     padding: 0;
     box-sizing: border-box;
@@ -24,36 +24,28 @@ body, html {
 
 #main-header.transparent-header {
     background-color: transparent;
-    height: 60px; /* Matches initial size */
+    height: 60px;
 }
 
 #main-header.solid-header {
     background-color: rgba(0, 0, 0, 0.9);
-    height: 60px; /* Consistent height */
+    height: 60px;
 }
 
 /* Header Container Styling */
 #main-header .container {
     display: flex;
-    justify-content: space-between; /* Aligns logo to left and nav to right */
-    align-items: center; /* Vertically centers items */
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    padding: 0 1em;
     box-sizing: border-box;
 }
 
 /* Logo Styling */
-#main-header .logo {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center; /* Vertically centers the logo */
-}
-
 #main-header .logo h2 {
     margin: 0;
-    padding-left: 1em; /* Adds a small space from the edge */
+    padding: 0;
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
@@ -66,7 +58,7 @@ body, html {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.5em; /* Adds space between links */
+    gap: 1.5em;
 }
 
 #main-header nav ul li {
@@ -78,7 +70,7 @@ body, html {
     color: white;
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 1px black;
-    font-size: 1.2rem; /* Adjust font size */
+    font-size: 1.2rem;
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -96,8 +88,8 @@ body, html {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('../images/background.png'); /* Replace with your background image path */
-    background-attachment: fixed; /* Parallax Effect */
+    background-image: url('../images/background.png');
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -116,7 +108,7 @@ body, html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Slight overlay to improve text visibility */
+    background: rgba(0, 0, 0, 0.4);
     z-index: -1;
 }
 
@@ -124,10 +116,10 @@ body, html {
     font-size: 4rem;
     font-weight: bold;
     margin: 0.5em 0;
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), /* Main shadow */
-                 0 1px 2px rgba(255, 255, 255, 0.2); /* Highlight effect */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 
+                 0 1px 2px rgba(255, 255, 255, 0.2);
     color: white;
-    letter-spacing: 1px; /* Slight spacing for better readability */
+    letter-spacing: 1px;
 }
 
 .hero-content p {
@@ -136,8 +128,8 @@ body, html {
     margin: 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     color: white;
-    font-weight: 500; /* Adjust weight if needed */
-    letter-spacing: 0.5px; /* Optional: improves readability */
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 /* Content Section */
@@ -158,87 +150,77 @@ body, html {
     line-height: 1.6;
 }
 
-/* Product List */
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
+/* Product List Section */
+.product-gallery {
+    padding: 3em 1em;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.product-gallery h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5em;
+    color: #333;
+    font-weight: bold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em;
     justify-content: center;
-    gap: 2em;
 }
 
 .product-item {
-    text-align: center;
-    max-width: 300px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .product-item img {
     width: 100%;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-.product-item h3 {
-    font-size: 1.5rem;
-    margin-top: 0.5em;
+.product-item:hover img {
+    transform: scale(1.1);
 }
 
-/* Testimonials */
-.testimonials {
-    background-color: #333;
-    color: white;
-    padding: 2em;
-}
-
-.testimonial {
-    margin-bottom: 2em;
-}
-
-.testimonial h4 {
-    margin-top: 1em;
-    font-size: 1.2rem;
-    color: #4CAF50;
-}
-
-/* Gallery */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5em;
-    padding: 2em;
-}
-
-.gallery-grid img {
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Call-to-Action */
-.call-to-action {
-    background-color: #4CAF50;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
     color: white;
-    text-align: center;
-    padding: 2em;
-}
-
-.call-to-action h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1em;
-}
-
-.call-to-action .btn {
-    background-color: white;
-    color: #4CAF50;
-    padding: 0.5em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
 }
 
-.call-to-action .btn:hover {
-    background-color: #f4f4f4;
+.product-item:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-overlay i {
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+}
+
+.product-overlay p {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 /* Footer */
@@ -254,7 +236,7 @@ body, html {
 @media (max-width: 768px) {
     #main-header nav ul {
         flex-direction: column;
-        gap: 1em; /* Space between links in mobile view */
+        gap: 1em;
     }
 
     .hero-content h1 {
@@ -265,12 +247,7 @@ body, html {
         font-size: 1rem;
     }
 
-    .product-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .gallery-grid {
+    .product-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
