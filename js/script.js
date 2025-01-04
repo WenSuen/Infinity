@@ -109,18 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
+    const container = document.querySelector('.testimonial-container');
     const cards = document.querySelectorAll('.testimonial-card');
-    const cardsPerView = 2; // Number of cards to show
+    const cardsPerView = 2; // Number of cards visible at a time
     let currentIndex = 0;
 
     function updateVisibleCards() {
         // Hide all cards
-        cards.forEach(card => card.classList.remove('active'));
-        
+        cards.forEach(card => card.style.display = 'none');
+
         // Show only the current set of cards
         for (let i = 0; i < cardsPerView; i++) {
             const index = (currentIndex + i) % cards.length; // Loop back using modulo
-            cards[index].classList.add('active');
+            cards[index].style.display = 'block';
         }
     }
 

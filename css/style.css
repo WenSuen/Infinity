@@ -278,12 +278,37 @@ body, html {
 }
 
 /* User Image Styling */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
 .testimonial-author img {
-    width: 80px; /* Set consistent size */
-    height: 80px; /* Maintain circular aspect ratio */
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    margin: 0 auto 1em;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-author h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+}
+
+.testimonial-author p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #888;
+}
+
+.testimonial-date {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 1em;
 }
 
 /* Arrow Button Styling */
@@ -305,10 +330,10 @@ body, html {
 }
 
 .slider-btn:hover {
-    background: #4CAF50; /* Green hover effect */
+    background: #4CAF50;
     color: #fff;
     border-color: #4CAF50;
-    transform: scale(1.1); /* Slight zoom on hover */
+    transform: scale(1.1);
 }
 
 /* Stars Styling */
@@ -323,24 +348,6 @@ body, html {
     color: #666;
     line-height: 1.5;
     margin: 1em 0;
-}
-
-.testimonial-author h3 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: #333;
-}
-
-.testimonial-author p {
-    font-size: 0.9rem;
-    margin: 0;
-    color: #888;
-}
-
-.testimonial-date {
-    font-size: 0.9rem;
-    color: #999;
-    margin-top: 1em;
 }
 
 /* Footer */
