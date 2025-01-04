@@ -115,27 +115,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
 
     function updateSlider() {
+        const maxIndex = Math.ceil(cards.length / cardsPerView) - 1;
+        currentIndex = (currentIndex + maxIndex + 1) % (maxIndex + 1); // Loop the index
         const offset = currentIndex * (100 / cardsPerView);
         container.style.transform = `translateX(-${offset}%)`;
     }
 
     prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex -= cardsPerView;
-        } else {
-            currentIndex = Math.max(0, cards.length - cardsPerView);
-        }
+        currentIndex -= 1;
         updateSlider();
     });
 
     nextBtn.addEventListener('click', () => {
-        if (currentIndex < cards.length - cardsPerView) {
-            currentIndex += cardsPerView;
-        } else {
-            currentIndex = 0;
-        }
+        currentIndex += 1;
         updateSlider();
     });
+
+    // Ensure all reviews are loaded and fit within the container
+    function initSlider() {
+        const totalWidth = cards.length * (100 / cardsPerView);
+        container.style.width = `${totalWidth}%`;
+        cards.forEach(card => {
+            card.style.flex = `0 0 ${100 / cards.length}%`;
+        });
+    }
+
+    initSlider();
 });
-
-
