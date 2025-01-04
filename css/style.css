@@ -243,7 +243,7 @@ body, html {
 
 /* Testimonial Section */
 .testimonial-section {
-    padding: 4em 1em;
+    padding: 4em 2em; /* Added padding on both sides */
     background-color: #fff;
     text-align: center;
     position: relative;
@@ -258,14 +258,17 @@ body, html {
 .testimonial-slider {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Space between arrows and cards */
     position: relative;
+    gap: 1em;
 }
 
 .testimonial-container {
     display: flex;
     gap: 2em;
     justify-content: center;
+    overflow: hidden; /* Ensures no overflow issues */
+    flex: 1; /* Allows the container to expand */
 }
 
 .testimonial-card {
@@ -273,8 +276,9 @@ body, html {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2em;
     border-radius: 10px;
-    flex: 0 0 45%;
+    flex: 0 0 45%; /* Adjusts width of each card */
     text-align: center;
+    margin: 0; /* Resets margin for consistent alignment */
 }
 
 /* User Image Styling */
@@ -287,8 +291,8 @@ body, html {
 }
 
 .testimonial-author img {
-    width: 60px;
-    height: 60px;
+    width: 50px; /* Adjusted to fit better with text */
+    height: 50px;
     border-radius: 50%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -299,12 +303,6 @@ body, html {
     color: #333;
 }
 
-.testimonial-author p {
-    font-size: 0.9rem;
-    margin: 0;
-    color: #888;
-}
-
 .testimonial-date {
     font-size: 0.9rem;
     color: #999;
@@ -313,10 +311,10 @@ body, html {
 
 /* Arrow Button Styling */
 .slider-btn {
-    background: #f7f7f7;
-    border: 2px solid #ddd;
-    color: #555;
-    border-radius: 50%;
+    background: transparent; /* Matches attached button style */
+    border: 2px solid #f00; /* Red border */
+    color: #f00; /* Red color */
+    border-radius: 50%; /* Circular button */
     width: 50px;
     height: 50px;
     display: flex;
@@ -324,16 +322,15 @@ body, html {
     align-items: center;
     cursor: pointer;
     font-size: 1.5rem;
-    margin: 0 1em;
     transition: all 0.3s ease;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .slider-btn:hover {
-    background: #4CAF50;
-    color: #fff;
-    border-color: #4CAF50;
-    transform: scale(1.1);
+    background: #f00; /* Fill with red on hover */
+    color: #fff; /* White icon on hover */
+    border-color: #f00; /* Consistent red border */
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
 /* Stars Styling */
