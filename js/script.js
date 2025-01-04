@@ -111,19 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next-btn');
     const container = document.querySelector('.testimonial-container');
     const cards = document.querySelectorAll('.testimonial-card');
+    const cardsPerView = 2;
     let currentIndex = 0;
 
     function updateSlider() {
-        container.style.transform = `translateX(-${currentIndex * 50}%)`;
+        const offset = currentIndex * (100 / cardsPerView); // Calculate offset
+        container.style.transform = `translateX(-${offset}%)`;
     }
 
     prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        currentIndex = (currentIndex - cardsPerView + cards.length) % cards.length;
         updateSlider();
     });
 
     nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % cards.length;
+        currentIndex = (currentIndex + cardsPerView) % cards.length;
         updateSlider();
     });
 });
+
