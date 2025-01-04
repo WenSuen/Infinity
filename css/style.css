@@ -414,15 +414,6 @@ body, html {
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-.wavy-line {
-    width: 120px;
-    height: 5px;
-    background-image: url('../images/wavy-line.png'); /* Use your wavy line image */
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin: 1em auto;
-}
-
 .about-us-container {
     max-width: 1200px;
     margin: 0 auto;
