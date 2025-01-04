@@ -265,9 +265,9 @@ body, html {
 
 .testimonial-container {
     display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
     gap: 2em;
+    overflow: hidden;
     width: 80%;
 }
 
@@ -277,7 +277,6 @@ body, html {
     padding: 2em;
     border-radius: 10px;
     flex: 0 0 45%; /* Show two cards side-by-side */
-    transition: transform 0.3s ease-in-out;
 }
 
 .stars {
@@ -343,22 +342,6 @@ body, html {
 .slider-btn:hover {
     background: #f00;
     color: #fff;
-}
-
-.view-all-btn {
-    margin-top: 3em; /* Moved lower */
-    background: #f00;
-    color: #fff;
-    padding: 0.8em 2.5em;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.view-all-btn:hover {
-    background: #d00;
 }
 
 /* Footer */
