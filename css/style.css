@@ -146,6 +146,103 @@ body, html {
     margin-bottom: 1em;
 }
 
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+}
+
+.product-item {
+    text-align: center;
+    max-width: 300px;
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-item h3 {
+    font-size: 1.5rem;
+    margin-top: 0.5em;
+}
+
+/* Testimonials */
+.testimonials {
+    background-color: #333;
+    color: white;
+    padding: 2em;
+}
+
+.testimonial {
+    margin-bottom: 2em;
+}
+
+.testimonial h4 {
+    margin-top: 1em;
+    font-size: 1.2rem;
+    color: #4CAF50;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em;
+    padding: 2em;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Call-to-Action */
+.call-to-action {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 2em;
+}
+
+.call-to-action h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+}
+
+.call-to-action .btn {
+    background-color: white;
+    color: #4CAF50;
+    padding: 0.5em 2em;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.call-to-action .btn:hover {
+    background-color: #f4f4f4;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    font-size: 0.9rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     #main-header nav ul {
@@ -158,6 +255,23 @@ body, html {
     }
 
     .hero-content p {
+        font-size: 1rem;
+    }
+
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .call-to-action h2 {
+        font-size: 2rem;
+    }
+
+    .call-to-action .btn {
         font-size: 1rem;
     }
 }
