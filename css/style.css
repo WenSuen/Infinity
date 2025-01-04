@@ -35,18 +35,25 @@ body, html {
 /* Header Container Styling */
 #main-header .container {
     display: flex;
-    justify-content: space-between; /* Aligns logo and nav items horizontally */
+    justify-content: space-between; /* Aligns logo to left and nav to right */
     align-items: center; /* Vertically centers items */
     width: 100%;
-    max-width: 1200px; /* Optional: limit the width for better design */
-    margin: 0 auto; /* Centers the header content */
-    padding: 0 1em; /* Adjust horizontal padding */
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 /* Logo Styling */
+#main-header .logo {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Vertically centers the logo */
+}
+
 #main-header .logo h2 {
     margin: 0;
+    padding-left: 1em; /* Adds a small space from the edge */
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
@@ -141,22 +148,11 @@ body, html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Adjust Header for Mobile */
-    #main-header {
-        height: 50px;
-        padding: 0 1em;
-    }
-
     #main-header nav ul {
         flex-direction: column;
         gap: 1em; /* Space between links in mobile view */
     }
 
-    #main-header nav ul li a {
-        font-size: 1rem; /* Smaller font size for mobile */
-    }
-
-    /* Adjust Hero Section */
     .hero-content h1 {
         font-size: 2.5rem;
     }

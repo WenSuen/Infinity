@@ -7,13 +7,19 @@ function loadComponents() {
 
     components.forEach(component => {
         fetch(component.file)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${component.file}`);
+                }
+                return response.text();
+            })
             .then(data => {
                 document.querySelector(component.selector).innerHTML = data;
 
                 // Initialize header scroll behavior after it's loaded
                 if (component.selector === ".header-container") {
                     handleHeaderScroll();
+                    highlightActiveNavLink(); // Ensure active link logic is initialized
                 }
             })
             .catch(error => console.error("Error loading component:", error));
@@ -23,9 +29,12 @@ function loadComponents() {
 // Dynamically preload the background image
 function preloadBackgroundImage() {
     const img = new Image();
-    img.src = '/images/background.png'; // Ensure the path is correct
+    img.src = 'images/background.png'; // Adjust the path if necessary
     img.onload = () => {
         document.querySelector('.hero').style.backgroundImage = `url('${img.src}')`;
+    };
+    img.onerror = () => {
+        console.error("Failed to load the background image.");
     };
 }
 
@@ -33,7 +42,7 @@ function preloadBackgroundImage() {
 function handleHeaderScroll() {
     const header = document.querySelector('#main-header');
 
-    document.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('solid-header');
             header.classList.remove('transparent-header');
@@ -74,5 +83,4 @@ function highlightActiveNavLink() {
 document.addEventListener('DOMContentLoaded', () => {
     loadComponents();
     preloadBackgroundImage();
-    highlightActiveNavLink();
 });
