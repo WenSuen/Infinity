@@ -109,36 +109,31 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
-    const container = document.querySelector('.testimonial-container');
     const cards = document.querySelectorAll('.testimonial-card');
-    const cardsPerView = 2; // Number of cards visible at a time
+    const cardsPerView = 2; // Number of cards to show
     let currentIndex = 0;
 
-    function updateSlider() {
-        const totalSlides = Math.ceil(cards.length / cardsPerView);
-        currentIndex = (currentIndex + totalSlides) % totalSlides; // Loop index
-        const offset = currentIndex * (100 / cardsPerView);
-        container.style.transform = `translateX(-${offset}%)`;
+    function updateVisibleCards() {
+        // Hide all cards
+        cards.forEach(card => card.classList.remove('active'));
+        
+        // Show only the current set of cards
+        for (let i = 0; i < cardsPerView; i++) {
+            const index = (currentIndex + i) % cards.length; // Loop back using modulo
+            cards[index].classList.add('active');
+        }
     }
 
     prevBtn.addEventListener('click', () => {
-        currentIndex--;
-        updateSlider();
+        currentIndex = (currentIndex - cardsPerView + cards.length) % cards.length; // Loop backward
+        updateVisibleCards();
     });
 
     nextBtn.addEventListener('click', () => {
-        currentIndex++;
-        updateSlider();
+        currentIndex = (currentIndex + cardsPerView) % cards.length; // Loop forward
+        updateVisibleCards();
     });
 
-    // Ensure correct card layout
-    function initSlider() {
-        const totalWidth = cards.length * (100 / cardsPerView);
-        container.style.width = `${totalWidth}%`;
-        cards.forEach(card => {
-            card.style.flex = `0 0 ${100 / cardsPerView}%`;
-        });
-    }
-
-    initSlider();
+    // Initialize the visible cards
+    updateVisibleCards();
 });
