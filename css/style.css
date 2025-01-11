@@ -260,7 +260,7 @@ body, html {
     padding: 4em 2em;
     background-color: #ffffff; /* White background */
     text-align: center;
-    max-width: 1400px; /* Extended width */
+    max-width: 1200px;
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -298,26 +298,15 @@ body, html {
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Speech Bubbles */
+/* Testimonial Container */
 .testimonial-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2em;
-    justify-content: space-between; /* Align left and right */
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* Left and Right Columns */
-.testimonial-left,
-.testimonial-right {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    flex: 1;
+    align-items: center;
 }
 
-/* Speech Bubble Styling */
+/* Speech Bubbles */
 .speechbubble {
     background-color: #26272b; /* Dark bubble background */
     color: #9fa2a7; /* Light text */
@@ -325,20 +314,21 @@ body, html {
     line-height: 1.75;
     padding: 1.5em;
     border-radius: 10px;
+    max-width: 50%;
     position: relative;
     cursor: default;
 }
 
-/* Left Edge Style */
+/* Left-Aligned Speech Bubble */
 .speechbubble.left {
-    border-left: 5px solid var(--highlight1); /* Green */
     align-self: flex-start;
+    border-left: 5px solid var(--highlight1); /* Green */
 }
 
-/* Right Edge Style */
+/* Right-Aligned Speech Bubble */
 .speechbubble.right {
-    border-right: 5px solid var(--highlight2); /* Purple */
     align-self: flex-end;
+    border-right: 5px solid var(--highlight2); /* Purple */
 }
 
 /* Speech Bubble Tails */
@@ -351,7 +341,7 @@ body, html {
     height: 0;
     border-width: 15px 0 0 15px;
     border-style: solid;
-    border-color: #26272b transparent;
+    border-color: #26272b transparent transparent transparent;
 }
 
 .speechbubble.right::after {
@@ -363,7 +353,7 @@ body, html {
     height: 0;
     border-width: 15px 15px 0 0;
     border-style: solid;
-    border-color: #26272b transparent;
+    border-color: #26272b transparent transparent transparent;
 }
 
 /* Quotation Mark */
@@ -384,16 +374,17 @@ body, html {
     margin-top: 1em;
 }
 
-/* Responsive Design for Testimonial Section */
+/* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
-    .testimonial-container {
-        flex-direction: column; /* Stack bubbles vertically on smaller screens */
+    .speechbubble {
+        max-width: 100%; /* Expand bubbles to full width */
     }
-
-    .testimonial-left,
-    .testimonial-right {
-        flex: none;
-        width: 100%;
+    .speechbubble.left, .speechbubble.right {
+        align-self: center; /* Center-align all speech bubbles */
+    }
+    .speechbubble.left::after, .speechbubble.right::after {
+        left: 50%; /* Adjust tail position */
+        transform: translateX(-50%);
     }
 }
 
