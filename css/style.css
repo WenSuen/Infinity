@@ -450,91 +450,123 @@ body, html {
 
 /* About Us Section */
 .about-us-section {
-    padding: 4em 2em;
-    background-color: #f9f9f9;
-    text-align: center;
     position: relative;
-    max-width: 1400px; /* Extended width */
+    padding: 4em 2em;
+    background-color: #ffffff;
+    text-align: center;
+    max-width: 1200px;
     margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* About Us Header */
+.about-us-header h2 {
+    font-size: 3rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.about-us-header h2::before,
+.about-us-header h2::after {
+    content: '';
+    flex: 1;
+    height: 3px;
+    background-color: #f00;
+    margin: 0 10px;
+}
+
+/* About Us Container */
 .about-us-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* Two-column layout */
-    gap: 2em;
-}
-
-.about-us-text {
-    grid-column: span 1;
-    text-align: left; /* Align text to the left */
-}
-
-.about-us-mission-vision {
     display: flex;
     flex-direction: column;
-    gap: 2em;
-    justify-content: space-between;
+    align-items: center;
+    gap: 3em;
 }
 
+/* About Us Text Section */
+.about-us-text {
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-us-text h3 {
+    font-size: 2.2rem;
+    font-family: 'Oswald', sans-serif;
+    color: #333;
+    margin-bottom: 1em;
+}
+
+.about-us-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Mission and Vision Container */
+.about-us-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/* Mission and Vision Boxes */
 .mission, .vision {
-    background-color: #fff;
+    background-color: #f9f9f9;
     padding: 2em;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(48% - 1em);
+    max-width: 45%;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.mission:hover, .vision:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Icons */
 .mission .icon, .vision .icon {
     font-size: 3rem;
     color: #f00;
     margin-bottom: 1em;
 }
 
+/* Mission and Vision Headings */
 .mission h4, .vision h4 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-family: 'Oswald', sans-serif;
     color: #333;
     margin-bottom: 1em;
 }
 
+/* Mission and Vision Text */
 .mission p, .vision p {
     font-size: 1rem;
-    color: #555;
     line-height: 1.6;
-}
-
-/* Footer */
-.main-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1em;
-    font-size: 0.9rem;
+    color: #555;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #main-header nav ul {
+    .about-us-details {
         flex-direction: column;
-        gap: 1em;
+        align-items: center;
     }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-
-    .call-to-action h2 {
-        font-size: 2rem;
-    }
-
-    .call-to-action .btn {
-        font-size: 1rem;
+    .mission, .vision {
+        max-width: 100%;
     }
 }
