@@ -532,10 +532,10 @@ body, html {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Glow Effect on Hover */
 .mission:hover, .vision:hover {
-    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6), 0px 0px 40px rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), 0 0 40px rgba(255, 0, 0, 0.3);
     transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Icons */
@@ -560,6 +560,7 @@ body, html {
     color: #555;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .about-us-details {
@@ -570,4 +571,3 @@ body, html {
         max-width: 100%;
     }
 }
-
