@@ -250,8 +250,10 @@ body, html {
     background-color: #fff;
     text-align: center;
     position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 800px; /* Adjust max width for a single review */
+    margin: 0 auto; /* Center the testimonial section */
+    border-radius: 10px; /* Add rounded edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .testimonial-section h2 {
@@ -261,68 +263,51 @@ body, html {
     color: #333;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Comments Icon Styling */
 .testimonial-section .testimonial-icon {
-    width: 30px; /* Adjust icon width */
-    height: 30px; /* Adjust icon height */
-    background-image: url('../images/comments.png'); /* Path to comments.png */
-    background-size: cover; /* Ensure the icon fits the container */
+    width: 30px;
+    height: 30px;
+    background-image: url('../images/comments.png');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: inline-block;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1)); /* Optional: subtle shadow */
-    vertical-align: middle; /* Align icon with the text */
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-.testimonial-section h2::before,
-.testimonial-section h2::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 3px;
-    background-color: #f00;
-}
-
-.testimonial-section h2::before {
-    left: -60px;
-}
-
-.testimonial-section h2::after {
-    right: -60px;
-}
-
-.testimonial-slider {
+.single-testimonial {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1em;
-}
-
-.testimonial-container {
-    display: flex;
-    gap: 2em;
     justify-content: center;
-    overflow: hidden;
-    flex: 1;
+    align-items: center;
 }
 
 .testimonial-card {
-    background: #fff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     padding: 2em;
     border-radius: 10px;
-    flex: 0 0 45%;
+    max-width: 500px;
     text-align: center;
-    box-sizing: border-box;
+}
+
+.testimonial-quote {
+    font-size: 1.2rem;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+}
+
+.stars {
+    color: orange;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
 }
 
 .testimonial-author {
@@ -334,8 +319,8 @@ body, html {
 }
 
 .testimonial-author img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -349,45 +334,7 @@ body, html {
 .testimonial-date {
     font-size: 0.9rem;
     color: #999;
-    margin-top: 1em;
-}
-
-/* Arrow Button Styling */
-.slider-btn {
-    background: transparent;
-    border: 2px solid #f00;
-    color: #f00;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.slider-btn:hover {
-    background: #f00;
-    color: #fff;
-    border-color: #f00;
-    transform: scale(1.1);
-}
-
-/* Stars Styling */
-.stars {
-    color: orange;
-    font-size: 1.5rem;
-    margin-bottom: 1em;
-}
-
-.testimonial-card p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
-    margin: 1em 0;
+    margin-top: 0.5em;
 }
 
 /* About Us Section */

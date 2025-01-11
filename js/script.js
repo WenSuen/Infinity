@@ -96,37 +96,3 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadBackgroundImage();
     initializeProductHoverEffects();
 });
-
-// 6) Testimonial Slider
-document.addEventListener('DOMContentLoaded', () => {
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const container = document.querySelector('.testimonial-container');
-    const cards = document.querySelectorAll('.testimonial-card');
-    const cardsPerView = 2; // Number of cards visible at a time
-    let currentIndex = 0;
-
-    function updateVisibleCards() {
-        // Hide all cards
-        cards.forEach(card => card.style.display = 'none');
-
-        // Show only the current set of cards
-        for (let i = 0; i < cardsPerView; i++) {
-            const index = (currentIndex + i) % cards.length; 
-            cards[index].style.display = 'block';
-        }
-    }
-
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - cardsPerView + cards.length) % cards.length; 
-        updateVisibleCards();
-    });
-
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + cardsPerView) % cards.length;
-        updateVisibleCards();
-    });
-
-    // Initialize the visible cards
-    updateVisibleCards();
-});
