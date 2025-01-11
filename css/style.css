@@ -244,13 +244,23 @@ body, html {
     font-weight: bold;
 }
 
+/* Colors and variables */
+:root {
+    --color1: #161719;
+    --color2: #26272b;
+    --text: #9fa2a7;
+    --highlight1: #56b273;
+    --highlight2: #b388dd;
+    --highlight3: #ff8750;
+    --highlight4: #01AD9B;
+}
+
 /* Testimonial Section */
 .testimonial-section {
     padding: 4em 2em;
-    background-color: #fff;
+    background-color: var(--color1);
     text-align: center;
-    position: relative;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -258,103 +268,89 @@ body, html {
     font-size: 3rem;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    color: #333;
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
     position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.testimonial-section h2::before,
-.testimonial-section h2::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 100px; /* Adjusted length for consistency */
-    height: 3px;
-    background-color: #f00;
-}
-
-.testimonial-section h2::before {
-    left: -110px; /* Adjusted position for consistency */
-}
-
-.testimonial-section h2::after {
-    right: -110px; /* Adjusted position for consistency */
-}
-
-.testimonial-icon {
-    width: 30px;
-    height: 30px;
-    background-image: url('../images/comments.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: inline-block;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
-    vertical-align: middle;
 }
 
 .testimonial-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2em;
+    flex-direction: column;
+    gap: 1em;
 }
 
-.testimonial-card {
-    background: #f9f9f9;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2em;
+/* Speech bubble design */
+.speechbubble {
+    background-color: var(--color2);
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.75;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
     border-radius: 10px;
-    max-width: 800px;
-    width: 100%;
-    text-align: left;
     position: relative;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: default;
 }
 
-.speech-bubble {
-    background: #fff;
-    border-radius: 10px;
-    padding: 1em;
-    margin-bottom: 1em;
-    position: relative;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+/* Random border colors */
+.speechbubble:nth-child(4n+1) {
+    border-left: 5px solid var(--highlight1);
+}
+.speechbubble:nth-child(4n+2) {
+    border-left: 5px solid var(--highlight2);
+}
+.speechbubble:nth-child(4n+3) {
+    border-left: 5px solid var(--highlight3);
+}
+.speechbubble:nth-child(4n+4) {
+    border-left: 5px solid var(--highlight4);
 }
 
-.speech-bubble::after {
+/* Speech bubble arrow */
+.speechbubble:nth-child(2n)::after {
     content: '';
     position: absolute;
-    bottom: -15px; /* Adjusted to position the tail */
-    left: 20px; /* Adjusted to align the tail */
+    bottom: -15px;
+    left: 20px;
     width: 0;
     height: 0;
-    border: 10px solid transparent;
-    border-top-color: #fff;
-    border-bottom: 0;
-    margin-left: -5px;
-    margin-bottom: -10px;
+    border-width: 15px 0 0 15px;
+    border-style: solid;
+    border-color: var(--color2) transparent;
+}
+.speechbubble:nth-child(2n+1)::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-width: 15px 15px 0 0;
+    border-style: solid;
+    border-color: var(--color2) transparent;
 }
 
-.testimonial-author {
-    margin-top: 2em;
-    text-align: center;
+/* Quotation mark */
+.speechbubble p::before {
+    content: '“';
+    font-family: Georgia, serif;
+    font-size: 40px;
+    line-height: 0;
+    margin-right: 10px;
 }
 
-.testimonial-author h3 {
-    font-size: 1.5rem;
-    margin: 0;
-    color: #333;
-}
-
-.testimonial-date {
-    font-size: 1rem;
-    color: #999;
-    margin-top: 0.5em;
+/* Username style */
+.username {
+    display: block;
+    font-style: italic;
+    text-align: right;
+    color: var(--text);
+    margin-top: 1em;
 }
 
 /* About Us Section */
