@@ -258,7 +258,7 @@ body, html {
 /* Testimonial Section */
 .testimonial-section {
     padding: 4em 2em;
-    background-color: #ffffff;
+    background-color: #ffffff; /* White background */
     text-align: center;
     max-width: 1400px; /* Extended width */
     margin: 0 auto;
@@ -290,7 +290,7 @@ body, html {
 .testimonial-section .testimonial-icon {
     width: 30px;
     height: 30px;
-    background-image: url('../images/comments.png');
+    background-image: url('../images/comments.png'); /* Ensure correct path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -300,21 +300,19 @@ body, html {
 
 /* Speech Bubbles */
 .testimonial-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for left and right */
     gap: 2em;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .speechbubble {
-    background-color: #26272b;
-    color: #9fa2a7;
+    background-color: #26272b; /* Dark bubble background */
+    color: #9fa2a7; /* Light text */
     font-size: 1.2rem;
     line-height: 1.75;
     padding: 1.5em;
     border-radius: 10px;
-    max-width: 45%;
-    flex: 1 1 calc(48% - 2em); /* Adjusted for responsiveness */
     position: relative;
     cursor: default;
 }
@@ -322,19 +320,11 @@ body, html {
 /* Edge Colors Alternating */
 .speechbubble.left {
     border-left: 5px solid var(--highlight1);
-    align-self: flex-start;
+    justify-self: start;
 }
 .speechbubble.right {
     border-right: 5px solid var(--highlight2);
-    align-self: flex-end;
-}
-
-/* Edge Colors for Alternating Bubbles */
-.speechbubble:nth-child(2n+1) {
-    border-left: 5px solid var(--highlight1);
-}
-.speechbubble:nth-child(2n) {
-    border-right: 5px solid var(--highlight2);
+    justify-self: end;
 }
 
 /* Speech Bubble Tails */
@@ -390,48 +380,22 @@ body, html {
     margin: 0 auto;
 }
 
-.about-us-header {
-    background-image: url('../images/about-us.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 4em 2em;
-    color: black;
-    text-align: center;
-    position: relative;
-}
-
-.about-us-header h2 {
-    font-size: 3rem;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0;
-    color: black;
-    text-shadow: none;
-}
-
 .about-us-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two-column layout */
     gap: 2em;
 }
 
 .about-us-text {
-    flex: 1 1 calc(60% - 2em);
-    max-width: 60%;
-    margin: 0 auto;
-    text-align: center;
+    grid-column: span 1;
+    text-align: left; /* Align text to the left */
 }
 
 .about-us-mission-vision {
-    flex: 1 1 calc(38% - 2em);
-    max-width: 38%;
     display: flex;
     flex-direction: column;
     gap: 2em;
+    justify-content: space-between;
 }
 
 .mission, .vision {
@@ -458,6 +422,16 @@ body, html {
     font-size: 1rem;
     color: #555;
     line-height: 1.6;
+}
+
+/* Responsive Design for Testimonial and About Us */
+@media (max-width: 768px) {
+    .testimonial-container {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+    .about-us-container {
+        grid-template-columns: 1fr; /* Stack on small screens */
+    }
 }
 
 /* Footer */
