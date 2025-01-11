@@ -257,13 +257,15 @@ body, html {
 
 /* Testimonial Section */
 .testimonial-section {
+    position: relative;
     padding: 4em 2em;
     background-color: #ffffff; /* White background */
     text-align: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .testimonial-section h2 {
@@ -298,15 +300,14 @@ body, html {
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Testimonial Container */
+/* Speech Bubbles */
 .testimonial-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 2em;
-    align-items: center;
+    justify-content: space-between;
 }
 
-/* Speech Bubbles */
 .speechbubble {
     background-color: #26272b; /* Dark bubble background */
     color: #9fa2a7; /* Light text */
@@ -314,21 +315,19 @@ body, html {
     line-height: 1.75;
     padding: 1.5em;
     border-radius: 10px;
-    max-width: 50%;
+    max-width: 45%;
     position: relative;
     cursor: default;
 }
 
-/* Left-Aligned Speech Bubble */
+/* Edge Colors Alternating */
 .speechbubble.left {
+    border-left: 5px solid var(--highlight1);
     align-self: flex-start;
-    border-left: 5px solid var(--highlight1); /* Green */
 }
-
-/* Right-Aligned Speech Bubble */
 .speechbubble.right {
+    border-right: 5px solid var(--highlight2);
     align-self: flex-end;
-    border-right: 5px solid var(--highlight2); /* Purple */
 }
 
 /* Speech Bubble Tails */
@@ -341,7 +340,7 @@ body, html {
     height: 0;
     border-width: 15px 0 0 15px;
     border-style: solid;
-    border-color: #26272b transparent transparent transparent;
+    border-color: #26272b transparent;
 }
 
 .speechbubble.right::after {
@@ -353,7 +352,7 @@ body, html {
     height: 0;
     border-width: 15px 15px 0 0;
     border-style: solid;
-    border-color: #26272b transparent transparent transparent;
+    border-color: #26272b transparent;
 }
 
 /* Quotation Mark */
@@ -374,18 +373,55 @@ body, html {
     margin-top: 1em;
 }
 
-/* Responsive Design for Smaller Screens */
-@media (max-width: 768px) {
-    .speechbubble {
-        max-width: 100%; /* Expand bubbles to full width */
+/* Floating Background Dots */
+@keyframes float {
+    0% {
+        transform: translateY(0);
     }
-    .speechbubble.left, .speechbubble.right {
-        align-self: center; /* Center-align all speech bubbles */
+    50% {
+        transform: translateY(-10px);
     }
-    .speechbubble.left::after, .speechbubble.right::after {
-        left: 50%; /* Adjust tail position */
-        transform: translateX(-50%);
+    100% {
+        transform: translateY(0);
     }
+}
+
+.floating-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-dot.dot-1 {
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.floating-dot.dot-2 {
+    top: 40%;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+.floating-dot.dot-3 {
+    bottom: 15%;
+    left: 25%;
+    animation-delay: 2s;
+}
+
+/* Decorative Icons */
+.speechbubble::before {
+    content: '★'; /* Example icon */
+    font-size: 2rem;
+    color: rgba(255, 215, 0, 0.5);
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    transform: rotate(-15deg);
 }
 
 /* About Us Section */
