@@ -614,7 +614,7 @@ body, html {
 .main-footer {
     width: 100%; /* Ensure the footer spans the entire width */
     margin: 0;
-    padding: 2em 0; /* Vertical padding for spacing */
+    padding: 1.5em 0; /* Reduce vertical padding */
     background-color: #2c2c2c; /* Dark gray background */
     color: #ccc; /* Light gray text */
     border-top: 5px solid #f00; /* Red top border for a decorative touch */
@@ -629,7 +629,7 @@ body, html {
     justify-content: space-between; /* Space between sections */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
     padding: 0 1em; /* Horizontal padding for spacing */
-    gap: 2em; /* Gap between sections */
+    gap: 1.5em; /* Reduced gap between sections */
 }
 
 /* Footer Section Styling */
@@ -639,14 +639,14 @@ body, html {
 }
 
 .footer-section h4 {
-    font-size: 1.5rem; /* Heading size */
-    margin-bottom: 0.8em; /* Space below the heading */
+    font-size: 1.3rem; /* Slightly smaller heading size */
+    margin-bottom: 0.5em; /* Reduce space below the heading */
     color: #f00; /* Highlight color for headings */
 }
 
 .footer-section p {
-    font-size: 1rem; /* Paragraph size */
-    margin: 0.3em 0; /* Space between lines */
+    font-size: 0.9rem; /* Smaller paragraph size */
+    margin: 0.2em 0; /* Reduce spacing between lines */
     color: #bbb; /* Light gray text */
 }
 
@@ -658,13 +658,13 @@ body, html {
 }
 
 .footer-links li {
-    margin: 0.5em 0; /* Spacing between links */
+    margin: 0.3em 0; /* Reduce spacing between links */
 }
 
 .footer-links li a {
     color: #bbb; /* Light gray text */
     text-decoration: none; /* Remove underline */
-    font-size: 1rem; /* Link text size */
+    font-size: 0.9rem; /* Smaller link text size */
     transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth hover effect */
 }
 
@@ -675,8 +675,8 @@ body, html {
 
 /* Footer Bottom Section */
 .footer-bottom {
-    padding-top: 1em; /* Space above */
-    font-size: 0.9rem; /* Smaller font size */
+    padding-top: 0.8em; /* Reduce space above */
+    font-size: 0.8rem; /* Smaller font size */
     color: #aaa; /* Muted text color */
     text-align: center; /* Center-align text */
 }
@@ -686,7 +686,7 @@ body, html {
     height: 3px; /* Thin line */
     background: linear-gradient(to right, #f00, transparent); /* Gradient effect */
     width: 100%; /* Full width */
-    margin: 0 auto 1.5em; /* Center it with spacing below */
+    margin: 0 auto 1em; /* Reduce spacing below */
 }
 
 /* Responsive Design */
@@ -701,4 +701,3 @@ body, html {
         text-align: center; /* Center-align text */
     }
 }
-
