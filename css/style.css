@@ -609,3 +609,84 @@ body, html {
         max-width: 100%;
     }
 }
+
+/* Footer Section */
+.main-footer {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 2em 1em;
+    text-align: center;
+    border-top: 3px solid #f00; /* Decorative top border */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2em;
+    text-align: left;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #555; /* Subtle separator */
+}
+
+.footer-section {
+    flex: 1 1 45%; /* Flex items to fit nicely in two columns */
+}
+
+.footer-section h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8em;
+    color: #f00; /* Highlight color for headings */
+}
+
+.footer-section p {
+    font-size: 1rem;
+    margin: 0.3em 0;
+    color: #ccc;
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin: 0.5em 0;
+}
+
+.footer-links li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #f00; /* Highlight color on hover */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    padding-top: 1em;
+    font-size: 0.9rem;
+    color: #aaa; /* Slightly muted text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        flex: 1 1 100%;
+    }
+}
