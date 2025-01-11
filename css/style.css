@@ -616,9 +616,12 @@ body, html {
     color: #ccc; /* Light gray text */
     padding: 2em 1em;
     text-align: center;
+    width: 100%; /* Ensure full width */
     border-top: 5px solid #f00; /* Red top border */
+    box-sizing: border-box;
 }
 
+/* Footer Container */
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -628,19 +631,21 @@ body, html {
     gap: 2em;
 }
 
+/* Footer Content Area */
 .footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 3em;
-    text-align: left;
     width: 100%;
+    gap: 3em;
     padding-bottom: 1.5em;
     border-bottom: 1px solid #444; /* Subtle separator */
 }
 
+/* Footer Section Styling */
 .footer-section {
     flex: 1 1 45%; /* Two-column layout */
+    text-align: left;
 }
 
 .footer-section h4 {
@@ -684,18 +689,20 @@ body, html {
     font-size: 0.9rem;
     color: #aaa; /* Muted text */
     text-align: center;
-    border-top: 1px solid #444; /* Subtle separator */
 }
 
-/* Decorative Element */
-.footer-container::before {
-    content: '';
-    display: block;
+/* Decorative Red Line */
+.footer-decorative-line {
     height: 3px;
-    width: 100px;
     background: linear-gradient(to right, #f00, transparent);
-    margin: 0 auto 1em auto;
-    border-radius: 2px;
+    width: 100%;
+    margin: 0 auto 1.5em;
+}
+
+/* Full Width Styling */
+.main-footer {
+    width: 100%;
+    margin: 0;
 }
 
 /* Responsive Design */
@@ -703,11 +710,10 @@ body, html {
     .footer-content {
         flex-direction: column;
         text-align: center;
-        gap: 2em;
     }
 
     .footer-section {
         flex: 1 1 100%;
+        text-align: center;
     }
 }
-
