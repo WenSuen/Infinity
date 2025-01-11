@@ -685,7 +685,7 @@ body, html {
 .footer-decorative-line {
     height: 3px; /* Thin line */
     background: linear-gradient(to right, #f00, transparent); /* Gradient effect */
-    width: 100%; /* Full width */
+    width: 95%; /* Full width */
     margin: 0 auto 1em; /* Reduce spacing below */
 }
 
