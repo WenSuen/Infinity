@@ -612,30 +612,35 @@ body, html {
 
 /* Footer Section */
 .main-footer {
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
+    background-color: #2c2c2c; /* Dark gray background */
+    color: #ccc; /* Light gray text */
     padding: 2em 1em;
     text-align: center;
-    border-top: 3px solid #f00; /* Decorative top border */
+    border-top: 5px solid #f00; /* Red top border */
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2em;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 2em;
+    gap: 3em;
     text-align: left;
+    width: 100%;
     padding-bottom: 1.5em;
-    border-bottom: 1px solid #555; /* Subtle separator */
+    border-bottom: 1px solid #444; /* Subtle separator */
 }
 
 .footer-section {
-    flex: 1 1 45%; /* Flex items to fit nicely in two columns */
+    flex: 1 1 45%; /* Two-column layout */
 }
 
 .footer-section h4 {
@@ -647,7 +652,7 @@ body, html {
 .footer-section p {
     font-size: 1rem;
     margin: 0.3em 0;
-    color: #ccc;
+    color: #bbb;
 }
 
 /* Footer Links */
@@ -662,21 +667,35 @@ body, html {
 }
 
 .footer-links li a {
-    color: #ccc;
+    color: #bbb;
     text-decoration: none;
     font-size: 1rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .footer-links li a:hover {
-    color: #f00; /* Highlight color on hover */
+    color: #fff; /* Bright white on hover */
+    text-shadow: 0 0 5px #f00, 0 0 10px #f00; /* Glow effect */
 }
 
 /* Footer Bottom Section */
 .footer-bottom {
     padding-top: 1em;
     font-size: 0.9rem;
-    color: #aaa; /* Slightly muted text */
+    color: #aaa; /* Muted text */
+    text-align: center;
+    border-top: 1px solid #444; /* Subtle separator */
+}
+
+/* Decorative Element */
+.footer-container::before {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100px;
+    background: linear-gradient(to right, #f00, transparent);
+    margin: 0 auto 1em auto;
+    border-radius: 2px;
 }
 
 /* Responsive Design */
@@ -684,9 +703,11 @@ body, html {
     .footer-content {
         flex-direction: column;
         text-align: center;
+        gap: 2em;
     }
 
     .footer-section {
         flex: 1 1 100%;
     }
 }
+
