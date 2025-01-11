@@ -450,150 +450,76 @@ body, html {
 
 /* About Us Section */
 .about-us-section {
-    position: relative;
     padding: 4em 2em;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     text-align: center;
-    max-width: 1200px;
+    position: relative;
+    max-width: 1400px; /* Consistent width with the testimonial section */
     margin: 0 auto;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* About Us Header */
+.about-us-header {
+    padding: 2em 0;
+}
+
 .about-us-header h2 {
     font-size: 3rem;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    color: #333;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    color: #333;
 }
 
-.about-us-header h2::before,
-.about-us-header h2::after {
-    content: '';
-    flex: 1;
-    height: 3px;
-    background-color: #f00;
-    margin: 0 10px;
-}
-
-/* About Us Container */
+/* About Us Content Container */
 .about-us-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3em;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2em; /* Space between mission and vision cards */
+    align-items: flex-start;
 }
 
 /* About Us Text Section */
 .about-us-text {
+    flex: 1 1 calc(100% - 4em);
     max-width: 800px;
+    margin: 0 auto;
     text-align: center;
-}
-
-.about-us-text h3 {
-    font-size: 2.2rem;
-    font-family: 'Oswald', sans-serif;
-    color: #333;
-    margin-bottom: 1em;
-}
-
-.about-us-text p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #555;
-}
-
-/* Mission and Vision Container */
-.about-us-details {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 2em;
 }
 
 /* Mission and Vision Cards */
 .mission, .vision {
-    background-color: #f9f9f9;
+    flex: 1 1 calc(45% - 1em); /* Equal card width for mission and vision */
+    background-color: #fff;
     padding: 2em;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    flex: 1 1 45%;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
 }
 
+/* Hover Effect for Mission and Vision Cards */
 .mission:hover, .vision:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), 0 0 40px rgba(255, 0, 0, 0.3); /* Glow effect on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
 }
 
-/* Icons */
+/* Icon Styling */
 .mission .icon, .vision .icon {
-    font-size: 3rem;
-    color: #f00;
+    font-size: 3rem; /* Icon size for visibility */
     margin-bottom: 1em;
-}
-
-/* Mission and Vision Headings */
-.mission h4, .vision h4 {
-    font-size: 1.8rem;
-    font-family: 'Oswald', sans-serif;
-    color: #333;
-    margin-bottom: 1em;
-}
-
-/* Mission and Vision Text */
-.mission p, .vision p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-}
-
-/* Subtle Animation Inside Cards */
-.shine {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 60%);
-    transform: rotate(45deg);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-.mission:hover .shine, .vision:hover .shine {
-    opacity: 1;
-    animation: shine-animation 2s infinite;
-}
-
-@keyframes shine-animation {
-    0% {
-        transform: rotate(45deg) translate(-150%, -150%);
-    }
-    100% {
-        transform: rotate(45deg) translate(150%, 150%);
-    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .about-us-details {
-        flex-direction: column;
+    .about-us-container {
+        flex-direction: column; /* Stack mission and vision cards vertically */
     }
 
     .mission, .vision {
-        max-width: 100%;
+        max-width: 100%; /* Full width for mobile view */
     }
 }
