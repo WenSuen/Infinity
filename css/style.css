@@ -260,25 +260,22 @@ body, html {
     padding: 4em 2em;
     background-color: var(--color1);
     text-align: center;
-    max-width: 800px;
+    max-width: 1200px; /* Extended for two columns */
     margin: 0 auto;
-}
-
-.testimonial-section h2 {
-    font-size: 3rem;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 2em;
-    position: relative;
 }
 
 .testimonial-container {
     display: flex;
+    justify-content: space-between; /* Space between columns */
+    gap: 2em;
+}
+
+/* Columns for testimonials */
+.testimonial-column {
+    flex: 1;
+    display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
 }
 
 /* Speech bubble design */
@@ -288,31 +285,17 @@ body, html {
     font-size: 1rem;
     line-height: 1.75;
     padding: 1.5em;
-    margin-bottom: 1.5em;
     border-radius: 10px;
     position: relative;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
     cursor: default;
 }
 
-/* Random border colors */
-.speechbubble:nth-child(4n+1) {
+/* Alternating speech bubbles */
+.speechbubble.left {
+    align-self: flex-start; /* Align to the left */
     border-left: 5px solid var(--highlight1);
 }
-.speechbubble:nth-child(4n+2) {
-    border-left: 5px solid var(--highlight2);
-}
-.speechbubble:nth-child(4n+3) {
-    border-left: 5px solid var(--highlight3);
-}
-.speechbubble:nth-child(4n+4) {
-    border-left: 5px solid var(--highlight4);
-}
-
-/* Speech bubble arrow */
-.speechbubble:nth-child(2n)::after {
+.speechbubble.left::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -323,7 +306,12 @@ body, html {
     border-style: solid;
     border-color: var(--color2) transparent;
 }
-.speechbubble:nth-child(2n+1)::after {
+
+.speechbubble.right {
+    align-self: flex-end; /* Align to the right */
+    border-right: 5px solid var(--highlight2);
+}
+.speechbubble.right::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -333,6 +321,20 @@ body, html {
     border-width: 15px 15px 0 0;
     border-style: solid;
     border-color: var(--color2) transparent;
+}
+
+/* Randomize border colors for left/right bubbles */
+.speechbubble.left:nth-child(3n+1),
+.speechbubble.right:nth-child(3n+1) {
+    border-color: var(--highlight1);
+}
+.speechbubble.left:nth-child(3n+2),
+.speechbubble.right:nth-child(3n+2) {
+    border-color: var(--highlight2);
+}
+.speechbubble.left:nth-child(3n+3),
+.speechbubble.right:nth-child(3n+3) {
+    border-color: var(--highlight3);
 }
 
 /* Quotation mark */
