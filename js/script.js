@@ -1,4 +1,4 @@
-// Function to load HTML components (header, footer, and optionally head)
+// Function to load HTML components (header, footer)
 function loadComponents() {
     const components = [
         { selector: ".header-container", file: "static/header.html" },
@@ -16,17 +16,37 @@ function loadComponents() {
             .then((data) => {
                 document.querySelector(component.selector).innerHTML = data;
 
-                // Initialize header scroll behavior and active link highlight after header is loaded
+                // Initialize header behavior and highlight the active page after the header is loaded
                 if (component.selector === ".header-container") {
-                    handleHeaderScroll();
-                    highlightActiveNavLink();
+                    handleHeaderScroll();  // If you still want the transparent-to-solid effect
+                    highlightActivePage(); // <--- NEW function call for multi-page highlighting
                 }
             })
             .catch((error) => console.error("Error loading component:", error));
     });
 }
 
-// Dynamically preload the background image
+// 1) Highlight the active link based on the current page name
+function highlightActivePage() {
+    // Get the current page file name (e.g., "index.html", "about.html")
+    const currentPage = window.location.pathname.split("/").pop();
+
+    // Select all nav links in your header
+    const navLinks = document.querySelectorAll('#main-header nav ul li a');
+
+    // Remove 'active' from all links, then add 'active' to the link matching the current page
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        
+        // Compare link's href attribute (e.g., "index.html") to the current page file
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// 2) Dynamically preload the hero background image (optional)
 function preloadBackgroundImage() {
     const img = new Image();
     img.src = 'images/background.png'; // Ensure the path is correct
@@ -41,7 +61,7 @@ function preloadBackgroundImage() {
     };
 }
 
-// Add or remove header styles based on scroll position
+// 3) Add or remove header styles based on scroll position (transparent vs solid)
 function handleHeaderScroll() {
     const header = document.querySelector('#main-header');
     if (!header) return; // Ensure header exists before applying behavior
@@ -57,55 +77,27 @@ function handleHeaderScroll() {
     });
 }
 
-// Highlight active navigation link based on scroll position
-function highlightActiveNavLink() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('#main-header nav ul li a');
-    if (sections.length === 0 || navLinks.length === 0) return; // Ensure sections and links exist
-
-    window.addEventListener('scroll', () => {
-        let currentSection = '';
-
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop - 60; // Adjust for header height
-            const sectionHeight = section.offsetHeight;
-
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach((link) => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
-// Add hover effects for product gallery (optional)
+// 4) Add hover effects for product gallery (optional)
 function initializeProductHoverEffects() {
     const productItems = document.querySelectorAll('.product-item');
     productItems.forEach((item) => {
         item.addEventListener('mouseenter', () => {
             item.classList.add('hovered');
         });
-
         item.addEventListener('mouseleave', () => {
             item.classList.remove('hovered');
         });
     });
 }
 
-// Initialize all functions when the DOM is fully loaded
+// 5) Initialize all functions when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadComponents();
     preloadBackgroundImage();
     initializeProductHoverEffects();
 });
 
-// Testimonial Slider
+// 6) Testimonial Slider
 document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
@@ -120,18 +112,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Show only the current set of cards
         for (let i = 0; i < cardsPerView; i++) {
-            const index = (currentIndex + i) % cards.length; // Loop back using modulo
+            const index = (currentIndex + i) % cards.length; 
             cards[index].style.display = 'block';
         }
     }
 
     prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - cardsPerView + cards.length) % cards.length; // Loop backward
+        currentIndex = (currentIndex - cardsPerView + cards.length) % cards.length; 
         updateVisibleCards();
     });
 
     nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + cardsPerView) % cards.length; // Loop forward
+        currentIndex = (currentIndex + cardsPerView) % cards.length;
         updateVisibleCards();
     });
 
