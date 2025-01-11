@@ -514,21 +514,21 @@ body, html {
 /* Mission and Vision Container */
 .about-us-details {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2em;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
+    gap: 2em;
 }
 
-/* Mission and Vision Boxes */
+/* Mission and Vision Cards */
 .mission, .vision {
     background-color: #f9f9f9;
     padding: 2em;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(48% - 1em);
-    max-width: 45%;
+    flex: 1 1 45%;
     text-align: center;
+    position: relative;
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -559,11 +559,38 @@ body, html {
     color: #555;
 }
 
+/* Subtle Animation Inside Cards */
+.shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 60%);
+    transform: rotate(45deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.mission:hover .shine, .vision:hover .shine {
+    opacity: 1;
+    animation: shine-animation 2s infinite;
+}
+
+@keyframes shine-animation {
+    0% {
+        transform: rotate(45deg) translate(-150%, -150%);
+    }
+    100% {
+        transform: rotate(45deg) translate(150%, 150%);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .about-us-details {
         flex-direction: column;
-        align-items: center;
     }
 
     .mission, .vision {
