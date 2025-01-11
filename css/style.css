@@ -260,7 +260,7 @@ body, html {
     padding: 4em 2em;
     background-color: #ffffff; /* White background */
     text-align: center;
-    max-width: 1400px; /* Extended width */
+    max-width: 1400px; /* Extended width to fill more space */
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -300,10 +300,10 @@ body, html {
 
 /* Speech Bubbles */
 .testimonial-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for left and right */
+    display: flex;
+    flex-wrap: wrap;
     gap: 2em;
-    justify-content: center;
+    justify-content: space-between; /* Adjust for better spacing */
 }
 
 .speechbubble {
@@ -313,18 +313,20 @@ body, html {
     line-height: 1.75;
     padding: 1.5em;
     border-radius: 10px;
+    flex: 1 1 calc(47% - 1em); /* Use flex for responsiveness and fill more space */
     position: relative;
     cursor: default;
+    max-width: 47%; /* Ensure it doesn't exceed */
 }
 
 /* Edge Colors Alternating */
 .speechbubble.left {
-    border-left: 5px solid var(--highlight1);
-    justify-self: start;
+    border-left: 5px solid var(--highlight1); /* Green */
+    align-self: flex-start;
 }
 .speechbubble.right {
-    border-right: 5px solid var(--highlight2);
-    justify-self: end;
+    border-right: 5px solid var(--highlight2); /* Purple */
+    align-self: flex-end;
 }
 
 /* Speech Bubble Tails */
