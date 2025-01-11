@@ -260,7 +260,7 @@ body, html {
     padding: 4em 2em;
     background-color: #ffffff; /* White background */
     text-align: center;
-    max-width: 1400px; /* Extended width to fill more space */
+    max-width: 1400px; /* Extended width */
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -303,10 +303,21 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
-    justify-content: center; /* Ensures bubbles are centered properly */
-    max-width: 100%;
+    justify-content: space-between; /* Align left and right */
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
+/* Left and Right Columns */
+.testimonial-left,
+.testimonial-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    flex: 1;
+}
+
+/* Speech Bubble Styling */
 .speechbubble {
     background-color: #26272b; /* Dark bubble background */
     color: #9fa2a7; /* Light text */
@@ -314,26 +325,24 @@ body, html {
     line-height: 1.75;
     padding: 1.5em;
     border-radius: 10px;
-    max-width: 47%;
     position: relative;
     cursor: default;
 }
 
-/* Left and Right Alignment Alternation */
-.speechbubble:nth-child(odd) {
+/* Left Edge Style */
+.speechbubble.left {
+    border-left: 5px solid var(--highlight1); /* Green */
     align-self: flex-start;
-    border-left: 5px solid var(--highlight1); /* Green for left */
-    margin-right: auto; /* Align to the left */
 }
 
-.speechbubble:nth-child(even) {
+/* Right Edge Style */
+.speechbubble.right {
+    border-right: 5px solid var(--highlight2); /* Purple */
     align-self: flex-end;
-    border-right: 5px solid var(--highlight2); /* Purple for right */
-    margin-left: auto; /* Align to the right */
 }
 
 /* Speech Bubble Tails */
-.speechbubble:nth-child(odd)::after {
+.speechbubble.left::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -345,7 +354,7 @@ body, html {
     border-color: #26272b transparent;
 }
 
-.speechbubble:nth-child(even)::after {
+.speechbubble.right::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -378,14 +387,13 @@ body, html {
 /* Responsive Design for Testimonial Section */
 @media (max-width: 768px) {
     .testimonial-container {
-        flex-direction: column; /* Single column on smaller screens */
-        gap: 1.5em;
+        flex-direction: column; /* Stack bubbles vertically on smaller screens */
     }
-    .speechbubble {
-        max-width: 100%;
-        flex: 1 1 100%;
-        margin-left: auto;
-        margin-right: auto;
+
+    .testimonial-left,
+    .testimonial-right {
+        flex: none;
+        width: 100%;
     }
 }
 
