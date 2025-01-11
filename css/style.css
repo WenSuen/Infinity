@@ -303,7 +303,8 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
-    justify-content: space-between; /* Adjust for better spacing */
+    justify-content: center; /* Ensures bubbles are centered properly */
+    max-width: 100%;
 }
 
 .speechbubble {
@@ -313,24 +314,26 @@ body, html {
     line-height: 1.75;
     padding: 1.5em;
     border-radius: 10px;
-    flex: 1 1 calc(47% - 1em); /* Use flex for responsiveness and fill more space */
+    max-width: 47%;
     position: relative;
     cursor: default;
-    max-width: 47%; /* Ensure it doesn't exceed */
 }
 
-/* Edge Colors Alternating */
-.speechbubble.left {
-    border-left: 5px solid var(--highlight1); /* Green */
+/* Left and Right Alignment Alternation */
+.speechbubble:nth-child(odd) {
     align-self: flex-start;
+    border-left: 5px solid var(--highlight1); /* Green for left */
+    margin-right: auto; /* Align to the left */
 }
-.speechbubble.right {
-    border-right: 5px solid var(--highlight2); /* Purple */
+
+.speechbubble:nth-child(even) {
     align-self: flex-end;
+    border-right: 5px solid var(--highlight2); /* Purple for right */
+    margin-left: auto; /* Align to the right */
 }
 
 /* Speech Bubble Tails */
-.speechbubble.left::after {
+.speechbubble:nth-child(odd)::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -342,7 +345,7 @@ body, html {
     border-color: #26272b transparent;
 }
 
-.speechbubble.right::after {
+.speechbubble:nth-child(even)::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -370,6 +373,20 @@ body, html {
     text-align: right;
     color: #777;
     margin-top: 1em;
+}
+
+/* Responsive Design for Testimonial Section */
+@media (max-width: 768px) {
+    .testimonial-container {
+        flex-direction: column; /* Single column on smaller screens */
+        gap: 1.5em;
+    }
+    .speechbubble {
+        max-width: 100%;
+        flex: 1 1 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* About Us Section */
@@ -424,16 +441,6 @@ body, html {
     font-size: 1rem;
     color: #555;
     line-height: 1.6;
-}
-
-/* Responsive Design for Testimonial and About Us */
-@media (max-width: 768px) {
-    .testimonial-container {
-        grid-template-columns: 1fr; /* Single column on small screens */
-    }
-    .about-us-container {
-        grid-template-columns: 1fr; /* Stack on small screens */
-    }
 }
 
 /* Footer */
