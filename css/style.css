@@ -250,13 +250,10 @@ body, html {
     background-color: #fff;
     text-align: center;
     position: relative;
-    max-width: 1200px; /* Adjust width to align with other sections */
-    margin: 0 auto; /* Center the testimonial section */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Title with horizontal lines */
 .testimonial-section h2 {
     font-size: 3rem;
     font-family: 'Oswald', sans-serif;
@@ -264,32 +261,33 @@ body, html {
     color: #333;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5em;
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
 }
 
-/* Add lines beside the header */
 .testimonial-section h2::before,
 .testimonial-section h2::after {
     content: '';
-    flex: 1; /* Stretch to fill available space */
+    position: absolute;
+    top: 50%;
+    width: 100px; /* Adjusted length for consistency */
     height: 3px;
-    background-color: #f00; /* Match the red color from the lines */
+    background-color: #f00;
 }
 
 .testimonial-section h2::before {
-    margin-right: 15px; /* Space between line and text */
+    left: -110px; /* Adjusted position for consistency */
 }
 
 .testimonial-section h2::after {
-    margin-left: 15px; /* Space between line and text */
+    right: -110px; /* Adjusted position for consistency */
 }
 
-.testimonial-section .testimonial-icon {
+.testimonial-icon {
     width: 30px;
     height: 30px;
     background-image: url('../images/comments.png');
@@ -298,66 +296,66 @@ body, html {
     background-repeat: no-repeat;
     display: inline-block;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+    vertical-align: middle;
 }
 
-/* Single Testimonial Card */
-.single-testimonial {
+.testimonial-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2em;
 }
 
 .testimonial-card {
     background: #f9f9f9;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2em;
     border-radius: 10px;
-    max-width: 800px; /* Adjust width for alignment */
-    text-align: center;
-    margin-top: 1em; /* Add spacing below the header */
+    max-width: 800px;
+    width: 100%;
+    text-align: left;
+    position: relative;
 }
 
-.testimonial-quote {
-    font-size: 1.2rem;
-    color: #555;
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 1.5em;
-}
-
-.stars {
-    color: orange;
-    font-size: 1.5rem;
+.speech-bubble {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1em;
     margin-bottom: 1em;
+    position: relative;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Adjusted to position the tail */
+    left: 20px; /* Adjusted to align the tail */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+    border-bottom: 0;
+    margin-left: -5px;
+    margin-bottom: -10px;
 }
 
 .testimonial-author {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
-}
-
-.testimonial-author img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-top: 2em;
+    text-align: center;
 }
 
 .testimonial-author h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin: 0;
     color: #333;
 }
 
 .testimonial-date {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #999;
     margin-top: 0.5em;
 }
-
 
 /* About Us Section */
 .about-us-section {
