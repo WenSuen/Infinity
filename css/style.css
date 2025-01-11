@@ -68,21 +68,24 @@ body, html {
 #main-header nav ul li a {
     text-decoration: none;
     color: white;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke: 1px black;
     font-size: 1.2rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: 700; /* Make text bold */
+    padding: 0.5em 1em; /* Add padding for better click area */
+    border-radius: 5px; /* Smooth corners */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth hover and active state */
 }
 
 #main-header nav ul li a:hover {
-    color: #4CAF50;
+    color: #4CAF50; /* Highlight color on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Light background effect */
 }
 
 #main-header nav ul li a.active {
-    color: lightblue;
+    color: white;
+    background-color: #4CAF50; /* Green background for active link */
     font-weight: bold;
     text-decoration: underline;
+    box-shadow: 0px 4px 6px rgba(0, 255, 0, 0.5); /* Light up effect */
 }
 
 /* Hero Section */
