@@ -259,7 +259,7 @@ body, html {
 .testimonial-section {
     position: relative;
     padding: 4em 2em;
-    background-color: #ffffff; /* White background */
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* Subtle gradient background */
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -293,7 +293,7 @@ body, html {
 .testimonial-section .testimonial-icon {
     width: 30px;
     height: 30px;
-    background-image: url('../images/comments.png'); /* Ensure correct path */
+    background-image: url('../images/comments.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -305,7 +305,7 @@ body, html {
 .testimonial-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 2em;
+    gap: 2em 4em; /* Added vertical gap */
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
@@ -315,36 +315,43 @@ body, html {
 .speechbubble {
     background-color: #26272b; /* Dark bubble background */
     color: #9fa2a7; /* Light text */
-    font-size: 1.2rem;
-    line-height: 1.75;
-    padding: 1.5em;
-    border-radius: 10px;
+    font-size: 1rem; /* Reduced font size */
+    line-height: 1.6;
+    padding: 1.2em; /* Adjusted padding */
+    border-radius: 8px;
     position: relative;
-    max-width: 90%;
+    max-width: 80%; /* Reduced width */
     margin: 0 auto;
     cursor: default;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15); /* Add slight shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.speechbubble:hover {
+    transform: translateY(-5px); /* Slight upward lift */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Alternating Alignment */
 .speechbubble.left {
     justify-self: start; /* Align to the left */
-    border-left: 5px solid var(--highlight1);
+    border-left: 4px solid var(--highlight1);
 }
 
 .speechbubble.right {
     justify-self: end; /* Align to the right */
-    border-right: 5px solid var(--highlight2);
+    border-right: 4px solid var(--highlight2);
 }
 
 /* Speech Bubble Tails */
 .speechbubble.left::after {
     content: '';
     position: absolute;
-    bottom: -15px;
-    left: 20px;
+    bottom: -12px;
+    left: 15px;
     width: 0;
     height: 0;
-    border-width: 15px 0 0 15px;
+    border-width: 12px 0 0 12px;
     border-style: solid;
     border-color: #26272b transparent;
 }
@@ -352,11 +359,11 @@ body, html {
 .speechbubble.right::after {
     content: '';
     position: absolute;
-    bottom: -15px;
-    right: 20px;
+    bottom: -12px;
+    right: 15px;
     width: 0;
     height: 0;
-    border-width: 15px 15px 0 0;
+    border-width: 12px 12px 0 0;
     border-style: solid;
     border-color: #26272b transparent;
 }
@@ -365,7 +372,7 @@ body, html {
 .speechbubble p::before {
     content: '“';
     font-family: Georgia, serif;
-    font-size: 40px;
+    font-size: 36px;
     line-height: 0;
     margin-right: 10px;
 }
@@ -385,7 +392,7 @@ body, html {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-20px);
     }
     100% {
         transform: translateY(0);
@@ -394,39 +401,39 @@ body, html {
 
 .floating-dot {
     position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: rgba(0, 0, 0, 0.1);
+    width: 25px; /* Increased size */
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.15); /* Darker color for visibility */
     border-radius: 50%;
-    animation: float 3s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
 }
 
 .floating-dot.dot-1 {
-    top: 10%;
-    left: 15%;
+    top: 5%;
+    left: 10%;
     animation-delay: 0s;
 }
 
 .floating-dot.dot-2 {
-    top: 40%;
-    right: 20%;
+    top: 50%;
+    right: 15%;
     animation-delay: 1s;
 }
 
 .floating-dot.dot-3 {
-    bottom: 15%;
-    left: 25%;
+    bottom: 20%;
+    left: 30%;
     animation-delay: 2s;
 }
 
 /* Decorative Icons */
 .speechbubble::before {
     content: '★'; /* Decorative Icon */
-    font-size: 2rem;
-    color: rgba(255, 215, 0, 0.5);
+    font-size: 1.5rem; /* Reduced size */
+    color: rgba(255, 215, 0, 0.7); /* More prominent */
     position: absolute;
     top: -10px;
-    left: -20px;
+    left: -15px;
     transform: rotate(-15deg);
 }
 
