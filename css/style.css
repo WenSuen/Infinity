@@ -250,12 +250,13 @@ body, html {
     background-color: #fff;
     text-align: center;
     position: relative;
-    max-width: 800px; /* Adjust max width for a single review */
+    max-width: 1200px; /* Adjust width to align with other sections */
     margin: 0 auto; /* Center the testimonial section */
-    border-radius: 10px; /* Add rounded edges */
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Title with horizontal lines */
 .testimonial-section h2 {
     font-size: 3rem;
     font-family: 'Oswald', sans-serif;
@@ -265,9 +266,27 @@ body, html {
     letter-spacing: 2px;
     margin-bottom: 2em;
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+}
+
+/* Add lines beside the header */
+.testimonial-section h2::before,
+.testimonial-section h2::after {
+    content: '';
+    flex: 1; /* Stretch to fill available space */
+    height: 3px;
+    background-color: #f00; /* Match the red color from the lines */
+}
+
+.testimonial-section h2::before {
+    margin-right: 15px; /* Space between line and text */
+}
+
+.testimonial-section h2::after {
+    margin-left: 15px; /* Space between line and text */
 }
 
 .testimonial-section .testimonial-icon {
@@ -281,6 +300,7 @@ body, html {
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
+/* Single Testimonial Card */
 .single-testimonial {
     display: flex;
     justify-content: center;
@@ -292,8 +312,9 @@ body, html {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     padding: 2em;
     border-radius: 10px;
-    max-width: 500px;
+    max-width: 800px; /* Adjust width for alignment */
     text-align: center;
+    margin-top: 1em; /* Add spacing below the header */
 }
 
 .testimonial-quote {
@@ -336,6 +357,7 @@ body, html {
     color: #999;
     margin-top: 0.5em;
 }
+
 
 /* About Us Section */
 .about-us-section {
