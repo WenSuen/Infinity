@@ -258,7 +258,7 @@ body, html {
 /* Testimonial Section */
 .testimonial-section {
     padding: 4em 2em;
-    background-color: #ffffff; /* White background for the section */
+    background-color: #ffffff; /* White background */
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -274,26 +274,17 @@ body, html {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 2em;
-    position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+    position: relative;
 }
 
-.testimonial-section h2::before,
-.testimonial-section h2::after {
-    content: '';
+.testimonial-section h2 .line {
     flex: 1;
     height: 3px;
     background-color: #f00;
-}
-
-.testimonial-section h2::before {
-    margin-right: 15px;
-}
-
-.testimonial-section h2::after {
-    margin-left: 15px;
 }
 
 .testimonial-section .testimonial-icon {
@@ -307,46 +298,45 @@ body, html {
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Testimonial Container */
+/* Speech Bubbles */
 .testimonial-container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 2em;
+    justify-content: center;
 }
 
-/* Testimonial Column */
-.testimonial-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-}
-
-/* Speech Bubble */
 .speechbubble {
-    background-color: #26272b; /* Dark background for the bubble */
-    color: #9fa2a7; /* Light text for contrast */
+    background-color: #26272b; /* Dark bubble background */
+    color: #9fa2a7; /* Light text */
     font-size: 1.2rem;
     line-height: 1.75;
     padding: 1.5em;
     border-radius: 10px;
+    max-width: 45%;
     position: relative;
     cursor: default;
 }
 
-/* Left-aligned Speech Bubble */
+/* Edge Colors Alternating */
 .speechbubble.left {
+    border-left: 5px solid var(--highlight1);
     align-self: flex-start;
 }
-.speechbubble.left:nth-child(1) {
-    border-left: 5px solid #56b273; /* Green */
+.speechbubble.right {
+    border-right: 5px solid var(--highlight2);
+    align-self: flex-end;
 }
-.speechbubble.left:nth-child(2) {
-    border-left: 5px solid #b388dd; /* Purple */
+
+/* Edge Colors for Alternating Bubbles */
+.speechbubble:nth-child(2n+1) {
+    border-left: 5px solid var(--highlight1); /* Green */
 }
-.speechbubble.left:nth-child(3) {
-    border-left: 5px solid #ff8750; /* Orange */
+.speechbubble:nth-child(2n) {
+    border-right: 5px solid var(--highlight2); /* Purple */
 }
+
+/* Speech Bubble Tails */
 .speechbubble.left::after {
     content: '';
     position: absolute;
@@ -359,19 +349,6 @@ body, html {
     border-color: #26272b transparent;
 }
 
-/* Right-aligned Speech Bubble */
-.speechbubble.right {
-    align-self: flex-end;
-}
-.speechbubble.right:nth-child(1) {
-    border-right: 5px solid #b388dd; /* Purple */
-}
-.speechbubble.right:nth-child(2) {
-    border-right: 5px solid #56b273; /* Green */
-}
-.speechbubble.right:nth-child(3) {
-    border-right: 5px solid #ff8750; /* Orange */
-}
 .speechbubble.right::after {
     content: '';
     position: absolute;
