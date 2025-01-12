@@ -631,10 +631,10 @@ body, html {
     margin: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Align titles and content */
     flex-wrap: wrap;
     padding: 0 2em; /* Horizontal padding */
     gap: 1.5em;
-    align-items: flex-start; /* Align titles and content vertically */
     box-sizing: border-box;
 }
 
@@ -647,7 +647,8 @@ body, html {
 
 .footer-section h4 {
     font-size: 1.3rem; /* Title size */
-    margin-bottom: 0.5em;
+    margin: 0; /* Remove extra vertical margin */
+    padding-bottom: 0.5em; /* Consistent padding below the title */
     color: #f00; /* Red title color */
     text-align: left; /* Align titles to the left */
     transition: text-shadow 0.3s ease; /* Glow effect */
@@ -657,7 +658,7 @@ body, html {
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Subtle glow */
 }
 
-/* Ensure consistent font and alignment for content */
+/* Footer Content */
 .footer-section p, .footer-section a {
     font-size: 0.9rem; /* Match font size */
     color: #bbb;
@@ -666,6 +667,7 @@ body, html {
     display: flex;
     align-items: center; /* Align text with icons */
     gap: 0.5em; /* Space between icon and text */
+    margin-bottom: 0.5em; /* Consistent spacing between rows */
 }
 
 .footer-section p:hover, .footer-section a:hover {
@@ -680,7 +682,7 @@ body, html {
 }
 
 .footer-links li {
-    margin: 0.3em 0; /* Adjust spacing between links */
+    margin: 0.5em 0; /* Match spacing with "Contact Us" rows */
 }
 
 .footer-links li a {
@@ -703,18 +705,15 @@ body, html {
 }
 
 .footer-links li a:hover::after {
-    width: 100%; /* Underline effect on hover */
+    width: 100%; /* Underline effect only under the text */
 }
 
-/* Align titles and content in the same row */
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Ensure vertical alignment */
-}
-
-.footer-section h4, .footer-links li {
-    margin-top: 0; /* Remove unnecessary vertical margins */
+/* Divider Line */
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2); /* Subtle divider color */
+    margin: 1em 0; /* Space around the divider */
 }
 
 /* Footer Bottom Section */
