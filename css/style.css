@@ -470,6 +470,7 @@ body, html {
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em; /* Add space below the section */
 }
 
 /* About Us Header */
