@@ -687,26 +687,27 @@ body, html {
 }
 
 .footer-links li a {
-    position: relative;
+    position: relative; /* Required for the `::after` pseudo-element */
     color: #bbb; /* Match contact content color */
     text-decoration: none; /* Remove underline */
     font-size: 0.9rem; /* Match font size */
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
+    display: inline-block; /* Ensures the underline is limited to the text */
 }
 
 .footer-links li a::after {
-    content: "";
+    content: ""; /* Add underline effect */
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
+    bottom: 0; /* Position the underline at the bottom of the text */
+    left: 0; /* Start underline from the left of the text */
+    width: 0; /* Initially no underline */
+    height: 2px; /* Thickness of the underline */
     background-color: #f00; /* Red underline */
     transition: width 0.3s ease; /* Smooth underline animation */
 }
 
 .footer-links li a:hover::after {
-    width: 100%; /* Underline effect only under the text */
+    width: 100%; /* Expand underline only under the text */
 }
 
 /* Divider Line */
