@@ -618,6 +618,7 @@ body, html {
     background: linear-gradient(180deg, #2c2c2c, #1a1a1a); /* Subtle gradient effect */
     color: #ccc; /* Light gray text */
     border-top: 5px solid #f00; /* Red top border for a decorative touch */
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
     box-sizing: border-box; /* Include padding and border in width/height */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
@@ -689,10 +690,10 @@ body, html {
 
 /* Decorative Red Line */
 .footer-decorative-line {
-    height: 3px; /* Thin line */
-    background: linear-gradient(to right, #f00, transparent); /* Gradient effect */
-    width: 95%; /* Slightly reduced width */
-    margin: 0 auto 1em; /* Center the decorative line */
+    height: 5px;
+    background: linear-gradient(to right, #f00, #4CAF50, #f00); /* Red and green gradient */
+    width: 100%; /* Full width */
+    margin-bottom: 1em;
 }
 
 /* Responsive Design */
