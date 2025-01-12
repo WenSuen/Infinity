@@ -614,7 +614,7 @@ body, html {
 .main-footer {
     width: 100%; /* Ensure the footer spans the entire width */
     margin: 0;
-    padding: 1.5em 0; /* Reduce vertical padding */
+    padding: 2.5em 1em 1.5em; /* Increased top padding to create space */
     background: linear-gradient(180deg, #2c2c2c, #1a1a1a); /* Subtle gradient effect */
     color: #ccc; /* Light gray text */
     border-top: 5px solid #f00; /* Red top border for a decorative touch */
