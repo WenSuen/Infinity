@@ -96,3 +96,22 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadBackgroundImage();
     initializeProductHoverEffects();
 });
+
+// Back to Top Button Logic
+const backToTopButton = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+    const scrollThreshold = window.innerHeight * 2; // Adjust threshold as needed
+    if (window.scrollY > scrollThreshold) {
+        backToTopButton.style.display = "flex"; // Show the button
+    } else {
+        backToTopButton.style.display = "none"; // Hide the button
+    }
+});
+
+backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth", // Smooth scroll to top
+    });
+});

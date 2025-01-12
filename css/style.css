@@ -612,6 +612,32 @@ body, html {
     }
 }
 
+/* Back to Top Button Styling */
+#backToTop {
+    position: fixed;
+    bottom: 2em; /* Distance from the bottom */
+    right: 2em; /* Distance from the right */
+    width: 50px;
+    height: 50px;
+    background-color: #f00; /* Red background */
+    color: #fff; /* White arrow */
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other elements */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and hover */
+}
+
+#backToTop:hover {
+    background-color: #c00; /* Slightly darker red on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
 /* Footer Section */
 .main-footer {
     width: 100%;
