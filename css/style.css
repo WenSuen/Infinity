@@ -631,7 +631,7 @@ body, html {
     margin: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align titles and content */
+    align-items: flex-start; /* Align titles and content */
     flex-wrap: wrap;
     padding: 0 2em; /* Horizontal padding */
     gap: 1.5em;
@@ -652,6 +652,7 @@ body, html {
     color: #f00; /* Red title color */
     text-align: left; /* Align titles to the left */
     transition: text-shadow 0.3s ease; /* Glow effect */
+    line-height: 1.5em; /* Consistent height alignment */
 }
 
 .footer-section h4:hover {
