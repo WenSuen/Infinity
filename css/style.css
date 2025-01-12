@@ -377,15 +377,6 @@ body, html {
     margin-right: 10px;
 }
 
-/* Username */
-.username {
-    display: block;
-    font-style: italic;
-    text-align: right;
-    color: #777;
-    margin-top: 1em;
-}
-
 /* Background Floating Elements */
 @keyframes float {
     0% {
