@@ -600,30 +600,28 @@ body, html {
     }
 }
 
-/* Back to Top Button Styling */
+/* Back to Top Button */
 #backToTop {
     position: fixed;
-    bottom: 2em; /* Distance from the bottom */
-    right: 2em; /* Distance from the right */
+    bottom: 20px; /* Adjust this to align below the WhatsApp button */
+    right: 20px; /* Maintain same right position */
+    background-color: #f00; /* Red for Back to Top */
+    color: white;
+    font-size: 24px;
     width: 50px;
     height: 50px;
-    background-color: #f00; /* Red background */
-    color: #fff; /* White arrow */
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none; /* Initially hidden */
-    justify-content: center;
+    display: flex;
     align-items: center;
-    z-index: 1000; /* Ensure it appears above other elements */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and hover */
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
 #backToTop:hover {
-    background-color: #c00; /* Slightly darker red on hover */
-    transform: scale(1.1); /* Slightly enlarge on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 /* Footer Section */
@@ -755,28 +753,26 @@ body, html {
     }
 }
 
-/* WhatsApp Button Styling */
-#whatsappButton {
+/* WhatsApp Button */
+.whatsapp-button {
     position: fixed;
-    bottom: 7em; /* Distance from bottom (above Back to Top button) */
-    right: 2em; /* Distance from right */
+    bottom: 70px; /* Adjust this to move closer to the Back to Top button */
+    right: 20px; /* Maintain same right position */
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    font-size: 24px;
     width: 50px;
     height: 50px;
-    background-color: #25D366; /* WhatsApp green color */
-    color: #fff; /* White icon */
-    border: none;
-    border-radius: 50%;
-    display: none; /* Initially hidden */
-    justify-content: center;
+    display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    z-index: 1000; /* Make sure it's above other elements */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
-#whatsappButton:hover {
-    background-color: #128C7E; /* Darker green on hover */
-    transform: scale(1.1); /* Slightly enlarge on hover */
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
 }

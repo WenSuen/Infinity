@@ -119,14 +119,8 @@ backToTopButton.addEventListener("click", () => {
 // WhatsApp Button Logic
 const whatsappButton = document.getElementById("whatsappButton");
 
-window.addEventListener("scroll", () => {
-    const scrollThreshold = window.innerHeight * 1.5; // Show button after scrolling 1.5 times the viewport height
-    if (window.scrollY > scrollThreshold) {
-        whatsappButton.style.display = "flex"; // Show the button
-    } else {
-        whatsappButton.style.display = "none"; // Hide the button
-    }
-});
+// Ensure the button is always visible
+whatsappButton.style.display = "flex"; // Show the button
 
 whatsappButton.addEventListener("click", () => {
     // Replace with your WhatsApp phone number (in international format, without the "+" sign)
