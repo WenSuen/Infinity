@@ -615,7 +615,7 @@ body, html {
     width: 100%; /* Ensure the footer spans the entire width */
     margin: 0;
     padding: 1.5em 0; /* Reduce vertical padding */
-    background-color: #2c2c2c; /* Dark gray background */
+    background: linear-gradient(180deg, #2c2c2c, #1a1a1a); /* Subtle gradient effect */
     color: #ccc; /* Light gray text */
     border-top: 5px solid #f00; /* Red top border for a decorative touch */
     box-sizing: border-box; /* Include padding and border in width/height */
@@ -624,14 +624,14 @@ body, html {
 
 /* Footer Container */
 .footer-container {
-    max-width: 1200px; /* Add a maximum width for alignment with content */
-    margin: 0 auto; /* Center the container */
+    width: 100%; /* Remove max-width for full-page width */
+    margin: 0;
     display: flex;
     justify-content: space-between; /* Space between sections */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    padding: 0 1.5em; /* Ensure consistent horizontal padding */
-    gap: 1.5em; /* Reduced gap between sections */
-    box-sizing: border-box; /* Include padding in width calculations */
+    padding: 0 2em; /* Horizontal padding for consistent spacing */
+    gap: 1.5em;
+    box-sizing: border-box; /* Ensure padding doesn't affect layout */
 }
 
 /* Footer Section Styling */
