@@ -603,7 +603,7 @@ body, html {
 /* Back to Top Button */
 #backToTop {
     position: fixed;
-    bottom: 20px; /* Adjust this to align below the WhatsApp button */
+    bottom: 20px; /* Below the WhatsApp button with enough spacing */
     right: 20px; /* Maintain same right position */
     background-color: #f00; /* Red for Back to Top */
     color: white;
@@ -756,7 +756,7 @@ body, html {
 /* WhatsApp Button */
 .whatsapp-button {
     position: fixed;
-    bottom: 70px; /* Adjust this to move closer to the Back to Top button */
+    bottom: 80px; /* Slightly above the Back to Top button */
     right: 20px; /* Maintain same right position */
     background-color: #25D366; /* WhatsApp green */
     color: white;
