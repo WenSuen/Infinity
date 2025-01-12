@@ -115,3 +115,22 @@ backToTopButton.addEventListener("click", () => {
         behavior: "smooth", // Smooth scroll to top
     });
 });
+
+// WhatsApp Button Logic
+const whatsappButton = document.getElementById("whatsappButton");
+
+window.addEventListener("scroll", () => {
+    const scrollThreshold = window.innerHeight * 1.5; // Show button after scrolling 1.5 times the viewport height
+    if (window.scrollY > scrollThreshold) {
+        whatsappButton.style.display = "flex"; // Show the button
+    } else {
+        whatsappButton.style.display = "none"; // Hide the button
+    }
+});
+
+whatsappButton.addEventListener("click", () => {
+    // Replace with your WhatsApp phone number (in international format, without the "+" sign)
+    const phoneNumber = "60193225830"; // Example: Malaysia phone number
+    const message = "Hi, I would like to know more about your products."; // Optional pre-filled message
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+});
