@@ -614,101 +614,138 @@ body, html {
 
 /* Footer Section */
 .main-footer {
-    width: 100%; /* Ensure the footer spans the entire width */
+    width: 100%;
     margin: 0;
-    padding: 1.5em 0; /* Reduce vertical padding */
-    background: linear-gradient(180deg, #2c2c2c, #1a1a1a); /* Subtle gradient effect */
+    padding: 1em 0; /* Reduce vertical padding */
+    background: linear-gradient(180deg, #2c2c2c, #1a1a1a); /* Enhanced gradient */
     color: #ccc; /* Light gray text */
-    border-top: 5px solid #f00; /* Red top border for a decorative touch */
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    box-sizing: border-box; /* Include padding and border in width/height */
+    border-top: 5px solid #f00; /* Decorative red line */
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    box-sizing: border-box; /* Include padding in width/height */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Footer Container */
 .footer-container {
-    width: 100%; /* Remove max-width for full-page width */
+    width: 100%;
     margin: 0;
     display: flex;
-    justify-content: space-between; /* Space between sections */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    padding: 0 2em; /* Horizontal padding for consistent spacing */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 2em; /* Horizontal padding */
     gap: 1.5em;
-    box-sizing: border-box; /* Ensure padding doesn't affect layout */
+    box-sizing: border-box;
 }
 
 /* Footer Section Styling */
 .footer-section {
     flex: 1 1 45%; /* Two-column layout */
     text-align: left; /* Align text to the left */
-    box-sizing: border-box; /* Include padding in width calculations */
+    box-sizing: border-box;
 }
 
 .footer-section h4 {
-    font-size: 1.3rem; /* Slightly smaller heading size */
-    margin-bottom: 0.5em; /* Reduce space below the heading */
-    color: #f00; /* Highlight color for headings */
+    font-size: 1.3rem; /* Heading size */
+    margin-bottom: 0.5em;
+    color: #f00;
+    transition: text-shadow 0.3s ease; /* Glow effect */
 }
 
-.footer-section p {
-    font-size: 0.9rem; /* Smaller paragraph size */
-    margin: 0.2em 0; /* Reduce spacing between lines */
-    color: #bbb; /* Light gray text */
+.footer-section h4:hover {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Subtle glow on hover */
+}
+
+.footer-section p, .footer-section a {
+    font-size: 0.9rem;
+    color: #bbb;
+    transition: color 0.3s ease;
+}
+
+.footer-section p:hover, .footer-section a:hover {
+    color: #fff;
 }
 
 /* Footer Links */
 .footer-links {
-    list-style: none; /* Remove bullets */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-links li {
-    margin: 0.3em 0; /* Reduce spacing between links */
+    margin: 0.3em 0;
 }
 
 .footer-links li a {
-    color: #bbb; /* Light gray text */
-    text-decoration: none; /* Remove underline */
-    font-size: 0.9rem; /* Smaller link text size */
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth hover effect */
+    position: relative;
+    color: #bbb;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
-.footer-links li a:hover {
-    color: #fff; /* Bright white on hover */
-    text-shadow: 0 0 5px #f00, 0 0 10px #f00; /* Glow effect */
+.footer-links li a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f00;
+    transition: width 0.3s ease;
+}
+
+.footer-links li a:hover::after {
+    width: 100%;
+}
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #f00;
+    color: #fff;
 }
 
 /* Footer Bottom Section */
 .footer-bottom {
-    padding-top: 0.8em; /* Reduce space above */
-    font-size: 0.8rem; /* Smaller font size */
-    color: #aaa; /* Muted text color */
-    text-align: center; /* Center-align text */
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box; /* Include padding */
-}
-
-/* Decorative Red Line */
-.footer-decorative-line {
-    height: 5px;
-    background: linear-gradient(to right, #f00, #4CAF50, #f00); /* Red and green gradient */
-    width: 100%; /* Full width */
-    margin-bottom: 1em;
+    padding-top: 0.5em; /* Compact padding */
+    font-size: 0.8rem; /* Smaller text */
+    color: #aaa;
+    text-align: center;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column; /* Stack sections vertically */
-        align-items: center; /* Center-align sections */
-        padding: 0 1em; /* Reduce horizontal padding for smaller screens */
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1em;
     }
 
     .footer-section {
-        flex: 1 1 100%; /* Full width for smaller screens */
-        text-align: center; /* Center-align text */
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 }
-
