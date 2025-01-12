@@ -473,6 +473,7 @@ body, html {
     margin-bottom: 2em; /* Add space below the section */
 }
 
+
 /* About Us Header */
 .about-us-header h2 {
     font-size: 3rem;
@@ -530,7 +531,6 @@ body, html {
     justify-content: space-between;
     width: 100%;
     gap: 2em;
-    margin-bottom: 3em; /* Additional spacing below the cards */
 }
 
 /* Mission and Vision Cards */
