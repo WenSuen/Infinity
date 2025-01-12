@@ -619,23 +619,26 @@ body, html {
     color: #ccc; /* Light gray text */
     border-top: 5px solid #f00; /* Red top border for a decorative touch */
     box-sizing: border-box; /* Include padding and border in width/height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Footer Container */
 .footer-container {
-    width: 100%; /* Full width */
-    margin: 0 auto; /* Center the content */
+    max-width: 1200px; /* Add a maximum width for alignment with content */
+    margin: 0 auto; /* Center the container */
     display: flex;
     justify-content: space-between; /* Space between sections */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    padding: 0 1em; /* Horizontal padding for spacing */
+    padding: 0 1.5em; /* Ensure consistent horizontal padding */
     gap: 1.5em; /* Reduced gap between sections */
+    box-sizing: border-box; /* Include padding in width calculations */
 }
 
 /* Footer Section Styling */
 .footer-section {
     flex: 1 1 45%; /* Two-column layout */
     text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Include padding in width calculations */
 }
 
 .footer-section h4 {
@@ -679,14 +682,17 @@ body, html {
     font-size: 0.8rem; /* Smaller font size */
     color: #aaa; /* Muted text color */
     text-align: center; /* Center-align text */
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box; /* Include padding */
 }
 
 /* Decorative Red Line */
 .footer-decorative-line {
     height: 3px; /* Thin line */
     background: linear-gradient(to right, #f00, transparent); /* Gradient effect */
-    width: 95%; /* Full width */
-    margin: 0 auto 1em; /* Reduce spacing below */
+    width: 95%; /* Slightly reduced width */
+    margin: 0 auto 1em; /* Center the decorative line */
 }
 
 /* Responsive Design */
@@ -694,6 +700,7 @@ body, html {
     .footer-container {
         flex-direction: column; /* Stack sections vertically */
         align-items: center; /* Center-align sections */
+        padding: 0 1em; /* Reduce horizontal padding for smaller screens */
     }
 
     .footer-section {
@@ -701,3 +708,4 @@ body, html {
         text-align: center; /* Center-align text */
     }
 }
+
