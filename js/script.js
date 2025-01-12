@@ -102,7 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const backToTopButton = document.getElementById("backToTop");
 
     const handleScroll = () => {
-        if (window.scrollY > 200) { // Show button after scrolling 200px
+        const scrollThreshold = window.innerHeight * 1.5; // Show button after scrolling 1.5 times the viewport height
+        if (window.scrollY > scrollThreshold) {
             backToTopButton.style.display = "flex"; // Show the button
         } else {
             backToTopButton.style.display = "none"; // Hide the button
@@ -122,20 +123,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // WhatsApp Button Logic
-const whatsappButton = document.getElementById("whatsappButton");
+document.addEventListener("DOMContentLoaded", () => {
+    const whatsappButton = document.getElementById("whatsappButton");
 
-window.addEventListener("scroll", () => {
-    const scrollThreshold = window.innerHeight * 1.5; // Show button after scrolling 1.5 times the viewport height
-    if (window.scrollY > scrollThreshold) {
-        whatsappButton.style.display = "flex"; // Show the button
-    } else {
-        whatsappButton.style.display = "none"; // Hide the button
-    }
-});
+    // Ensure the button is always visible
+    whatsappButton.style.display = "flex"; // Show the button immediately when the page loads
 
-whatsappButton.addEventListener("click", () => {
-    // Replace with your WhatsApp phone number (in international format, without the "+" sign)
-    const phoneNumber = "60193225830"; // Example: Malaysia phone number
-    const message = "Hi, I would like to know more about your products."; // Optional pre-filled message
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+    whatsappButton.addEventListener("click", () => {
+        // Replace with your WhatsApp phone number (in international format, without the "+" sign)
+        const phoneNumber = "60193225830"; // Example: Malaysia phone number
+        const message = "Hi, I would like to know more about your products."; // Optional pre-filled message
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+    });
 });
