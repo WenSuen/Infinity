@@ -47,6 +47,17 @@ body, html {
     max-width: 150px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
     display: block;
+    transition: filter 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+#main-header.transparent-header .logo-image {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)); /* Add a shadow to improve contrast */
+    opacity: 1; /* Fully visible */
+}
+
+#main-header.solid-header .logo-image {
+    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8)); /* Add white shadow for contrast on dark background */
+    opacity: 0.95; /* Slightly dimmed to reduce brightness */
 }
 
 /* Navigation Styling */
