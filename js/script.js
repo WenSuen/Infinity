@@ -98,21 +98,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Back to Top Button Logic
-const backToTopButton = document.getElementById("backToTop");
+document.addEventListener("DOMContentLoaded", () => {
+    const backToTopButton = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
-    const scrollThreshold = window.innerHeight * 2; // Adjust threshold as needed
-    if (window.scrollY > scrollThreshold) {
-        backToTopButton.style.display = "flex"; // Show the button
-    } else {
-        backToTopButton.style.display = "none"; // Hide the button
-    }
-});
+    const handleScroll = () => {
+        if (window.scrollY > 200) { // Show button after scrolling 200px
+            backToTopButton.style.display = "flex"; // Show the button
+        } else {
+            backToTopButton.style.display = "none"; // Hide the button
+        }
+    };
 
-backToTopButton.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth", // Smooth scroll to top
+    // Check scroll position on load
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Scroll back to the top when clicked
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
 
