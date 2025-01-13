@@ -203,9 +203,6 @@ body, html {
 .product-item {
     position: relative;
     cursor: pointer;
-}
-
-.product-card {
     border: 1px solid #ddd;
     border-radius: 10px;
     background: white;
@@ -213,16 +210,15 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
     overflow: hidden;
-    position: relative;
 }
 
-.product-card:hover {
+.product-item:hover {
     transform: translateY(-8px); /* Slightly more dramatic lift */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-color: #4CAF50; /* Highlight the card border on hover */
 }
 
-.product-card img {
+.product-item img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 1em;
@@ -230,12 +226,12 @@ body, html {
     filter: brightness(95%);
 }
 
-.product-card img:hover {
+.product-item img:hover {
     transform: scale(1.05); /* Slightly reduce zoom */
     filter: brightness(105%); /* Brighter on hover */
 }
 
-.product-card h3 {
+.product-item h3 {
     font-size: 1.3rem;
     color: #333;
     margin: 0.5em 0;
@@ -246,7 +242,7 @@ body, html {
     font-weight: 600; /* Lighten font weight */
 }
 
-.product-card h3:hover {
+.product-item h3:hover {
     color: #4CAF50; /* Highlight on hover */
 }
 
@@ -261,8 +257,7 @@ body, html {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.6em 1em; /* Increase padding for better spacing */
-    width: calc(100% - 2em); /* Slightly smaller than the card width */
-    margin: 1em; /* Add spacing to match the card */
+    width: 100%; /* Full width of the card */
     text-align: center;
     display: flex;
     justify-content: center;
@@ -270,7 +265,9 @@ body, html {
     gap: 0.5em; /* Space between crown and text */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 2; /* Ensure it's above the image */
-    border-radius: 6px; /* Rounded edges for the badge */
+    border-top-left-radius: 10px; /* Match the card's border radius */
+    border-top-right-radius: 10px; /* Match the card's border radius */
+    position: relative;
 }
 
 /* Decorative Bottom Edge for the Badge */
