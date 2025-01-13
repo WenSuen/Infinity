@@ -257,39 +257,42 @@ body, html {
     left: 0;
     background: linear-gradient(135deg, #ff4b5c, #ff888e); /* Red gradient for the badge */
     color: white;
-    font-size: 0.85rem; /* Adjust text size */
+    font-size: 0.85rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.4em 1em; /* Adjust padding for better fit */
-    width: 100px; /* Fixed width for consistent shape */
-    height: 40px; /* Fixed height for diagonal wrapping */
-    clip-path: polygon(0 50%, 50% 0, 100% 0, 50% 100%, 0 100%); /* Proper wrapping shape */
-    z-index: 2; /* Ensure it's above the image */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 0.3em 0; /* Adjust padding to align text properly */
+    width: 120px; /* Increased width for better fit */
+    height: 40px; /* Adjust height */
+    transform: rotate(-45deg) translate(-15%, -15%); /* Rotate and position */
+    transform-origin: top left; /* Align transformation */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.4em; /* Space between crown and text */
+    gap: 0.3em; /* Space between crown and text */
     line-height: 1; /* Fix vertical alignment */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Ensure it's above the image */
 }
 
 /* Crown Icon in Badge */
 .badge::before {
     content: '👑'; /* Crown emoji */
-    font-size: 1rem; /* Size for better fit */
+    font-size: 1rem;
     margin-right: 0.3em; /* Space between icon and text */
+    vertical-align: middle;
 }
 
 /* Responsive Adjustments for Badge */
 @media (max-width: 768px) {
     .badge {
-        font-size: 0.75rem; /* Reduce size for smaller screens */
-        width: 80px; /* Adjust width */
+        font-size: 0.75rem;
+        width: 100px; /* Adjust width */
         height: 35px; /* Adjust height */
+        transform: rotate(-45deg) translate(-10%, -10%); /* Adjust position for smaller screens */
     }
 
     .badge::before {
-        font-size: 0.9rem; /* Adjust crown size */
+        font-size: 0.9rem;
     }
 }
 
