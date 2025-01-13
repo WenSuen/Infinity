@@ -134,8 +134,11 @@ const products = [
     { title: "Door Frames", image: "images/apple.jpg" },
 ];
 
-// Dynamically generate product cards
+// Dynamically generate product cards only for non-products pages
 function renderFeaturedProducts() {
+    const isProductsPage = document.body.classList.contains('products-page');
+    if (isProductsPage) return; // Skip rendering if it's the products page
+
     const productGrid = document.getElementById("productGrid");
     if (!productGrid) return;
 
