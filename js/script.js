@@ -127,11 +127,11 @@ function initializeWhatsAppButton() {
 
 // Featured Products Logic
 const products = [
-    { title: "Netting Accessories", image: "images/apple.jpg" },
-    { title: "Magnetic Clips", image: "images/apple.jpg" },
-    { title: "Magnetic Mosquito Net", image: "images/apple.jpg", badge: "Best Seller" },
-    { title: "High-Quality Mesh", image: "images/apple.jpg" },
-    { title: "Door Frames", image: "images/apple.jpg" },
+    { title: "Netting Accessories", image: "images/apple.jpg", colors: ["Red", "Green", "Blue"] },
+    { title: "Magnetic Clips", image: "images/apple.jpg", colors: ["Yellow", "Black"] },
+    { title: "Magnetic Mosquito Net", image: "images/apple.jpg", badge: "Best Seller", colors: ["White", "Gray"] },
+    { title: "High-Quality Mesh", image: "images/apple.jpg", colors: ["Silver", "Gold"] },
+    { title: "Door Frames", image: "images/apple.jpg", colors: ["Brown", "Beige"] },
 ];
 
 // Dynamically generate product cards only for non-products pages
@@ -144,7 +144,7 @@ function renderFeaturedProducts() {
 
     productGrid.innerHTML = products
         .map((product) => `
-            <div class="product-item">
+            <div class="product-item" onclick="showProductDetails('${product.title}')">
                 ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
                 <div class="product-card">
                     <img src="${product.image}" alt="${product.title}">
@@ -153,6 +153,33 @@ function renderFeaturedProducts() {
             </div>
         `)
         .join("");
+}
+
+// Show product details in a modal
+function showProductDetails(title) {
+    const product = products.find((p) => p.title === title);
+    if (!product) return;
+
+    const modal = document.getElementById("productModal");
+    const modalContent = document.querySelector("#productModal .modal-content");
+
+    modalContent.innerHTML = `
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>${product.title}</h2>
+        <img src="${product.image}" alt="${product.title}" style="max-width: 100%; height: auto;">
+        <p>Available Colors:</p>
+        <ul>
+            ${product.colors.map((color) => `<li>${color}</li>`).join("")}
+        </ul>
+    `;
+
+    modal.style.display = "block";
+}
+
+// Close the modal
+function closeModal() {
+    const modal = document.getElementById("productModal");
+    modal.style.display = "none";
 }
 
 // Initialize all components when DOM is fully loaded

@@ -1,107 +1,59 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
 }
 
-.products-container {
-    display: flex;
-    flex-direction: row;
-    margin-top: 70px;
-}
-
-/* Navigation Panel */
+/* Sidebar Navigation */
 .product-navigation {
     width: 20%;
-    background-color: #f1f1f1;
     padding: 1em;
+    background-color: #f9f9f9;
     border-right: 1px solid #ddd;
 }
 
 .product-navigation h2 {
-    font-size: 1.5rem;
-    color: #ff6600;
-    text-transform: uppercase;
-    margin-bottom: 1em;
+    color: #333;
 }
 
 .product-navigation ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
-.product-navigation li {
-    margin-bottom: 0.5em;
+.product-navigation ul li {
+    margin: 10px 0;
 }
 
-.product-navigation li a {
+.product-navigation ul li a {
     text-decoration: none;
     color: #333;
-    font-size: 1rem;
-    padding: 0.5em;
+    padding: 5px;
     display: block;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.product-navigation li a:hover {
-    background-color: #ff6600;
-    color: white;
-    border-radius: 4px;
-}
-
-/* Product Display Area */
-.product-display {
-    flex-grow: 1;
-    padding: 2em;
-}
-
-.product-display header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2em;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.5em;
-}
-
-.product-display h1 {
-    font-size: 2rem;
-    color: #333;
-}
-
-.sort-filter {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-
-.sort-filter label {
-    font-size: 1rem;
-}
-
-.sort-filter select {
-    padding: 0.3em;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.product-navigation ul li a:hover {
+    color: #ff6600;
 }
 
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5em;
+    padding: 1em;
 }
 
 .product-card {
     background-color: white;
-    padding: 1em;
     border: 1px solid #ddd;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .product-card:hover {
@@ -111,71 +63,161 @@ body {
 
 .product-card img {
     max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.color-swatches {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.color:hover {
+    border-color: #333;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1em;
+}
+
+.modal-content {
+    background-color: white;
     border-radius: 10px;
+    padding: 2em;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
     margin-bottom: 1em;
 }
 
-.product-card h3 {
-    font-size: 1.2rem;
-    margin: 0.5em 0;
-    color: #333;
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5em;
 }
 
-.product-card button {
-    padding: 0.5em 1em;
-    font-size: 1rem;
-    background-color: #ff6600;
-    color: white;
+.modal-header .close {
+    background-color: transparent;
     border: none;
-    border-radius: 4px;
+    font-size: 1.5em;
     cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.modal-header .close:hover {
+    color: #ff6600;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.modal-body .product-images img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    object-fit: cover;
+}
+
+.color-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.color-options .color {
+    width: 30px;
+    height: 30px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.color-options .color:hover {
+    border-color: #333;
+    transform: scale(1.1);
+}
+
+.color-options .color.active {
+    border-color: #ff6600;
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-footer button {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
-.product-card button:hover {
+.modal-footer button.cancel {
+    background-color: #ddd;
+    color: #333;
+}
+
+.modal-footer button.cancel:hover {
+    background-color: #bbb;
+}
+
+.modal-footer button.confirm {
+    background-color: #ff6600;
+    color: white;
+}
+
+.modal-footer button.confirm:hover {
     background-color: #cc5200;
 }
 
-/* Restrict the clickable area and visually fit the logo into the header height */
-.products-page #main-header .logo {
-    display: inline-block;
-    height: 60px; /* Match the header's height */
-    overflow: hidden; /* Crop the image visually */
-    line-height: 0;
-}
-
-/* Scale the logo to fit within the header height */
-.products-page #main-header .logo img {
-    width: auto; /* Maintain the aspect ratio */
-    height: 100%; /* Scale to the height of the header */
-    display: block; /* Prevent inline spacing issues */
-    object-fit: contain; /* Ensure the image fits without distortion */
-}
-
-/* Header Adjustments for Products Page */
-.products-page #main-header {
-    background-color: black; /* Black header background */
-    color: white; /* White text */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.products-page #main-header nav ul li a {
-    color: white; /* White text */
-}
-
-.products-page #main-header nav ul li a:hover {
-    color: #4CAF50; /* Green highlight on hover */
-}
-
-.products-page #main-header nav ul li a.active {
-    color: black; /* Black text for visibility */
-    background-color: white; /* White background for emphasis */
-    border-radius: 4px; /* Rounded corners */
-    padding: 0.5em; /* Consistent padding */
-    font-weight: bold; /* Bold for emphasis */
-}
-
-/* Prevent Overlap with Content */
-.products-page body {
-    padding-top: 60px; /* Add padding to match header height */
+/* Animation for Modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
