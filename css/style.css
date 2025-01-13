@@ -249,24 +249,17 @@ body, html {
 /* Enhanced Horizontal Badge Styling */
 .badge {
     position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(90deg, #ff4b5c, #ff888e); /* Horizontal gradient */
+    top: -15px; /* Adjusted to appear outside the card */
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #ff4b5c, #ff888e);
     color: white;
-    font-size: 1rem; /* Adjust font size */
+    padding: 0.6em 1em;
+    font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.6em 1em; /* Increase padding for better spacing */
-    width: calc(100% - 2em); /* Slightly smaller than the card width */
-    margin: 1em; /* Add spacing to match the card */
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Align icon and text vertically */
-    gap: 0.5em; /* Space between crown and text */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 2; /* Ensure it's above the card */
-    border-radius: 6px; /* Rounded edges for the badge */
+    border-radius: 8px;
+    z-index: 10; /* Ensure it’s above the card */
 }
 
 /* Decorative Bottom Edge for the Badge */
