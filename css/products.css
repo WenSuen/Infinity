@@ -135,18 +135,19 @@ body {
     background-color: #cc5200;
 }
 
-/* Adjust the clickable area of the logo to match the height of the header */
+/* Restrict clickable area to the logo size */
 .products-page #main-header .logo {
-    display: flex;
-    align-items: center;
-    height: 100%; /* Match the height of the header bar */
+    display: inline-block; /* Restrict to content size */
+    height: auto; /* Fit to the logo image */
+    line-height: 0; /* Remove extra spacing */
+    padding: 0; /* Remove padding */
 }
 
 .products-page #main-header .logo img {
-    max-width: 150px; /* Keep the same size as the main CSS */
+    max-width: 150px; /* Keep the logo size consistent */
     height: auto; /* Maintain the aspect ratio */
     display: block; /* Ensure proper alignment */
-    margin: 0 auto; /* Center the image vertically */
+    margin: 0 auto; /* Center the logo if necessary */
 }
 
 /* Header Adjustments for Products Page */
