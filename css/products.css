@@ -147,9 +147,17 @@ body {
     color: white; /* White text */
 }
 
-.products-page #main-header nav ul li a.active,
 .products-page #main-header nav ul li a:hover {
-    color: #4CAF50; /* Green highlight */
+    color: #4CAF50; /* Green highlight on hover */
+}
+
+/* Active Link Styling */
+.products-page #main-header nav ul li a.active {
+    color: black; /* Black text for visibility */
+    background-color: white; /* White background for emphasis */
+    border-radius: 4px; /* Rounded corners */
+    padding: 0.5em; /* Consistent padding */
+    font-weight: bold; /* Bold for emphasis */
 }
 
 /* Prevent Overlap with Content */
@@ -157,10 +165,9 @@ body {
     padding-top: 60px; /* Add padding to match header height */
 }
 
-/* Adjust Logo Size */
+/* Restore Logo Size */
 .products-page #main-header .logo img {
-    height: 50px; /* Larger logo */
-    max-height: 50px;
+    height: auto; /* Restore original size */
+    max-height: 60px; /* Ensure it fits within the header */
     width: auto; /* Maintain aspect ratio */
-    margin: auto; /* Center within clickable area */
 }
