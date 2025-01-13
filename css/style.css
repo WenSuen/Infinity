@@ -254,10 +254,14 @@ body, html {
     width: 100%; /* Make it span the full width of the card */
     background: linear-gradient(90deg, #ff4b5c, #ff888e); /* Horizontal gradient */
     color: white;
-    font-size: 1rem; /* Adjust font size */
+    font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.6em 1em; /* Padding for better spacing */
+    padding: 0.6em 1em;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    gap: 0.5em; /* Add spacing between text and icon */
     text-align: center;
     z-index: 2; /* Ensure it's above the card */
     border-radius: 10px 10px 0 0; /* Rounded top edges only */
@@ -278,12 +282,12 @@ body, html {
     border-top: 10px solid #ff4b5c; /* Match badge color */
 }
 
-/* Crown Icon in Badge */
+/* Icon Styling (Optional for Adjustments) */
 .badge::before {
     content: '👑'; /* Crown emoji */
-    font-size: 1.2rem; /* Increase size for better visibility */
+    font-size: 1.2rem; /* Adjust size */
     display: inline-block;
-    vertical-align: middle; /* Align with text */
+    vertical-align: middle;
 }
 
 /* Responsive Adjustments for Badge */
