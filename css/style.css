@@ -250,45 +250,67 @@ body, html {
     color: #4CAF50; /* Highlight on hover */
 }
 
-/* Horizontal Badge Styling */
+/* Enhanced Horizontal Badge Styling */
 .badge {
     position: absolute;
     top: 0;
     left: 0;
     background: linear-gradient(90deg, #ff4b5c, #ff888e); /* Horizontal gradient */
     color: white;
-    font-size: 0.9rem;
+    font-size: 1rem; /* Adjust font size */
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.4em 1em;
+    padding: 0.6em 1em; /* Increase padding for better spacing */
     width: 100%; /* Full width of the card */
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 0.3em; /* Space between crown and text */
+    align-items: center; /* Align icon and text vertically */
+    gap: 0.5em; /* Space between crown and text */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 2; /* Ensure it's above the image */
     border-top-left-radius: 10px; /* Match the card's border radius */
     border-top-right-radius: 10px; /* Match the card's border radius */
+    position: relative;
+}
+
+/* Decorative Bottom Edge for the Badge */
+.badge::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Add decorative triangle */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 10px solid #ff4b5c; /* Match the badge's primary color */
 }
 
 /* Crown Icon in Badge */
 .badge::before {
     content: '👑'; /* Crown emoji */
-    font-size: 1rem;
-    margin-right: 0.3em; /* Space between icon and text */
+    font-size: 1.2rem; /* Increase size for better visibility */
+    display: inline-block;
+    vertical-align: middle; /* Align with text */
 }
 
 /* Responsive Adjustments for Badge */
 @media (max-width: 768px) {
     .badge {
-        font-size: 0.8rem;
-        padding: 0.3em 0.8em; /* Adjust padding for smaller screens */
+        font-size: 0.9rem; /* Slightly smaller text on smaller screens */
+        padding: 0.4em 0.8em;
     }
 
     .badge::before {
-        font-size: 0.9rem; /* Adjust crown size */
+        font-size: 1rem; /* Adjust crown size */
+    }
+
+    .badge::after {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 7px solid #ff4b5c; /* Adjust decorative triangle size */
     }
 }
 
