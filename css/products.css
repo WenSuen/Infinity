@@ -53,7 +53,6 @@ body {
 /* Product Display Area */
 .product-display {
     flex-grow: 1;
-    padding: 2em;
     padding-top: 70px; /* Adjust to match the height of your header */
 }
 
