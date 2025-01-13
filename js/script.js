@@ -60,15 +60,25 @@ function handleHeaderScroll() {
     const header = document.querySelector('#main-header');
     if (!header) return;
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('solid-header');
-            header.classList.remove('transparent-header');
-        } else {
-            header.classList.add('transparent-header');
-            header.classList.remove('solid-header');
-        }
-    });
+    // Check if the current page is the products page
+    const isProductsPage = document.body.classList.contains('products-page');
+
+    if (!isProductsPage) {
+        // Apply scroll-based header behavior only for non-products pages
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('solid-header');
+                header.classList.remove('transparent-header');
+            } else {
+                header.classList.add('transparent-header');
+                header.classList.remove('solid-header');
+            }
+        });
+    } else {
+        // Ensure the header remains solid on the products page
+        header.classList.remove('transparent-header');
+        header.classList.add('solid-header');
+    }
 }
 
 // Initialize hover effects for the product gallery
