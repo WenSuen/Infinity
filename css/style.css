@@ -250,28 +250,27 @@ body, html {
     color: #4CAF50; /* Highlight on hover */
 }
 
-/* Slanted Badge Styling */
+/* Horizontal Badge Styling */
 .badge {
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(135deg, #ff4b5c, #ff888e); /* Red gradient for the badge */
+    background: linear-gradient(90deg, #ff4b5c, #ff888e); /* Horizontal gradient */
     color: white;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.3em 0; /* Adjust padding to align text properly */
-    width: 120px; /* Increased width for better fit */
-    height: 40px; /* Adjust height */
-    transform: rotate(-45deg) translate(-15%, -15%); /* Rotate and position */
-    transform-origin: top left; /* Align transformation */
+    padding: 0.4em 1em;
+    width: 100%; /* Full width of the card */
+    text-align: center;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 0.3em; /* Space between crown and text */
-    line-height: 1; /* Fix vertical alignment */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 2; /* Ensure it's above the image */
+    border-top-left-radius: 10px; /* Match the card's border radius */
+    border-top-right-radius: 10px; /* Match the card's border radius */
 }
 
 /* Crown Icon in Badge */
@@ -279,20 +278,17 @@ body, html {
     content: '👑'; /* Crown emoji */
     font-size: 1rem;
     margin-right: 0.3em; /* Space between icon and text */
-    vertical-align: middle;
 }
 
 /* Responsive Adjustments for Badge */
 @media (max-width: 768px) {
     .badge {
-        font-size: 0.75rem;
-        width: 100px; /* Adjust width */
-        height: 35px; /* Adjust height */
-        transform: rotate(-45deg) translate(-10%, -10%); /* Adjust position for smaller screens */
+        font-size: 0.8rem;
+        padding: 0.3em 0.8em; /* Adjust padding for smaller screens */
     }
 
     .badge::before {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Adjust crown size */
     }
 }
 
