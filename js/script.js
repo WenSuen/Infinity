@@ -172,18 +172,14 @@ function renderFeaturedProducts() {
         .map(
             (product) => `
             <div class="product-item">
+                ${
+                    product.badge
+                        ? `<div class="badge">${product.badge}</div>` // Banner-style badge
+                        : ""
+                }
                 <div class="product-card">
-                    ${
-                        product.badge
-                            ? `<div class="badge">${product.badge}</div>` // Banner-style badge
-                            : ""
-                    }
                     <img src="${product.image}" alt="${product.title}">
                     <h3>${product.title}</h3>
-                    <a href="products.html" class="product-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <p>See More</p>
-                    </a>
                 </div>
             </div>`
         )
