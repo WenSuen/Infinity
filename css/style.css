@@ -249,12 +249,20 @@ body, html {
     color: #4CAF50; /* Highlight on hover */
 }
 
-.product-card .price {
-    font-size: 1.1rem;
-    color: #555; /* Neutral text color */
-    margin-top: 0.5em;
+/* Product Banner Badge Styling */
+.product-card .badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #4CAF50; /* Green banner */
+    color: white;
+    font-size: 0.9rem;
     font-weight: bold;
-    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    padding: 0.3em 1em;
+    border-radius: 0 0 10px 10px; /* Smooth bottom corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
 }
 
 /* Product Overlay */

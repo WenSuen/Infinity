@@ -141,31 +141,25 @@ document.addEventListener("DOMContentLoaded", () => {
 // Featured Products Logic
 const products = [
     {
-        title: "Magnetic Mosquito Net",
-        image: "images/apple.jpg",
-        price: "$25",
-        badge: "Best Seller",
-    },
-    {
         title: "Netting Accessories",
         image: "images/apple.jpg",
-        price: "$15",
-        badge: "New",
     },
     {
         title: "Magnetic Clips",
         image: "images/apple.jpg",
-        price: "$20",
+    },    
+    {
+        title: "Magnetic Mosquito Net",
+        image: "images/apple.jpg",
+        badge: "Best Seller",
     },
     {
         title: "High-Quality Mesh",
         image: "images/apple.jpg",
-        price: "$30",
     },
     {
         title: "Door Frames",
         image: "images/apple.jpg",
-        price: "$50",
     },
 ];
 
@@ -181,12 +175,11 @@ function renderFeaturedProducts() {
                 <div class="product-card">
                     ${
                         product.badge
-                            ? `<span class="badge">${product.badge}</span>` // Badge if available
+                            ? `<div class="badge">${product.badge}</div>` // Banner-style badge
                             : ""
                     }
                     <img src="${product.image}" alt="${product.title}">
                     <h3>${product.title}</h3>
-                    <div class="price">${product.price}</div>
                     <a href="products.html" class="product-overlay">
                         <i class="fas fa-search-plus"></i>
                         <p>See More</p>
