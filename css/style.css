@@ -261,7 +261,8 @@ body, html {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.6em 1em; /* Increase padding for better spacing */
-    width: 100%; /* Full width of the card */
+    width: calc(100% - 2em); /* Slightly smaller than the card width */
+    margin: 1em; /* Add spacing to match the card */
     text-align: center;
     display: flex;
     justify-content: center;
@@ -269,9 +270,7 @@ body, html {
     gap: 0.5em; /* Space between crown and text */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 2; /* Ensure it's above the image */
-    border-top-left-radius: 10px; /* Match the card's border radius */
-    border-top-right-radius: 10px; /* Match the card's border radius */
-    position: relative;
+    border-radius: 6px; /* Rounded edges for the badge */
 }
 
 /* Decorative Bottom Edge for the Badge */
