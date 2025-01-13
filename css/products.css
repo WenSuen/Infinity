@@ -136,37 +136,31 @@ body {
 }
 
 /* Header Adjustments for Products Page */
-#main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+.products-page #main-header {
+    background-color: black !important; /* Black header background */
+    color: white; /* White text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Restrict logo clickable area */
-#main-header .logo a {
-    display: inline-block;
-    height: 60px;
-    line-height: 60px;
-    padding: 0;
+/* Navigation Links Styling for Products Page */
+.products-page #main-header nav ul li a {
+    color: white; /* White text */
 }
 
-#main-header .logo img {
-    height: 100%;
-    max-height: 60px;
-    width: auto;
+.products-page #main-header nav ul li a.active,
+.products-page #main-header nav ul li a:hover {
+    color: #4CAF50; /* Green highlight */
 }
 
-/* Disable transparency changes */
-#main-header.transparent-header,
-#main-header.solid-header {
-    background-color: #ffffff !important;
-    height: 60px !important;
+/* Prevent Overlap with Content */
+.products-page body {
+    padding-top: 60px; /* Add padding to match header height */
+}
+
+/* Adjust Logo Size */
+.products-page #main-header .logo img {
+    height: 50px; /* Larger logo */
+    max-height: 50px;
+    width: auto; /* Maintain aspect ratio */
+    margin: auto; /* Center within clickable area */
 }
