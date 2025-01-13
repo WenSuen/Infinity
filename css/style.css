@@ -258,14 +258,13 @@ body, html {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.6em 1em;
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Horizontally center content */
-    align-items: center; /* Vertically center content */
-    gap: 0.5em; /* Add spacing between text and icon */
     text-align: center;
     z-index: 2; /* Ensure it's above the card */
     border-radius: 10px 10px 0 0; /* Rounded top edges only */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid white; /* Thin border for contrast */
+    letter-spacing: 1px; /* Slightly spaced text */
+    background: linear-gradient(90deg, #ff7f7f, #ff4b5c); /* Vibrant gradient */
 }
 
 /* Decorative Bottom Edge for the Badge */
@@ -280,14 +279,6 @@ body, html {
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-top: 10px solid #ff4b5c; /* Match badge color */
-}
-
-/* Icon Styling (Optional for Adjustments) */
-.badge::before {
-    content: '👑'; /* Crown emoji */
-    font-size: 1.2rem; /* Adjust size */
-    display: inline-block;
-    vertical-align: middle;
 }
 
 /* Responsive Adjustments for Badge */
