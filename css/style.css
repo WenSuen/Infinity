@@ -251,20 +251,18 @@ body, html {
     position: absolute;
     top: 0; /* Align at the top of the product card */
     left: 0; /* Start from the left edge */
-    width: 100%; /* Make it span the full width of the card */
+    width: calc(100% - 2px); /* Subtract border width if present */
     background: linear-gradient(90deg, #ff4b5c, #ff888e); /* Horizontal gradient */
     color: white;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.6em 1em;
+    padding: 0.6em 0; /* Remove horizontal padding for alignment */
     text-align: center;
     z-index: 2; /* Ensure it's above the card */
     border-radius: 10px 10px 0 0; /* Rounded top edges only */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border: 2px solid white; /* Thin border for contrast */
-    letter-spacing: 1px; /* Slightly spaced text */
-    background: linear-gradient(90deg, #ff7f7f, #ff4b5c); /* Vibrant gradient */
+    margin: 0 auto; /* Ensure centered alignment */
 }
 
 /* Decorative Bottom Edge for the Badge */
