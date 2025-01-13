@@ -201,7 +201,7 @@ body, html {
 
 /* Product Card Styling */
 .product-item {
-    position: relative;
+    position: relative; /* Outer container relative for absolute badge placement */
     cursor: pointer;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -257,17 +257,16 @@ body, html {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.6em 1em; /* Increase padding for better spacing */
-    width: 100%; /* Full width of the card */
+    width: calc(100% - 2em); /* Slightly smaller than the card width */
+    margin: 1em; /* Add spacing to match the card */
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center; /* Align icon and text vertically */
     gap: 0.5em; /* Space between crown and text */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 2; /* Ensure it's above the image */
-    border-top-left-radius: 10px; /* Match the card's border radius */
-    border-top-right-radius: 10px; /* Match the card's border radius */
-    position: relative;
+    z-index: 2; /* Ensure it's above the card */
+    border-radius: 6px; /* Rounded edges for the badge */
 }
 
 /* Decorative Bottom Edge for the Badge */
@@ -363,7 +362,7 @@ body, html {
         gap: 1em; /* Reduce gap for smaller screens */
     }
 
-    .product-card h3 {
+    .product-item h3 {
         font-size: 1.2rem;
     }
 
