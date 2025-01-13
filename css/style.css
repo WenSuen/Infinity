@@ -260,8 +260,8 @@ body, html {
     font-size: 0.8rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.3em 1em; /* Adjust padding for more space */
-    clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%); /* Creates the wrapping effect */
+    padding: 0.3em 1.5em; /* Adjust padding for proper coverage */
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%); /* Modified clip-path for a better wrap */
     z-index: 2; /* Ensure it's above the image */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -269,6 +269,7 @@ body, html {
     justify-content: center;
     gap: 0.3em; /* Space between crown and text */
     line-height: 1; /* Fix vertical alignment */
+    transform: rotate(-5deg); /* Add slight slant for aesthetic */
 }
 
 /* Crown Icon in Badge */
@@ -282,7 +283,7 @@ body, html {
 @media (max-width: 768px) {
     .badge {
         font-size: 0.7rem; /* Reduce size for smaller screens */
-        padding: 0.2em 0.8em; /* Adjust padding */
+        padding: 0.2em 1em; /* Adjust padding */
     }
 
     .badge::before {
