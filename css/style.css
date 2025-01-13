@@ -249,31 +249,33 @@ body, html {
 /* Enhanced Horizontal Badge Styling */
 .badge {
     position: absolute;
-    top: -15px; /* Adjusted to appear outside the card */
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, #ff4b5c, #ff888e);
+    top: 0; /* Align at the top of the product card */
+    left: 0; /* Start from the left edge */
+    width: 100%; /* Make it span the full width of the card */
+    background: linear-gradient(90deg, #ff4b5c, #ff888e); /* Horizontal gradient */
     color: white;
-    padding: 0.6em 1em;
-    font-size: 1rem;
+    font-size: 1rem; /* Adjust font size */
     font-weight: bold;
     text-transform: uppercase;
-    border-radius: 8px;
-    z-index: 10; /* Ensure it’s above the card */
+    padding: 0.6em 1em; /* Padding for better spacing */
+    text-align: center;
+    z-index: 2; /* Ensure it's above the card */
+    border-radius: 10px 10px 0 0; /* Rounded top edges only */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Decorative Bottom Edge for the Badge */
 .badge::after {
     content: "";
     position: absolute;
-    bottom: -10px; /* Add decorative triangle */
+    bottom: -10px; /* Decorative triangle below the badge */
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 10px solid #ff4b5c; /* Match the badge's primary color */
+    border-top: 10px solid #ff4b5c; /* Match badge color */
 }
 
 /* Crown Icon in Badge */
