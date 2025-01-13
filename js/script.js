@@ -125,7 +125,7 @@ function initializeWhatsAppButton() {
     }
 }
 
-// Featured Products Logic
+// Product Data
 const products = [
     { title: "Netting Accessories", image: "images/apple.jpg", colors: ["Red", "Green", "Blue"] },
     { title: "Magnetic Clips", image: "images/apple.jpg", colors: ["Yellow", "Black"] },
@@ -161,19 +161,19 @@ function showProductDetails(title) {
     if (!product) return;
 
     const modal = document.getElementById("productModal");
-    const modalContent = document.querySelector("#productModal .modal-content");
+    const modalContent = modal.querySelector(".modal-content");
 
     modalContent.innerHTML = `
-        <span class="close" onclick="closeModal()">&times;</span>
+        <button class="close" onclick="closeModal()">&times;</button>
         <h2>${product.title}</h2>
-        <img src="${product.image}" alt="${product.title}" style="max-width: 100%; height: auto;">
+        <img src="${product.image}" alt="${product.title}">
         <p>Available Colors:</p>
         <ul>
             ${product.colors.map((color) => `<li>${color}</li>`).join("")}
         </ul>
     `;
 
-    modal.style.display = "block";
+    modal.style.display = "flex";
 }
 
 // Close the modal
@@ -181,6 +181,14 @@ function closeModal() {
     const modal = document.getElementById("productModal");
     modal.style.display = "none";
 }
+
+// Close modal when clicking outside of it
+window.addEventListener("click", (e) => {
+    const modal = document.getElementById("productModal");
+    if (e.target === modal) {
+        closeModal();
+    }
+});
 
 // Initialize all components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
