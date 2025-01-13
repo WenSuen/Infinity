@@ -43,18 +43,28 @@ body, html {
 }
 
 /* Logo Styling */
+.logo {
+    display: inline-block;
+    height: 60px; /* Match the header's height */
+    overflow: hidden; /* Crop the image visually */
+    line-height: 0; /* Remove inline space around the logo */
+}
+
 .logo-image {
-    max-width: 150px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Maintain the aspect ratio */
+    height: 100%; /* Scale to the height of the header */
     display: block;
+    object-fit: contain; /* Ensure the image fits without distortion */
     transition: filter 0.3s ease, opacity 0.3s ease; /* Smooth transition */
 }
 
+/* Transparent Header Logo Styling */
 #main-header.transparent-header .logo-image {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)); /* Add a shadow to improve contrast */
     opacity: 1; /* Fully visible */
 }
 
+/* Solid Header Logo Styling */
 #main-header.solid-header .logo-image {
     filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8)); /* Add white shadow for contrast on dark background */
     opacity: 0.95; /* Slightly dimmed to reduce brightness */
