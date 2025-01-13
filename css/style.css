@@ -250,30 +250,28 @@ body, html {
     color: #4CAF50; /* Highlight on hover */
 }
 
-/* Product Banner Badge Styling */
-.product-card .badge {
+/* Badge Styling */
+.badge {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #4CAF50; /* Green banner */
+    left: 0;
+    background: linear-gradient(135deg, #ff4b5c, #ff888e); /* Red gradient for the badge */
     color: white;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.5em 1em;
-    border-radius: 50px; /* Smooth banner style */
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Ensure it appears above the image */
+    padding: 0.2em 0.8em;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); /* Creates the wrapping effect */
+    z-index: 2; /* Ensure it's above the image */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Crown Icon for Badge */
-.product-card .badge::before {
-    content: "👑"; /* Add crown emoji */
-    font-size: 1.2rem;
+/* Optional Icon in Badge */
+.badge::before {
+    content: '👑'; /* Crown emoji */
+    margin-right: 0.4em;
+    font-size: 1rem;
+    vertical-align: middle;
 }
 
 /* Product Overlay */
