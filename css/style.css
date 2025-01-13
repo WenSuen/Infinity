@@ -161,27 +161,45 @@ body, html {
     line-height: 1.6;
 }
 
-/* Product Gallery Section */
+/* Featured Products Section Enhancements */
 .product-gallery {
-    padding: 3em 1em;
-    background-color: #f9f9f9;
+    padding: 4em 1em;
+    background: linear-gradient(180deg, #f9f9f9, #ffffff); /* Subtle gradient for a modern look */
     text-align: center;
 }
 
 .product-gallery h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5em;
+    font-size: 2.8rem; /* Slightly larger */
+    margin-bottom: 2em; /* Extra space below */
     color: #333;
     font-weight: bold;
+    letter-spacing: 1px; /* Add letter spacing */
+    text-transform: uppercase; /* Make the title stand out */
+    position: relative;
+}
+
+.product-gallery h2::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #4CAF50; /* Highlight green underline */
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5em;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2em; /* Increase gap for better spacing */
     justify-content: center;
+    align-items: start; /* Ensure proper alignment */
+    padding: 0 1em;
 }
 
+/* Product Card Styling */
 .product-item {
     position: relative;
     cursor: pointer;
@@ -193,31 +211,41 @@ body, html {
     background: white;
     padding: 1em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
     overflow: hidden;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px); /* Slightly more dramatic lift */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: #4CAF50; /* Highlight the card border on hover */
 }
 
 .product-card img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 1em;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(95%);
 }
 
 .product-card img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08); /* Larger zoom effect */
+    filter: brightness(100%);
 }
 
 .product-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #333;
     margin: 0.5em 0;
     font-weight: bold;
+    text-transform: uppercase; /* Make titles more distinct */
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.product-card h3:hover {
+    color: #4CAF50; /* Highlight on hover */
 }
 
 /* Product Overlay */
@@ -227,7 +255,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
     color: white;
     display: flex;
     flex-direction: column;
@@ -236,6 +264,7 @@ body, html {
     opacity: 0;
     transition: opacity 0.3s ease;
     text-decoration: none;
+    border-radius: 10px; /* Match card's border radius */
 }
 
 .product-item:hover .product-overlay {
@@ -243,13 +272,62 @@ body, html {
 }
 
 .product-overlay i {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5em;
+    transition: transform 0.3s ease;
+}
+
+.product-overlay i:hover {
+    transform: scale(1.2); /* Slight bounce effect */
 }
 
 .product-overlay p {
     font-size: 1.2rem;
     font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Decorative Shadow Effect */
+.product-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1), transparent);
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Keep it behind the product */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.product-item:hover::before {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-gallery h2 {
+        font-size: 2rem;
+    }
+
+    .product-grid {
+        gap: 1em; /* Reduce gap for smaller screens */
+    }
+
+    .product-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .product-overlay i {
+        font-size: 2rem; /* Adjust icon size */
+    }
+
+    .product-overlay p {
+        font-size: 1rem; /* Adjust text size */
+    }
 }
 
 /* Colors and variables */

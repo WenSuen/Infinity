@@ -18,7 +18,7 @@ function loadComponents() {
 
                 // Initialize header behavior and highlight the active page after the header is loaded
                 if (component.selector === ".header-container") {
-                    handleHeaderScroll();  // If you still want the transparent-to-solid effect
+                    handleHeaderScroll(); // If you still want the transparent-to-solid effect
                     highlightActivePage(); // <--- NEW function call for multi-page highlighting
                 }
             })
@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadComponents();
     preloadBackgroundImage();
     initializeProductHoverEffects();
+    renderFeaturedProducts(); // New function for dynamically loading featured products
 });
 
 // Back to Top Button Logic
@@ -136,3 +137,63 @@ document.addEventListener("DOMContentLoaded", () => {
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
     });
 });
+
+// Featured Products Logic
+const products = [
+    {
+        image: "images/apple.jpg",
+        title: "Magnetic Mosquito Net",
+        price: "$25",
+        badge: "Best Seller",
+    },
+    {
+        image: "images/apple.jpg",
+        title: "Netting Accessories",
+        price: "$15",
+        badge: "New",
+    },
+    {
+        image: "images/apple.jpg",
+        title: "Magnetic Clips",
+        price: "$20",
+    },
+    {
+        image: "images/apple.jpg",
+        title: "High-Quality Mesh",
+        price: "$30",
+        badge: "Limited",
+    },
+    {
+        image: "images/apple.jpg",
+        title: "Door Frames",
+        price: "$50",
+    },
+];
+
+// Dynamically generate product cards
+function renderFeaturedProducts() {
+    const productGrid = document.getElementById("productGrid");
+    if (!productGrid) return; // Ensure the grid container exists
+
+    productGrid.innerHTML = products
+        .map(
+            (product) => `
+            <div class="product-item">
+                <div class="product-card">
+                    ${
+                        product.badge
+                            ? `<span class="badge">${product.badge}</span>`
+                            : ""
+                    }
+                    <img src="${product.image}" alt="${product.title}">
+                    <h3>${product.title}</h3>
+                    <div class="price">${product.price}</div>
+                    <a href="products.html" class="product-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>See More</p>
+                    </a>
+                </div>
+            </div>`
+        )
+        .join("");
+}
