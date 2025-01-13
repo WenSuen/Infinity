@@ -213,6 +213,7 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
     overflow: hidden;
+    position: relative;
 }
 
 .product-card:hover {
@@ -253,16 +254,26 @@ body, html {
 .product-card .badge {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #4CAF50; /* Green banner */
     color: white;
     font-size: 0.9rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.3em 1em;
-    border-radius: 0 0 10px 10px; /* Smooth bottom corners */
+    padding: 0.5em 1em;
+    border-radius: 50px; /* Smooth banner style */
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    letter-spacing: 0.5px;
+    z-index: 10; /* Ensure it appears above the image */
+}
+
+/* Crown Icon for Badge */
+.product-card .badge::before {
+    content: "👑"; /* Add crown emoji */
+    font-size: 1.2rem;
 }
 
 /* Product Overlay */
@@ -306,25 +317,6 @@ body, html {
     font-weight: bold;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-}
-
-/* Decorative Shadow Effect */
-.product-item::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.1), transparent);
-    transform: translate(-50%, -50%);
-    z-index: -1; /* Keep it behind the product */
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.product-item:hover::before {
-    opacity: 1;
 }
 
 /* Responsive Design */
