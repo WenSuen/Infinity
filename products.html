@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/path-to-flaticon.css">
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="products.css">
+    <!-- JavaScript -->
     <script src="js/script.js" defer></script>
 </head>
 <body>
     <!-- Header Container -->
     <div class="header-container"></div>
 
-    <!-- Main container for products -->
+    <!-- Main Container for Products -->
     <div class="products-container">
         <!-- Left Navigation Panel -->
         <aside class="product-navigation">
@@ -48,22 +50,9 @@
                 </div>
             </header>
 
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="images/product1.jpg" alt="Bi-Fold Door Screen">
-                    <h3>Bi-Fold Door Screen</h3>
-                    <button>Call for price</button>
-                </div>
-                <div class="product-card">
-                    <img src="images/product2.jpg" alt="Clip On Screen">
-                    <h3>Clip On Screen</h3>
-                    <button>Call for price</button>
-                </div>
-                <div class="product-card">
-                    <img src="images/product3.jpg" alt="Elegant Fold Type Screen">
-                    <h3>Elegant Fold Type Screen</h3>
-                    <button>Call for price</button>
-                </div>
+            <!-- Product Grid -->
+            <div id="productGrid" class="product-grid">
+                <!-- Dynamically Generated Product Cards will be inserted here by JavaScript -->
             </div>
         </section>
     </div>
@@ -71,9 +60,14 @@
     <!-- Footer Container -->
     <div class="footer-container"></div>
 
-    <script>
-        // Call the function to load components dynamically
-        loadComponents();
-    </script>
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <div id="whatsappButton" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+    </div>
 </body>
 </html>
