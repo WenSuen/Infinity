@@ -6,7 +6,6 @@
     <title>Products</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/path-to-flaticon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/products.css">
     <script src="js/script.js" defer></script>
@@ -76,31 +75,9 @@
     </div>
 
     <script>
-        // Call the function to load components dynamically
+        // Initialize components on DOM load
         loadComponents();
-
-        // Modal Interaction Logic
-        document.addEventListener("DOMContentLoaded", () => {
-            const modal = document.getElementById("product-modal");
-            const closeBtn = document.querySelector(".close");
-            const viewDetailsBtns = document.querySelectorAll(".view-details");
-
-            viewDetailsBtns.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    modal.style.display = "flex";
-                });
-            });
-
-            closeBtn.addEventListener("click", () => {
-                modal.style.display = "none";
-            });
-
-            window.addEventListener("click", (event) => {
-                if (event.target === modal) {
-                    modal.style.display = "none";
-                }
-            });
-        });
+        renderProducts();
     </script>
 </body>
 </html>

@@ -111,6 +111,8 @@ body {
 
 .product-card img {
     max-width: 100%;
+    height: 150px; /* Fixed height for consistent layout */
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 1em;
 }

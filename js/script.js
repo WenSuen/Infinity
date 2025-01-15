@@ -125,8 +125,8 @@ function initializeWhatsAppButton() {
     }
 }
 
-// Product Data
-const products = [
+// Featured Products Logic for Index Page (DO NOT TOUCH)
+const featuredProducts = [
     { title: "Netting Accessories", image: "images/apple.jpg", colors: ["Red", "Green", "Blue"] },
     { title: "Magnetic Clips", image: "images/apple.jpg", colors: ["Yellow", "Black"] },
     { title: "Magnetic Mosquito Net", image: "images/apple.jpg", badge: "Best Seller", colors: ["White", "Gray"] },
@@ -134,7 +134,6 @@ const products = [
     { title: "Door Frames", image: "images/apple.jpg", colors: ["Brown", "Beige"] },
 ];
 
-// Dynamically generate product cards only for non-products pages
 function renderFeaturedProducts() {
     const isProductsPage = document.body.classList.contains('products-page');
     if (isProductsPage) return; // Skip rendering if it's the products page
@@ -142,7 +141,7 @@ function renderFeaturedProducts() {
     const productGrid = document.getElementById("productGrid");
     if (!productGrid) return;
 
-    productGrid.innerHTML = products
+    productGrid.innerHTML = featuredProducts
         .map((product) => `
             <div class="product-item" onclick="showProductDetails('${product.title}')">
                 ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
@@ -155,8 +154,25 @@ function renderFeaturedProducts() {
         .join("");
 }
 
-// Show product details in a modal
-function showProductDetails(title) {
+// New Product Details Logic for Products Page
+function renderProductsPageItems() {
+    const productGrid = document.getElementById("productGrid");
+    if (!productGrid) return;
+
+    productGrid.innerHTML = products
+        .map((product) => `
+            <div class="product-item">
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.title}">
+                    <h3>${product.title}</h3>
+                    <button onclick="openProductModal('${product.title}')">View Details</button>
+                </div>
+            </div>
+        `)
+        .join("");
+}
+
+function openProductModal(title) {
     const product = products.find((p) => p.title === title);
     if (!product) return;
 
@@ -176,13 +192,11 @@ function showProductDetails(title) {
     modal.style.display = "flex";
 }
 
-// Close the modal
 function closeModal() {
     const modal = document.getElementById("productModal");
     modal.style.display = "none";
 }
 
-// Close modal when clicking outside of it
 window.addEventListener("click", (e) => {
     const modal = document.getElementById("productModal");
     if (e.target === modal) {
@@ -196,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     preloadBackgroundImage();
     initializeProductHoverEffects();
     renderFeaturedProducts();
+    renderProductsPageItems();
     initializeBackToTopButton();
     initializeWhatsAppButton();
 });
