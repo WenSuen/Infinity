@@ -128,34 +128,34 @@ function initializeWhatsAppButton() {
 // Placeholder Data for Each Section
 const productsPageCategories = {
     net: [
-        { title: "Fiberglass Net", image: "images/net1.jpg", colors: ["Red", "Green"], description: "High-quality fiberglass net." },
-        { title: "Stainless Steel Net", image: "images/net2.jpg", colors: ["Blue", "Yellow"], description: "Durable stainless steel net." },
-        { title: "Polyester Net", image: "images/net3.jpg", colors: ["Black", "White"], description: "Lightweight polyester net." },
+        { title: "Fiberglass Net", image: "images/fiberglass-net.jpg", colors: ["Red", "Green"], description: "Durable fiberglass net for various uses." },
+        { title: "Stainless Steel Net", image: "images/stainless-steel-net.jpg", colors: ["Silver"], description: "High-quality stainless steel net." },
+        { title: "Polyester Net", image: "images/polyester-net.jpg", colors: ["Blue", "Yellow"], description: "Lightweight polyester net for indoor use." },
     ],
     magnet: [
-        { title: "3M Magnet Stripe", image: "images/magnet1.jpg", colors: ["Gray"], description: "Reliable 3M magnet stripe." },
-        { title: "Magnet Stripe", image: "images/magnet2.jpg", colors: ["Black"], description: "Durable magnet stripe." },
+        { title: "3M Magnet Stripe", image: "images/3m-magnet.jpg", colors: ["Black", "Gray"], description: "3M high-strength magnet stripe for sealing." },
+        { title: "Magnet Stripe", image: "images/magnet-stripe.jpg", colors: ["White"], description: "Versatile magnetic stripe for multiple applications." },
     ],
-    mini_door: [
-        { title: "Mini Door", image: "images/minidoor.jpg", colors: ["White", "Brown"], description: "Compact and sturdy mini door." },
+    "mini-door": [
+        { title: "Mini Door", image: "images/mini-door.jpg", colors: ["Brown"], description: "Compact and stylish mini door." },
     ],
-    pvc_stripe: [
-        { title: "PVC Stripe", image: "images/pvcstripe.jpg", colors: ["Transparent"], description: "Flexible PVC stripe." },
+    "pvc-stripe": [
+        { title: "PVC Stripe", image: "images/pvc-stripe.jpg", colors: ["Clear", "Opaque"], description: "Durable PVC stripe for insulation." },
     ],
     corner: [
-        { title: "Corner Up (Flat Corner)", image: "images/corner_up.jpg", colors: ["Silver"], description: "Flat corner for precise fit." },
-        { title: "Corner Down (Handle Corner)", image: "images/corner_down.jpg", colors: ["Gold"], description: "Handle corner for easy handling." },
+        { title: "Corner Up (Flat Corner)", image: "images/corner-up.jpg", colors: ["Silver", "Gold"], description: "Flat corner for seamless jointing." },
+        { title: "Corner Down (Handle Corner)", image: "images/corner-down.jpg", colors: ["Bronze"], description: "Handle corner for added functionality." },
     ],
     clip: [
-        { title: "Clip", image: "images/clip.jpg", colors: ["Blue"], description: "Durable and versatile clip." },
+        { title: "Clip", image: "images/clip.jpg", colors: ["Black", "White"], description: "Sturdy clip for fastening." },
     ],
     glue: [
-        { title: "Super Glue (L3)", image: "images/super_glue.jpg", colors: ["Transparent"], description: "High-strength super glue." },
+        { title: "Super Glue (L3)", image: "images/super-glue.jpg", colors: ["Transparent"], description: "High-strength super glue for bonding." },
     ],
     tape: [
-        { title: "3M Tape", image: "images/tape1.jpg", colors: ["Transparent"], description: "Reliable 3M tape for bonding." },
-        { title: "Acrylic Foam Tape", image: "images/tape2.jpg", colors: ["Gray"], description: "Strong acrylic foam tape." },
-        { title: "P.E. Foam Tape", image: "images/tape3.jpg", colors: ["Black"], description: "Flexible P.E. foam tape." },
+        { title: "3M Tape", image: "images/3m-tape.jpg", colors: ["Gray"], description: "Reliable 3M tape for sealing." },
+        { title: "Acrylic Form Tape", image: "images/acrylic-form-tape.jpg", colors: ["White"], description: "Acrylic foam tape for superior adhesion." },
+        { title: "P.E Form Tape", image: "images/pe-form-tape.jpg", colors: ["Black"], description: "P.E foam tape for insulation." },
     ],
 };
 
