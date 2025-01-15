@@ -155,37 +155,56 @@ function renderFeaturedProducts() {
         .join("");
 }
 
-// Product Page Data
-const productsPageItems = [
-    { title: "Product 1", image: "images/item1.jpg", colors: ["Red", "Green", "Blue"], description: "Description for Product 1" },
-    { title: "Product 2", image: "images/item2.jpg", colors: ["Yellow", "Black"], description: "Description for Product 2" },
-    { title: "Product 3", image: "images/item3.jpg", colors: ["White", "Gray"], description: "Description for Product 3" },
-    { title: "Product 4", image: "images/item4.jpg", colors: ["Silver", "Gold"], description: "Description for Product 4" },
-    { title: "Product 5", image: "images/item5.jpg", colors: ["Brown", "Beige"], description: "Description for Product 5" },
-    { title: "Product 6", image: "images/item6.jpg", colors: ["Blue", "Purple"], description: "Description for Product 6" },
-];
+// Placeholder Data for Each Section
+const productsPageCategories = {
+    net: [
+        { title: "Net 1", image: "images/item1.jpg", colors: ["Red", "Green"], description: "Net product description" },
+        { title: "Net 2", image: "images/item2.jpg", colors: ["Blue", "Yellow"], description: "Net product description" },
+    ],
+    tape: [
+        { title: "Tape 1", image: "images/item3.jpg", colors: ["Black"], description: "Tape product description" },
+    ],
+    mesh: [
+        { title: "Mesh 1", image: "images/item4.jpg", colors: ["Silver", "Gold"], description: "Mesh product description" },
+    ],
+    frame: [
+        { title: "Frame 1", image: "images/item5.jpg", colors: ["Brown"], description: "Frame product description" },
+    ],
+    accessories: [
+        { title: "Accessory 1", image: "images/item6.jpg", colors: ["Pink"], description: "Accessory product description" },
+    ],
+    clips: [
+        { title: "Clip 1", image: "images/item7.jpg", colors: ["Gray"], description: "Clip product description" },
+    ],
+};
 
-// Render products for Products Page
-function renderProductsPageItems() {
-    const productGrid = document.getElementById("productGrid");
-    if (!productGrid) return;
+// Render Products for Each Section
+function renderProductsForSections() {
+    Object.keys(productsPageCategories).forEach((category) => {
+        const section = document.getElementById(category);
+        const productGrid = section.querySelector(".product-grid");
 
-    productGrid.innerHTML = productsPageItems
-        .map((product) => `
-            <div class="product-item">
-                <div class="product-card">
-                    <img src="${product.image}" alt="${product.title}">
-                    <h3>${product.title}</h3>
-                    <button onclick="openProductPageModal('${product.title}')">View Details</button>
-                </div>
-            </div>
-        `)
-        .join("");
+        if (productGrid) {
+            productGrid.innerHTML = productsPageCategories[category]
+                .map(
+                    (product) => `
+                    <div class="product-item">
+                        <div class="product-card">
+                            <img src="${product.image}" alt="${product.title}">
+                            <h3>${product.title}</h3>
+                            <button onclick="openProductPageModal('${product.title}', '${category}')">View Details</button>
+                        </div>
+                    </div>
+                `
+                )
+                .join("");
+        }
+    });
 }
 
-// Open Product Modal for Products Page
-function openProductPageModal(title) {
-    const product = productsPageItems.find((p) => p.title === title);
+// Open Product Modal (Updated to Handle Multiple Categories)
+function openProductPageModal(title, category) {
+    const product = productsPageCategories[category].find((p) => p.title === title);
     if (!product) return;
 
     const modal = document.getElementById("productModal");
@@ -205,25 +224,28 @@ function openProductPageModal(title) {
     modal.style.display = "flex";
 }
 
-// Close Modal for Products Page
-function closeProductPageModal() {
-    const modal = document.getElementById("productModal");
-    modal.style.display = "none";
-}
+// Initialize Scroll-to-Section Functionality
+function initializeScrollToSection() {
+    const links = document.querySelectorAll(".product-navigation a");
+    links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
 
-// Close modal when clicking outside of it (specific to Products Page modal)
-window.addEventListener("click", (e) => {
-    const modal = document.getElementById("productModal");
-    if (e.target === modal) {
-        closeProductPageModal();
-    }
-});
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+}
 
 // Initialize Products Page components
 document.addEventListener("DOMContentLoaded", () => {
     const isProductsPage = document.body.classList.contains("products-page");
     if (isProductsPage) {
-        renderProductsPageItems(); // Render only for Products Page
+        renderProductsForSections(); // Render products for all sections
+        initializeScrollToSection(); // Set up scroll functionality
     }
 });
 
