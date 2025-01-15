@@ -81,6 +81,15 @@ function handleHeaderScroll() {
     }
 }
 
+// Product Data
+const products = [
+    { title: "Netting Accessories", image: "images/apple.jpg", colors: ["Red", "Green", "Blue"] },
+    { title: "Magnetic Clips", image: "images/apple.jpg", colors: ["Yellow", "Black"] },
+    { title: "Magnetic Mosquito Net", image: "images/apple.jpg", badge: "Best Seller", colors: ["White", "Gray"] },
+    { title: "High-Quality Mesh", image: "images/apple.jpg", colors: ["Silver", "Gold"] },
+    { title: "Door Frames", image: "images/apple.jpg", colors: ["Brown", "Beige"] },
+];
+
 // Initialize hover effects for the product gallery
 function initializeProductHoverEffects() {
     const productItems = document.querySelectorAll('.product-item');
