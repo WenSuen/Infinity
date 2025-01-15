@@ -60,11 +60,9 @@ function handleHeaderScroll() {
     const header = document.querySelector('#main-header');
     if (!header) return;
 
-    // Check if the current page is the products page
     const isProductsPage = document.body.classList.contains('products-page');
 
     if (!isProductsPage) {
-        // Apply scroll-based header behavior only for non-products pages
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('solid-header');
@@ -75,20 +73,10 @@ function handleHeaderScroll() {
             }
         });
     } else {
-        // Ensure the header remains solid on the products page
         header.classList.remove('transparent-header');
         header.classList.add('solid-header');
     }
 }
-
-// Product Data
-const products = [
-    { title: "Netting Accessories", image: "images/apple.jpg", colors: ["Red", "Green", "Blue"] },
-    { title: "Magnetic Clips", image: "images/apple.jpg", colors: ["Yellow", "Black"] },
-    { title: "Magnetic Mosquito Net", image: "images/apple.jpg", badge: "Best Seller", colors: ["White", "Gray"] },
-    { title: "High-Quality Mesh", image: "images/apple.jpg", colors: ["Silver", "Gold"] },
-    { title: "Door Frames", image: "images/apple.jpg", colors: ["Brown", "Beige"] },
-];
 
 // Initialize hover effects for the product gallery
 function initializeProductHoverEffects() {
@@ -117,7 +105,6 @@ function initializeBackToTopButton() {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        // Initialize visibility on load
         handleScroll();
     }
 }
@@ -127,14 +114,44 @@ function initializeWhatsAppButton() {
     const whatsappButton = document.getElementById("whatsappButton");
     if (whatsappButton) {
         whatsappButton.addEventListener("click", () => {
-            const phoneNumber = "60193225830"; // Replace with your number
-            const message = "Hi, I would like to know more about your products."; // Optional pre-filled message
+            const phoneNumber = "60193225830";
+            const message = "Hi, I would like to know more about your products.";
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
         });
     }
 }
 
-// Placeholder Data for Each Section
+// Featured Products Data
+const products = [
+    { title: "Netting Accessories", image: "images/apple.jpg", colors: ["Red", "Green", "Blue"] },
+    { title: "Magnetic Clips", image: "images/apple.jpg", colors: ["Yellow", "Black"] },
+    { title: "Magnetic Mosquito Net", image: "images/apple.jpg", badge: "Best Seller", colors: ["White", "Gray"] },
+    { title: "High-Quality Mesh", image: "images/apple.jpg", colors: ["Silver", "Gold"] },
+    { title: "Door Frames", image: "images/apple.jpg", colors: ["Brown", "Beige"] },
+];
+
+// Dynamically generate product cards for non-products pages
+function renderFeaturedProducts() {
+    const isProductsPage = document.body.classList.contains('products-page');
+    if (isProductsPage) return;
+
+    const productGrid = document.getElementById("productGrid");
+    if (!productGrid) return;
+
+    productGrid.innerHTML = products
+        .map((product) => `
+            <div class="product-item">
+                ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.title}">
+                    <h3>${product.title}</h3>
+                </div>
+            </div>
+        `)
+        .join("");
+}
+
+// Products Page Logic
 const productsPageCategories = {
     net: [
         { title: "Fiberglass Net", image: "images/fiberglass-net.jpg", colors: ["Red", "Green"], description: "Durable fiberglass net for various uses." },
@@ -168,7 +185,6 @@ const productsPageCategories = {
     ],
 };
 
-// Render Products for Each Section
 function renderProductsForSections() {
     Object.keys(productsPageCategories).forEach((category) => {
         const section = document.getElementById(category);
@@ -178,21 +194,21 @@ function renderProductsForSections() {
             productGrid.innerHTML = productsPageCategories[category]
                 .map(
                     (product) => `
-                    <div class="product-item">
-                        <div class="product-card">
-                            <img src="${product.image}" alt="${product.title}">
-                            <h3>${product.title}</h3>
-                            <button onclick="openProductPageModal('${product.title}', '${category}')">View Details</button>
+                        <div class="product-item">
+                            <div class="product-card">
+                                <img src="${product.image}" alt="${product.title}">
+                                <h3>${product.title}</h3>
+                                <button onclick="openProductPageModal('${product.title}', '${category}')">View Details</button>
+                            </div>
                         </div>
-                    </div>
-                `
+                    `
                 )
                 .join("");
         }
     });
 }
 
-// Open Product Modal (Updated to Handle Multiple Categories)
+// Product Modal Logic
 function openProductPageModal(title, category) {
     const product = productsPageCategories[category].find((p) => p.title === title);
     if (!product) return;
@@ -206,21 +222,17 @@ function openProductPageModal(title, category) {
         <img src="${product.image}" alt="${product.title}">
         <p>${product.description}</p>
         <p>Available Colors:</p>
-        <ul>
-            ${product.colors.map((color) => `<li>${color}</li>`).join("")}
-        </ul>
+        <ul>${product.colors.map((color) => `<li>${color}</li>`).join("")}</ul>
     `;
 
     modal.style.display = "flex";
 }
 
-// Close the Modal
 function closeProductPageModal() {
     const modal = document.getElementById("productModal");
     modal.style.display = "none";
 }
 
-// Close the modal when clicking outside of it
 window.addEventListener("click", (e) => {
     const modal = document.getElementById("productModal");
     if (e.target === modal) {
@@ -228,7 +240,7 @@ window.addEventListener("click", (e) => {
     }
 });
 
-// Initialize Scroll-to-Section Functionality
+// Initialize Scroll-to-Section
 function initializeScrollToSection() {
     const links = document.querySelectorAll(".product-navigation a");
     links.forEach((link) => {
@@ -239,7 +251,7 @@ function initializeScrollToSection() {
 
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 70, // Offset for fixed header
+                    top: targetSection.offsetTop - 70,
                     behavior: "smooth",
                 });
             }
@@ -247,21 +259,14 @@ function initializeScrollToSection() {
     });
 }
 
-// Initialize Products Page components
-document.addEventListener("DOMContentLoaded", () => {
-    const isProductsPage = document.body.classList.contains("products-page");
-    if (isProductsPage) {
-        renderProductsForSections(); // Render products for all sections
-        initializeScrollToSection(); // Set up scroll functionality
-    }
-});
-
-// Initialize all shared components when DOM is fully loaded
+// Initialize all components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     loadComponents();
     preloadBackgroundImage();
     initializeProductHoverEffects();
     renderFeaturedProducts();
+    renderProductsForSections();
+    initializeScrollToSection();
     initializeBackToTopButton();
     initializeWhatsAppButton();
 });
