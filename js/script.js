@@ -125,56 +125,37 @@ function initializeWhatsAppButton() {
     }
 }
 
-// Product Data
-const products = [
-    { title: "Netting Accessories", image: "images/apple.jpg", colors: ["Red", "Green", "Blue"] },
-    { title: "Magnetic Clips", image: "images/apple.jpg", colors: ["Yellow", "Black"] },
-    { title: "Magnetic Mosquito Net", image: "images/apple.jpg", badge: "Best Seller", colors: ["White", "Gray"] },
-    { title: "High-Quality Mesh", image: "images/apple.jpg", colors: ["Silver", "Gold"] },
-    { title: "Door Frames", image: "images/apple.jpg", colors: ["Brown", "Beige"] },
-];
-
-// Dynamically generate product cards only for non-products pages
-function renderFeaturedProducts() {
-    const isProductsPage = document.body.classList.contains('products-page');
-    if (isProductsPage) return; // Skip rendering if it's the products page
-
-    const productGrid = document.getElementById("productGrid");
-    if (!productGrid) return;
-
-    productGrid.innerHTML = products
-        .map((product) => `
-            <div class="product-item" onclick="showProductDetails('${product.title}')">
-                ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
-                <div class="product-card">
-                    <img src="${product.image}" alt="${product.title}">
-                    <h3>${product.title}</h3>
-                </div>
-            </div>
-        `)
-        .join("");
-}
-
 // Placeholder Data for Each Section
 const productsPageCategories = {
     net: [
-        { title: "Net 1", image: "images/item1.jpg", colors: ["Red", "Green"], description: "Net product description" },
-        { title: "Net 2", image: "images/item2.jpg", colors: ["Blue", "Yellow"], description: "Net product description" },
+        { title: "Fiberglass Net", image: "images/net1.jpg", colors: ["Red", "Green"], description: "High-quality fiberglass net." },
+        { title: "Stainless Steel Net", image: "images/net2.jpg", colors: ["Blue", "Yellow"], description: "Durable stainless steel net." },
+        { title: "Polyester Net", image: "images/net3.jpg", colors: ["Black", "White"], description: "Lightweight polyester net." },
+    ],
+    magnet: [
+        { title: "3M Magnet Stripe", image: "images/magnet1.jpg", colors: ["Gray"], description: "Reliable 3M magnet stripe." },
+        { title: "Magnet Stripe", image: "images/magnet2.jpg", colors: ["Black"], description: "Durable magnet stripe." },
+    ],
+    mini_door: [
+        { title: "Mini Door", image: "images/minidoor.jpg", colors: ["White", "Brown"], description: "Compact and sturdy mini door." },
+    ],
+    pvc_stripe: [
+        { title: "PVC Stripe", image: "images/pvcstripe.jpg", colors: ["Transparent"], description: "Flexible PVC stripe." },
+    ],
+    corner: [
+        { title: "Corner Up (Flat Corner)", image: "images/corner_up.jpg", colors: ["Silver"], description: "Flat corner for precise fit." },
+        { title: "Corner Down (Handle Corner)", image: "images/corner_down.jpg", colors: ["Gold"], description: "Handle corner for easy handling." },
+    ],
+    clip: [
+        { title: "Clip", image: "images/clip.jpg", colors: ["Blue"], description: "Durable and versatile clip." },
+    ],
+    glue: [
+        { title: "Super Glue (L3)", image: "images/super_glue.jpg", colors: ["Transparent"], description: "High-strength super glue." },
     ],
     tape: [
-        { title: "Tape 1", image: "images/item3.jpg", colors: ["Black"], description: "Tape product description" },
-    ],
-    mesh: [
-        { title: "Mesh 1", image: "images/item4.jpg", colors: ["Silver", "Gold"], description: "Mesh product description" },
-    ],
-    frame: [
-        { title: "Frame 1", image: "images/item5.jpg", colors: ["Brown"], description: "Frame product description" },
-    ],
-    accessories: [
-        { title: "Accessory 1", image: "images/item6.jpg", colors: ["Pink"], description: "Accessory product description" },
-    ],
-    clips: [
-        { title: "Clip 1", image: "images/item7.jpg", colors: ["Gray"], description: "Clip product description" },
+        { title: "3M Tape", image: "images/tape1.jpg", colors: ["Transparent"], description: "Reliable 3M tape for bonding." },
+        { title: "Acrylic Foam Tape", image: "images/tape2.jpg", colors: ["Gray"], description: "Strong acrylic foam tape." },
+        { title: "P.E. Foam Tape", image: "images/tape3.jpg", colors: ["Black"], description: "Flexible P.E. foam tape." },
     ],
 };
 
@@ -224,6 +205,20 @@ function openProductPageModal(title, category) {
     modal.style.display = "flex";
 }
 
+// Close the Modal
+function closeProductPageModal() {
+    const modal = document.getElementById("productModal");
+    modal.style.display = "none";
+}
+
+// Close the modal when clicking outside of it
+window.addEventListener("click", (e) => {
+    const modal = document.getElementById("productModal");
+    if (e.target === modal) {
+        closeProductPageModal();
+    }
+});
+
 // Initialize Scroll-to-Section Functionality
 function initializeScrollToSection() {
     const links = document.querySelectorAll(".product-navigation a");
@@ -234,7 +229,10 @@ function initializeScrollToSection() {
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: "smooth" });
+                window.scrollTo({
+                    top: targetSection.offsetTop - 70, // Offset for fixed header
+                    behavior: "smooth",
+                });
             }
         });
     });
@@ -249,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Initialize all components when DOM is fully loaded
+// Initialize all shared components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     loadComponents();
     preloadBackgroundImage();
