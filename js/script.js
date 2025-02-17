@@ -154,7 +154,7 @@ function renderFeaturedProducts() {
 // Products Page Logic
 const productsPageCategories = {
     net: [
-        { title: "Fiberglass Net", image: "images/fiberglass-net.jpg", colors: ["Red", "Green"], description: "Durable fiberglass net for various uses." },
+        { title: "Fiberglass Net", image: "images/products/1.png", colors: ["Red", "Green"], description: "Durable fiberglass net for various uses." },
         { title: "Stainless Steel Net", image: "images/stainless-steel-net.jpg", colors: ["Silver"], description: "High-quality stainless steel net." },
         { title: "Polyester Net", image: "images/polyester-net.jpg", colors: ["Blue", "Yellow"], description: "Lightweight polyester net for indoor use." },
     ],
@@ -185,27 +185,28 @@ const productsPageCategories = {
     ],
 };
 
+// Render Products on the Products Page
 function renderProductsForSections() {
-    Object.keys(productsPageCategories).forEach((category) => {
-        const section = document.getElementById(category);
-        const productGrid = section.querySelector(".product-grid");
+    console.log("Rendering Products...");
 
+    const section = document.getElementById("net");
+    if (section) {
+        const productGrid = section.querySelector(".product-grid");
         if (productGrid) {
-            productGrid.innerHTML = productsPageCategories[category]
-                .map(
-                    (product) => `
-                        <div class="product-item">
-                            <div class="product-card">
-                                <div class="product-image" style="background-image: url('${product.image}');"></div>
-                                <h3>${product.title}</h3>
-                                <button onclick="openProductPageModal('${product.title}', '${category}')">View Details</button>
-                            </div>
+            productGrid.innerHTML = productsPageCategories["net"]
+                .map((product) => {
+                    console.log(`Loading image: ${product.image}`); // Debugging
+                    return `
+                        <div class="product-card">
+                            <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy" onerror="this.src='images/placeholder.png';">
+                            <h3>${product.title.toUpperCase()}</h3>
+                            <button class="view-details" onclick="openProductPageModal('${product.title}', 'net')">View Details</button>
                         </div>
-                    `
-                )
+                    `;
+                })
                 .join("");
         }
-    });
+    }
 }
 
 // Product Modal Logic
