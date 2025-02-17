@@ -169,7 +169,7 @@ const productsPageCategories = {
         { title: "PVC Stripe", image: "images/products/13.png", colors: ["Clear", "Opaque"], description: "Durable PVC stripe for insulation." },
     ],
     corner: [
-        { title: "Corner Up (Flat Corner)", image: "images/products/17.png", colors: ["Silver", "Gold"], description: "Flat corner for seamless jointing." },
+        { title: "Corner Up <br> (Flat Corner)", image: "images/products/17.png", colors: ["Silver", "Gold"], description: "Flat corner for seamless jointing." },
         { title: "Corner Down (Handle Corner)", image: "images/products/22.png", colors: ["Bronze"], description: "Handle corner for added functionality." },
     ],
     clip: [
