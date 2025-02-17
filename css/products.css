@@ -123,8 +123,8 @@ body {
 
 /* Product Image Adjustments */
 .product-image {
-    width: 90%;  /* Increase image size while keeping it responsive */
-    height: 200px; /* Adjust height for better visibility */
+    width: 95%;  /* Slightly increase image size */
+    height: 220px; /* Adjust height for better visibility */
     object-fit: contain; /* Ensures the image fits without being cropped */
     display: block;
     margin: 0 auto; /* Centers the image */
@@ -138,22 +138,24 @@ body {
     margin-top: 15px; /* Adds spacing */
 }
 
-/* Button Adjustments */
+/* Button Styling */
 .product-card button {
-    padding: 0.8em 1.5em;
-    font-size: 1.1rem; /* Bigger Button */
+    padding: 0.8em 1.8em;
+    font-size: 1.1rem; /* Slightly larger text */
     background-color: #ff6600;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px; /* More rounded edges for a modern look */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease-in-out;
     align-self: center;
-    margin-top: 20px; /* Space between title and button */
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .product-card button:hover {
     background-color: #cc5200;
+    transform: translateY(-3px); /* Slight lift effect */
 }
 
 /* Restrict the clickable area and visually fit the logo into the header height */
