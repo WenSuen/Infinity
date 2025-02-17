@@ -95,24 +95,25 @@ body {
     justify-content: center;
 }
 
-/* Product Card Enhancements */
+/* Ensures uniform product card size */
 .product-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     background-color: white;
-    padding: 1.5em;
+    padding: 1em;
     border: 1px solid #ddd;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-    overflow: hidden;
-    width: 100%; 
-    max-width: 320px;
-    min-height: 450px;
+    overflow: hidden; 
+    width: 100%; /* Ensures responsiveness */
+    max-width: 300px; /* Keeps it uniform */
+    min-height: 400px; /* Ensures a fixed height */
+    margin: auto; /* Centers the product card */
 }
 
 .product-card:hover {
