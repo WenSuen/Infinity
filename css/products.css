@@ -90,12 +90,12 @@ body {
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Always keep 3 columns */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Keeps 3 columns dynamically */
     gap: 2em;
     justify-content: center;
 }
 
-/* Ensures product-card has a fixed height and maintains consistent width */
+/* Ensures uniform product card size */
 .product-card {
     display: flex;
     flex-direction: column;
@@ -109,10 +109,11 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-    overflow: hidden; /* Prevents content overflow */
-    min-height: 320px; /* Adjust based on layout */
-    max-width: 300px; /* Prevents the card from stretching too wide */
-    margin: 0 auto; /* Centers the card when fewer than 3 are present */
+    overflow: hidden; 
+    width: 100%; /* Ensures responsiveness */
+    max-width: 300px; /* Keeps it uniform */
+    min-height: 400px; /* Ensures a fixed height */
+    margin: auto; /* Centers the product card */
 }
 
 .product-card:hover {
