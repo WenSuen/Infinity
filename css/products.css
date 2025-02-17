@@ -157,7 +157,7 @@ body {
 
 /* Button Styling (Now Matches Image Width) */
 .product-card button {
-    width: 90%; /* Matches image width */
+    width: 80%; 
     padding: 0.8em 1.8em;
     font-size: 1.1rem;
     background-color: #ff6600;
