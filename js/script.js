@@ -196,7 +196,7 @@ function renderProductsForSections() {
                     (product) => `
                         <div class="product-item">
                             <div class="product-card">
-                                <img src="${product.image}" alt="${product.title}">
+                                <div class="product-image" style="background-image: url('${product.image}');"></div>
                                 <h3>${product.title}</h3>
                                 <button onclick="openProductPageModal('${product.title}', '${category}')">View Details</button>
                             </div>
