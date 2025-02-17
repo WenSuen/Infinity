@@ -106,8 +106,8 @@ body {
     padding: 1em;
     border: 1px solid #ddd;
     border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
     position: relative;
     overflow: hidden; 
     width: 100%; /* Ensures responsiveness */
@@ -118,24 +118,41 @@ body {
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Product Image Adjustments */
 .product-image {
-    width: 95%;  /* Slightly increase image size */
-    height: 220px; /* Adjust height for better visibility */
-    object-fit: contain; /* Ensures the image fits without being cropped */
+    width: 90%; /* Adjust width for balanced spacing */
+    height: 220px;
+    object-fit: contain;
     display: block;
-    margin: 0 auto; /* Centers the image */
+    padding: 15px; /* Equal padding */
+    margin: 0 auto;
 }
 
 /* Title Styling (Keep it neat) */
 .product-card h3 {
-    font-size: 1.3rem; /* Slightly bigger but not too large */
+    font-size: 1.4rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 15px; /* Adds spacing */
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #333; /* Darker text for contrast */
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* Underline effect */
+.product-card h3::after {
+    content: "";
+    width: 50%;
+    height: 3px;
+    background-color: #ff6600;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
 }
 
 /* Button Styling */
