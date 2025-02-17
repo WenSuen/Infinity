@@ -96,19 +96,20 @@ body {
 
 /* Ensures product-card has a fixed height */
 .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
     background-color: white;
     padding: 1em;
     border: 1px solid #ddd;
     border-radius: 10px;
-    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden; /* Prevents content overflow */
-    height: 300px; /* Fixed height for uniformity */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    min-height: 320px; /* Adjust based on layout */
 }
 
 .product-card:hover {
@@ -119,10 +120,11 @@ body {
 /* Background image inside product card */
 .product-image {
     width: 100%;
-    height: 200px; /* Adjust height based on layout */
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px 10px 0 0;
+    height: auto; /* Ensures proper scaling */
+    max-height: 180px; /* Adjust this as needed */
+    object-fit: contain; /* Keeps aspect ratio without cropping */
+    display: block;
+    margin: 0 auto;
 }
 
 /* Proper alignment of text and button */
