@@ -155,33 +155,33 @@ function renderFeaturedProducts() {
 const productsPageCategories = {
     net: [
         { title: "Fiberglass Net", image: "images/products/1.png", colors: ["Red", "Green"], description: "Durable fiberglass net for various uses." },
-        { title: "Stainless Steel Net", image: "images/stainless-steel-net.jpg", colors: ["Silver"], description: "High-quality stainless steel net." },
-        { title: "Polyester Net", image: "images/polyester-net.jpg", colors: ["Blue", "Yellow"], description: "Lightweight polyester net for indoor use." },
+        { title: "Stainless Steel Net", image: "images/magnet-stripe.jpg", colors: ["Silver"], description: "High-quality stainless steel net." },
+        { title: "Polyester Net", image: "images/magnet-stripe.jpg", colors: ["Blue", "Yellow"], description: "Lightweight polyester net for indoor use." },
     ],
     magnet: [
-        { title: "3M Magnet Stripe", image: "images/3m-magnet.jpg", colors: ["Black", "Gray"], description: "3M high-strength magnet stripe for sealing." },
+        { title: "3M Magnet Stripe", image: "images/products/N.png", colors: ["Black", "Gray"], description: "3M high-strength magnet stripe for sealing." },
         { title: "Magnet Stripe", image: "images/magnet-stripe.jpg", colors: ["White"], description: "Versatile magnetic stripe for multiple applications." },
     ],
     "mini-door": [
-        { title: "Mini Door", image: "images/mini-door.jpg", colors: ["Brown"], description: "Compact and stylish mini door." },
+        { title: "Mini Door", image: "images/products/N (4).png", colors: ["Brown"], description: "Compact and stylish mini door." },
     ],
     "pvc-stripe": [
-        { title: "PVC Stripe", image: "images/pvc-stripe.jpg", colors: ["Clear", "Opaque"], description: "Durable PVC stripe for insulation." },
+        { title: "PVC Stripe", image: "images/products/13.png", colors: ["Clear", "Opaque"], description: "Durable PVC stripe for insulation." },
     ],
     corner: [
-        { title: "Corner Up (Flat Corner)", image: "images/corner-up.jpg", colors: ["Silver", "Gold"], description: "Flat corner for seamless jointing." },
-        { title: "Corner Down (Handle Corner)", image: "images/corner-down.jpg", colors: ["Bronze"], description: "Handle corner for added functionality." },
+        { title: "Corner Up (Flat Corner)", image: "images/products/17.png", colors: ["Silver", "Gold"], description: "Flat corner for seamless jointing." },
+        { title: "Corner Down (Handle Corner)", image: "images/products/22.png", colors: ["Bronze"], description: "Handle corner for added functionality." },
     ],
     clip: [
-        { title: "Clip", image: "images/clip.jpg", colors: ["Black", "White"], description: "Sturdy clip for fastening." },
+        { title: "Clip", image: "images/products/27.png", colors: ["Black", "White"], description: "Sturdy clip for fastening." },
     ],
     glue: [
-        { title: "Super Glue (L3)", image: "images/super-glue.jpg", colors: ["Transparent"], description: "High-strength super glue for bonding." },
+        { title: "Super Glue (L3)", image: "images/products/N (2).png", colors: ["Transparent"], description: "High-strength super glue for bonding." },
     ],
     tape: [
-        { title: "3M Tape", image: "images/3m-tape.jpg", colors: ["Gray"], description: "Reliable 3M tape for sealing." },
-        { title: "Acrylic Form Tape", image: "images/acrylic-form-tape.jpg", colors: ["White"], description: "Acrylic foam tape for superior adhesion." },
-        { title: "P.E Form Tape", image: "images/pe-form-tape.jpg", colors: ["Black"], description: "P.E foam tape for insulation." },
+        { title: "3M Tape", image: "images/products/N (3).png", colors: ["Gray"], description: "Reliable 3M tape for sealing." },
+        { title: "Acrylic Form Tape", image: "images/products/38.png", colors: ["White"], description: "Acrylic foam tape for superior adhesion." },
+        { title: "P.E Form Tape", image: "images/products/41.png", colors: ["Black"], description: "P.E foam tape for insulation." },
     ],
 };
 
