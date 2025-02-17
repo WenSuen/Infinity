@@ -95,25 +95,24 @@ body {
     justify-content: center;
 }
 
-/* Ensures uniform product card size */
+/* Product Card Enhancements */
 .product-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-align: center;
     background-color: white;
-    padding: 1em;
+    padding: 1.5em;
     border: 1px solid #ddd;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-    overflow: hidden; 
-    width: 100%; /* Ensures responsiveness */
-    max-width: 300px; /* Keeps it uniform */
-    min-height: 400px; /* Ensures a fixed height */
-    margin: auto; /* Centers the product card */
+    overflow: hidden;
+    width: 100%; 
+    max-width: 320px;
+    min-height: 450px;
 }
 
 .product-card:hover {
@@ -121,36 +120,36 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Background image inside product card */
+/* Image Adjustments */
 .product-image {
     width: 100%;
-    height: auto; /* Ensures proper scaling */
-    max-height: 180px; /* Adjust this as needed */
+    height: 220px; /* Larger Image */
     object-fit: contain; /* Keeps aspect ratio without cropping */
     display: block;
     margin: 0 auto;
 }
 
-/* Proper alignment of text and button */
+/* Title Styling */
 .product-card h3 {
-    font-size: 1.2rem;
-    margin: 0.5em 0;
+    font-size: 1.4rem; /* Bigger text */
+    font-weight: bold;
     color: #333;
-    flex-grow: 1;
+    margin: 1em 0;
+    text-transform: uppercase;
 }
 
-/* Fix button placement */
+/* Button Adjustments */
 .product-card button {
-    padding: 0.5em 1em;
-    font-size: 1rem;
+    padding: 0.8em 1.5em;
+    font-size: 1.1rem; /* Bigger Button */
     background-color: #ff6600;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     align-self: center;
-    margin-bottom: 10px;
+    margin-top: auto; /* Pushes to the bottom */
 }
 
 .product-card button:hover {
