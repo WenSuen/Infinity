@@ -90,11 +90,12 @@ body {
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Always keep 3 columns */
     gap: 2em;
+    justify-content: center;
 }
 
-/* Ensures product-card has a fixed height */
+/* Ensures product-card has a fixed height and maintains consistent width */
 .product-card {
     display: flex;
     flex-direction: column;
@@ -110,6 +111,8 @@ body {
     position: relative;
     overflow: hidden; /* Prevents content overflow */
     min-height: 320px; /* Adjust based on layout */
+    max-width: 300px; /* Prevents the card from stretching too wide */
+    margin: 0 auto; /* Centers the card when fewer than 3 are present */
 }
 
 .product-card:hover {
