@@ -189,24 +189,26 @@ const productsPageCategories = {
 function renderProductsForSections() {
     console.log("Rendering Products...");
 
-    const section = document.getElementById("net");
-    if (section) {
-        const productGrid = section.querySelector(".product-grid");
-        if (productGrid) {
-            productGrid.innerHTML = productsPageCategories["net"]
-                .map((product) => {
-                    console.log(`Loading image: ${product.image}`); // Debugging
-                    return `
-                        <div class="product-card">
-                            <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy" onerror="this.src='images/placeholder.png';">
-                            <h3>${product.title.toUpperCase()}</h3>
-                            <button class="view-details" onclick="openProductPageModal('${product.title}', 'net')">View Details</button>
-                        </div>
-                    `;
-                })
-                .join("");
+    Object.keys(productsPageCategories).forEach((category) => {
+        const section = document.getElementById(category);
+        if (section) {
+            const productGrid = section.querySelector(".product-grid");
+            if (productGrid) {
+                productGrid.innerHTML = productsPageCategories[category]
+                    .map((product) => {
+                        console.log(`Loading image: ${product.image}`); // Debugging
+                        return `
+                            <div class="product-card">
+                                <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy" onerror="this.src='images/placeholder.png';">
+                                <h3>${product.title.toUpperCase()}</h3>
+                                <button class="view-details" onclick="openProductPageModal('${product.title}', '${category}')">View Details</button>
+                            </div>
+                        `;
+                    })
+                    .join("");
+            }
         }
-    }
+    });
 }
 
 // Product Modal Logic
