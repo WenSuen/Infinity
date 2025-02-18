@@ -17,6 +17,12 @@ body {
     background-color: #f1f1f1;
     padding: 1em;
     border-right: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Scrollable if content overflows */
+    z-index: 1000; /* Keeps it above other elements */
 }
 
 .product-navigation h2 {
@@ -52,8 +58,10 @@ body {
 
 /* Product Display Area */
 .product-display {
-    flex-grow: 1;
+    margin-left: 21%; /* Ensure content stays in place */
     padding: 2em;
+    flex-grow: 1;
+    width: 79%; /* Adjust width to fit the remaining screen */
 }
 
 .product-display header {
