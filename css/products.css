@@ -18,9 +18,9 @@ body {
     padding: 1em;
     border-right: 1px solid #ddd;
     position: fixed;
-    top: 0;
+    top: 60px; /* Adjusted so it stays below the menu bar */
     left: 0;
-    height: 100vh; /* Full height */
+    height: calc(100vh - 60px); /* Adjust height to fit within viewport */
     overflow-y: auto; /* Scrollable if content overflows */
     z-index: 1000; /* Keeps it above other elements */
 }
