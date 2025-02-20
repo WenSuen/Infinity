@@ -13,16 +13,16 @@ body {
 
 /* Navigation Panel */
 .product-navigation {
-    width: 250px; /* Adjust width to match the original style */
-    background-color: #f1f1f1;
-    padding: 1.5em; /* Increased padding for better spacing */
-    border-right: 1px solid #ddd;
-    position: sticky;
-    top: 60px; /* Stick below the header */
-    height: auto;
-    max-height: calc(100vh - 60px); /* Prevent overflow */
+    width: 280px; /* Adjusted width to match original */
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-right: 2px solid #ddd;
+    position: fixed; /* Keeps it aligned properly */
+    top: 0;
+    bottom: 0; /* Ensures it spans the full height */
+    left: 0; /* Aligns it properly */
     overflow-y: auto;
-    z-index: 1000; /* Ensures it stays on top */
+    z-index: 1000;
 }
 
 .product-navigation h2 {
@@ -58,10 +58,10 @@ body {
 
 /* Product Display Area */
 .product-display {
-    margin-left: 21%; /* Ensure content stays in place */
+    margin-left: 300px; /* Adjust this value based on sidebar width */
     padding: 2em;
     flex-grow: 1;
-    width: 79%; /* Adjust width to fit the remaining screen */
+    width: calc(100% - 300px); /* Ensures it takes remaining space */
 }
 
 .product-display header {
