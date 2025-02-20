@@ -17,12 +17,10 @@ body {
     background-color: #f1f1f1;
     padding: 1em;
     border-right: 1px solid #ddd;
-    position: fixed;
+    position: absolute; /* Start as absolute */
     top: 60px; /* Keeps it below the header */
     left: 0;
-    height: auto; /* Remove fixed height */
     z-index: 1000;
-    transition: top 0.3s ease; /* Smooth transition */
 }
 
 .product-navigation h2 {
