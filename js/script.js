@@ -269,17 +269,21 @@ window.addEventListener("scroll", function () {
     let sidebarHeight = sidebar.offsetHeight;
     let footerOffset = footer.offsetTop;
     let scrollY = window.scrollY;
-    let headerHeight = 60; // Adjust if header height changes
+    let headerHeight = 60; // Adjust based on header size
+    let offset = 10; // Buffer to prevent flickering
 
-    if (scrollY + headerHeight >= footerOffset - sidebarHeight) {
+    if (scrollY + sidebarHeight + headerHeight >= footerOffset - offset) {
+        // Lock it above the footer
         sidebar.style.position = "absolute";
-        sidebar.style.top = (footerOffset - sidebarHeight) + "px"; // Stop before footer
+        sidebar.style.top = (footerOffset - sidebarHeight - offset) + "px";
     } else if (scrollY > headerHeight) {
+        // Keep it fixed below the header
         sidebar.style.position = "fixed";
-        sidebar.style.top = headerHeight + "px"; // Stay fixed below header
+        sidebar.style.top = headerHeight + "px";
     } else {
+        // Reset to default position
         sidebar.style.position = "absolute";
-        sidebar.style.top = "60px"; // Default position
+        sidebar.style.top = "60px";
     }
 });
 
