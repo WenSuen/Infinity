@@ -57,10 +57,12 @@ body {
 
 /* Product Display Area */
 .product-display {
-    margin-left: 300px; /* Adjust spacing to align content properly */
+    margin-left: 300px; /* Adjusted to match the sidebar width */
     padding: 2em;
-    flex-grow: 1;
     width: calc(100% - 300px); /* Ensures it fills the remaining space */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Aligns items properly */
 }
 
 .product-display header {
