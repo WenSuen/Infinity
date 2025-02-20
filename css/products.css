@@ -17,11 +17,11 @@ body {
     background-color: #f8f8f8;
     padding: 20px;
     border-right: 2px solid #ddd;
-    position: sticky; /* Sticks the sidebar in place */
-    top: 70px; /* Ensures it stays below the header */
-    height: calc(100vh - 70px); /* Makes it extend to the bottom */
-    overflow-y: auto; /* Enables scrolling within the sidebar if needed */
-    z-index: 1000;
+    position: sticky; /* Ensures it stays fixed while scrolling */
+    top: 80px; /* Adjust based on header height */
+    height: calc(100vh - 80px); /* Ensures full height without overlapping */
+    overflow-y: auto; /* Allows scrolling inside sidebar if needed */
+    z-index: 10; /* Keeps it below the header */
 }
 
 .product-navigation h2 {
@@ -57,10 +57,10 @@ body {
 
 /* Product Display Area */
 .product-display {
-    margin-left: 300px; /* Ensures proper spacing */
+    margin-left: 300px; /* Adjust spacing to align content properly */
     padding: 2em;
     flex-grow: 1;
-    width: calc(100% - 300px); /* Makes it take the remaining space */
+    width: calc(100% - 300px); /* Ensures it fills the remaining space */
 }
 
 .product-display header {
