@@ -262,6 +262,23 @@ function initializeScrollToSection() {
     });
 }
 
+// Ensures the sidebar stays fixed but stops before the footer
+window.addEventListener("scroll", function () {
+    let sidebar = document.querySelector(".product-navigation");
+    let footer = document.querySelector(".main-footer");
+    let sidebarHeight = sidebar.offsetHeight;
+    let footerOffset = footer.offsetTop;
+    let scrollY = window.scrollY;
+    
+    if (scrollY + sidebarHeight >= footerOffset) {
+        sidebar.style.position = "absolute";
+        sidebar.style.top = (footerOffset - sidebarHeight) + "px"; // Stops at footer
+    } else {
+        sidebar.style.position = "fixed";
+        sidebar.style.top = "60px"; // Keeps it below the header
+    }
+});
+
 // Initialize all components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     loadComponents();

@@ -20,10 +20,9 @@ body {
     position: fixed;
     top: 60px; /* Keeps it below the header */
     left: 0;
-    bottom: 0; /* Ensures it doesn’t exceed the page */
-    height: calc(100vh - 60px); /* Prevents overlapping with footer */
-    overflow-y: auto; /* Makes sidebar scrollable */
+    height: auto; /* Remove fixed height */
     z-index: 1000;
+    transition: top 0.3s ease; /* Smooth transition */
 }
 
 .product-navigation h2 {
