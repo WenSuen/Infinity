@@ -13,15 +13,16 @@ body {
 
 /* Navigation Panel */
 .product-navigation {
-    width: 20%;
+    width: 250px; /* Adjust width to match the original style */
     background-color: #f1f1f1;
-    padding: 1em;
+    padding: 1.5em; /* Increased padding for better spacing */
     border-right: 1px solid #ddd;
     position: sticky;
     top: 60px; /* Stick below the header */
-    height: auto; /* Allow it to adjust dynamically */
+    height: auto;
     max-height: calc(100vh - 60px); /* Prevent overflow */
-    overflow-y: auto; /* Allow scrolling inside */
+    overflow-y: auto;
+    z-index: 1000; /* Ensures it stays on top */
 }
 
 .product-navigation h2 {
