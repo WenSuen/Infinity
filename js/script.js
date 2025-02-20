@@ -262,34 +262,6 @@ function initializeScrollToSection() {
     });
 }
 
-// Adjusts sidebar position so it stops before footer
-window.addEventListener("scroll", function () {
-    let sidebar = document.querySelector(".product-navigation");
-    let footer = document.querySelector(".main-footer");
-    let sidebarHeight = sidebar.offsetHeight;
-    let footerOffset = footer.offsetTop;
-    let scrollY = window.scrollY;
-    let headerHeight = 60; // Adjust based on header height
-    let buffer = 20; // Extra margin to prevent jittering
-
-    let sidebarBottomPosition = scrollY + sidebarHeight + buffer; // Where the sidebar bottom would be
-    let footerStartPosition = footerOffset - buffer; // Where we want to stop
-
-    if (sidebarBottomPosition >= footerStartPosition) {
-        // Lock the sidebar above the footer
-        sidebar.style.position = "absolute";
-        sidebar.style.top = (footerStartPosition - sidebarHeight) + "px";
-    } else if (scrollY > headerHeight) {
-        // Keep it fixed after the header
-        sidebar.style.position = "fixed";
-        sidebar.style.top = headerHeight + "px";
-    } else {
-        // Reset to initial absolute positioning
-        sidebar.style.position = "absolute";
-        sidebar.style.top = "60px";
-    }
-});
-
 // Initialize all components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     loadComponents();

@@ -17,12 +17,11 @@ body {
     background-color: #f1f1f1;
     padding: 1em;
     border-right: 1px solid #ddd;
-    position: absolute; /* Start as absolute */
-    top: 60px; /* Keeps it below the header */
-    left: 0;
-    bottom: 0; /* Extends full height */
-    height: auto; /* Allow it to expand */
-    z-index: 1000;
+    position: sticky;
+    top: 60px; /* Stick below the header */
+    height: auto; /* Allow it to adjust dynamically */
+    max-height: calc(100vh - 60px); /* Prevent overflow */
+    overflow-y: auto; /* Allow scrolling inside */
 }
 
 .product-navigation h2 {
