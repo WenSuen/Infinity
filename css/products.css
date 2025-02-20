@@ -13,14 +13,14 @@ body {
 
 /* Navigation Panel */
 .product-navigation {
-    width: 280px; /* Adjusted width to match original */
+    width: 280px; /* Keeps the original width */
     background-color: #f8f8f8;
     padding: 20px;
     border-right: 2px solid #ddd;
-    position: fixed; /* Keeps it aligned properly */
-    top: 0;
-    bottom: 0; /* Ensures it spans the full height */
-    left: 0; /* Aligns it properly */
+    position: absolute; /* Changed from 'fixed' to prevent overlapping */
+    top: 70px; /* Push it down to avoid header overlap */
+    bottom: 0; /* Ensures it stretches down */
+    left: 0;
     overflow-y: auto;
     z-index: 1000;
 }
@@ -58,10 +58,11 @@ body {
 
 /* Product Display Area */
 .product-display {
-    margin-left: 300px; /* Adjust this value based on sidebar width */
+    margin-left: 300px; /* Moves content to the right of the sidebar */
     padding: 2em;
     flex-grow: 1;
-    width: calc(100% - 300px); /* Ensures it takes remaining space */
+    width: calc(100% - 300px);
+    min-height: calc(100vh - 140px); /* Ensures it doesn't overlap the footer */
 }
 
 .product-display header {
