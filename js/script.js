@@ -269,19 +269,22 @@ window.addEventListener("scroll", function () {
     let sidebarHeight = sidebar.offsetHeight;
     let footerOffset = footer.offsetTop;
     let scrollY = window.scrollY;
-    let headerHeight = 60; // Adjust based on header size
-    let offset = 10; // Buffer to prevent flickering
+    let headerHeight = 60; // Adjust based on header height
+    let buffer = 20; // Extra margin to prevent jittering
 
-    if (scrollY + sidebarHeight + headerHeight >= footerOffset - offset) {
-        // Lock it above the footer
+    let sidebarBottomPosition = scrollY + sidebarHeight + buffer; // Where the sidebar bottom would be
+    let footerStartPosition = footerOffset - buffer; // Where we want to stop
+
+    if (sidebarBottomPosition >= footerStartPosition) {
+        // Lock the sidebar above the footer
         sidebar.style.position = "absolute";
-        sidebar.style.top = (footerOffset - sidebarHeight - offset) + "px";
+        sidebar.style.top = (footerStartPosition - sidebarHeight) + "px";
     } else if (scrollY > headerHeight) {
-        // Keep it fixed below the header
+        // Keep it fixed after the header
         sidebar.style.position = "fixed";
         sidebar.style.top = headerHeight + "px";
     } else {
-        // Reset to default position
+        // Reset to initial absolute positioning
         sidebar.style.position = "absolute";
         sidebar.style.top = "60px";
     }
