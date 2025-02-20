@@ -201,7 +201,7 @@ function renderProductsForSections() {
                             <div class="product-card">
                                 <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy" onerror="this.src='images/placeholder.png';">
                                 <h3>${product.title.toUpperCase()}</h3>
-                                <button class="view-details" onclick="openProductPageModal('${product.title}', '${category}')">View Details</button>
+                                <button class="view-details" onclick="openProductPageModal('${product.title}', '${category}')">More Details</button>
                             </div>
                         `;
                     })
