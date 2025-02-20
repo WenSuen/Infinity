@@ -20,6 +20,8 @@ body {
     position: absolute; /* Start as absolute */
     top: 60px; /* Keeps it below the header */
     left: 0;
+    bottom: 0; /* Extends full height */
+    height: auto; /* Allow it to expand */
     z-index: 1000;
 }
 

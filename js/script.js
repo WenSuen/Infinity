@@ -273,10 +273,13 @@ window.addEventListener("scroll", function () {
 
     if (scrollY + headerHeight >= footerOffset - sidebarHeight) {
         sidebar.style.position = "absolute";
-        sidebar.style.top = (footerOffset - sidebarHeight) + "px"; // Stops at footer
-    } else {
+        sidebar.style.top = (footerOffset - sidebarHeight) + "px"; // Stop before footer
+    } else if (scrollY > headerHeight) {
         sidebar.style.position = "fixed";
-        sidebar.style.top = headerHeight + "px"; // Stays fixed below header
+        sidebar.style.top = headerHeight + "px"; // Stay fixed below header
+    } else {
+        sidebar.style.position = "absolute";
+        sidebar.style.top = "60px"; // Default position
     }
 });
 
