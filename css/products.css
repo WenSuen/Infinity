@@ -90,33 +90,28 @@ body {
     color: #333;
 }
 
-.sort-filter {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-
-.sort-filter label {
-    font-size: 1rem;
-}
-
-.sort-filter select {
-    padding: 0.3em;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    justify-content: center; /* Centers the entire grid */
-    justify-items: center; /* Centers items in incomplete rows */
+    grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
+    gap: 30px; /* Consistent spacing */
+    justify-content: center;
     align-items: stretch;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+.product-grid::after {
+    content: "";
+    width: 300px; /* Match product card width */
+    height: 0;
+    visibility: hidden;
+}
+
+.product-grid > *:nth-last-child(1):nth-child(3n + 1),
+.product-grid > *:nth-last-child(2):nth-child(3n + 1) {
+    grid-column: span 3; /* Center when only 1 or 2 items in last row */
+    justify-self: center;
 }
 
 /* Ensures uniform product card size */
