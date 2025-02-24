@@ -147,7 +147,6 @@ body {
 }
 
 /* Title Styling */
-/* Ensuring uniform spacing for product titles */
 .product-card h3 {
     font-size: 1.4rem;
     font-weight: bold;
@@ -156,15 +155,18 @@ body {
     color: #333;
     letter-spacing: 1px;
     
-    /* Set a fixed height */
-    height: 50px; /* Adjust based on your longest title */
+    /* Fixed height for 2 lines of text */
+    height: 60px;
+    line-height: 1.2; /* Control spacing */
+    
+    /* Allow wrapping while maintaining even spacing */
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
+
 
 /* Underline effect */
 .product-card h3::after {
