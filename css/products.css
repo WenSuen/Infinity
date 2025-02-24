@@ -57,7 +57,7 @@ body {
 
 /* Product Display Area */
 .product-display {
-    margin-left: 300px; /* Adjusted to match the sidebar width */
+    margin-left: 20px; /* Adjusted to match the sidebar width */
     padding: 2em;
     width: calc(100% - 300px); /* Ensures it fills the remaining space */
     display: flex;
