@@ -121,7 +121,7 @@ function initializeWhatsAppButton() {
     }
 }
 
-// Featured Products Data (Supports image transitions & all images load properly)
+// Featured Products Data (Supports carousel-style image transitions)
 const products = [
     { 
         title: "Super Glue (L3)", 
@@ -151,23 +151,39 @@ const products = [
     },
 ];
 
-// Function to start image transitions with fade effect
+// Function to start image transitions with carousel effect
 function startImageTransition() {
-    document.querySelectorAll('.product-card img').forEach((img, index) => {
+    document.querySelectorAll('.product-card').forEach((card, index) => {
         const product = products[index]; // Get the corresponding product
-        if (product && product.images.length > 1) { // Ensure product exists and has multiple images
+        const img = card.querySelector("img"); // Select the image inside the card
+
+        if (!img) return; // Ensure the image exists
+
+        img.src = product.images[0]; // Always load the first image initially
+
+        if (product.images.length > 1) { // Apply transition only if multiple images exist
             let currentImageIndex = 0;
 
             setInterval(() => {
-                currentImageIndex = (currentImageIndex + 1) % product.images.length;
-                
-                // Apply fade-out effect
-                img.style.opacity = "0";
-                setTimeout(() => {
-                    img.src = product.images[currentImageIndex]; // Switch image
-                    img.style.opacity = "1"; // Fade back in
-                }, 500); // Wait 0.5s before changing image
+                const nextImageIndex = (currentImageIndex + 1) % product.images.length;
+                const nextImage = product.images[nextImageIndex];
 
+                // Apply carousel slide effect
+                img.style.transition = "transform 0.5s ease-in-out";
+                img.style.transform = "translateX(100%)"; // Move out to the right
+
+                setTimeout(() => {
+                    img.src = nextImage; // Switch image
+                    img.style.transition = "none";
+                    img.style.transform = "translateX(-100%)"; // Move new image to the left instantly
+
+                    setTimeout(() => {
+                        img.style.transition = "transform 0.5s ease-in-out";
+                        img.style.transform = "translateX(0)"; // Slide image back to center
+                    }, 50); // Short delay to reset transform
+
+                    currentImageIndex = nextImageIndex;
+                }, 500); // Wait 0.5s before switching image
             }, 5000); // Change every 5 seconds
         }
     });
