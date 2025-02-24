@@ -98,12 +98,13 @@ body {
     border-radius: 4px;
 }
 
-/* Product Grid */
+/* Product Grid - Ensures Consistent Gaps */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Ensures 3 items per row */
-    gap: 2em; /* Space between items */
+    gap: 2em; /* Uniform spacing between items */
     justify-content: center;
+    align-items: start; /* Aligns all items at the top */
 }
 
 /* Ensures uniform product card size */
