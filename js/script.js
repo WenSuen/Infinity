@@ -123,11 +123,11 @@ function initializeWhatsAppButton() {
 
 // Featured Products Data
 const products = [
-    { title: "Netting Accessories", image: "images/3M_Tape.png", colors: ["Red", "Green", "Blue"] },
-    { title: "Magnetic Clips", image: "images/3M_Magnet.png", colors: ["Yellow", "Black"] },
-    { title: "Magnetic Mosquito Net", image: "images/Corner_Up.png", badge: "Best Seller", colors: ["White", "Gray"] },
-    { title: "High-Quality Mesh", image: "images/PVC_Stripe.png", colors: ["Silver", "Gold"] },
-    { title: "Door Frames", image: "images/Mini_Door_Black.png", colors: ["Brown", "Beige"] },
+    { title: "Super Glue (L3)", image: "images/products/N (2).png", colors: ["Red", "Green", "Blue"] },
+    { title: "Corner", image: "images/products/22.png", colors: ["Yellow", "Black"] },
+    { title: "3M Magnet Stripe", image: "images/products/6.png", badge: "Best Seller", colors: ["White", "Gray"] },
+    { title: "PVC Stripe", image: "images/products/13.png", colors: ["Silver", "Gold"] },
+    { title: "Mini Door", image: "images/products/11.png", colors: ["Brown", "Beige"] },
 ];
 
 // Dynamically generate product cards for non-products pages
