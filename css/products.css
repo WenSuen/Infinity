@@ -99,8 +99,8 @@ body {
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Keeps 3 columns dynamically */
-    gap: 2em;
+    grid-template-columns: repeat(3, 1fr); /* Ensures 3 items per row */
+    gap: 2em; /* Space between items */
     justify-content: center;
 }
 
