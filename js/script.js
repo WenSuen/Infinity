@@ -121,7 +121,7 @@ function initializeWhatsAppButton() {
     }
 }
 
-// Featured Products Data (Now supports specific image transitions)
+// Featured Products Data (Supports image transitions & all images load properly)
 const products = [
     { 
         title: "Super Glue (L3)", 
@@ -129,13 +129,13 @@ const products = [
         colors: ["Red", "Green", "Blue"] 
     },
     { 
-        title: "Corner Clips", 
+        title: "Corner & Clip", 
         images: ["images/products/22.png", "images/products/17.png"], // 1 extra image
         colors: ["Yellow", "Black"] 
     },
     { 
         title: "Magnet Stripe", 
-        images: ["images/products/N.png", "images/products/45.png"], // 1 extra images
+        images: ["images/products/N.png", "images/products/45.png"], // 1 extra image
         badge: "Best Seller", 
         colors: ["White", "Gray"] 
     },
@@ -146,21 +146,28 @@ const products = [
     },
     { 
         title: "Mini Doors", 
-        images: ["images/products/11.png", "images/products/9.png"], // 1 extra images
+        images: ["images/products/11.png", "images/products/9.png"], // 1 extra image
         colors: ["Brown", "Beige"] 
     },
 ];
 
-// Function to start image transitions
+// Function to start image transitions with fade effect
 function startImageTransition() {
     document.querySelectorAll('.product-card img').forEach((img, index) => {
         const product = products[index]; // Get the corresponding product
-        if (product.images.length > 1) { // Apply transition only if multiple images exist
+        if (product && product.images.length > 1) { // Ensure product exists and has multiple images
             let currentImageIndex = 0;
-            
+
             setInterval(() => {
                 currentImageIndex = (currentImageIndex + 1) % product.images.length;
-                img.src = product.images[currentImageIndex]; // Switch image
+                
+                // Apply fade-out effect
+                img.style.opacity = "0";
+                setTimeout(() => {
+                    img.src = product.images[currentImageIndex]; // Switch image
+                    img.style.opacity = "1"; // Fade back in
+                }, 500); // Wait 0.5s before changing image
+
             }, 5000); // Change every 5 seconds
         }
     });
