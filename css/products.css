@@ -94,24 +94,16 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
     gap: 30px; /* Consistent spacing */
-    justify-content: center;
+    justify-content: start; /* Ensures left alignment */
     align-items: stretch;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.product-grid::after {
-    content: "";
-    width: 300px; /* Match product card width */
-    height: 0;
-    visibility: hidden;
-}
-
 .product-grid > *:nth-last-child(1):nth-child(3n + 1),
 .product-grid > *:nth-last-child(2):nth-child(3n + 1) {
-    grid-column: span 3; /* Center when only 1 or 2 items in last row */
-    justify-self: center;
+    grid-column: span 1; /* Keeps last row items left-aligned */
 }
 
 /* Ensures uniform product card size */
