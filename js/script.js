@@ -160,7 +160,7 @@ const productsPageCategories = {
     ],
     magnet: [
         { title: "3M Magnet Stripe", image: "images/products/N.png", colors: ["Black", "Gray"], description: "3M high-strength magnet stripe for sealing." },
-        { title: "Magnet Stripe", image: "images/magnet-stripe.jpg", colors: ["White"], description: "Versatile magnetic stripe for multiple applications." },
+        { title: "Magnet Stripe", image: "images/products/45.png", colors: ["White"], description: "Versatile magnetic stripe for multiple applications." },
     ],
     "mini-door": [
         { title: "Mini Door", image: "images/products/N (4).png", colors: ["Brown"], description: "Compact and stylish mini door." },
