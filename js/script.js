@@ -121,14 +121,50 @@ function initializeWhatsAppButton() {
     }
 }
 
-// Featured Products Data
+// Featured Products Data (Now supports specific image transitions)
 const products = [
-    { title: "Super Glue (L3)", image: "images/products/N (2).png", colors: ["Red", "Green", "Blue"] },
-    { title: "Corner", image: "images/products/22.png", colors: ["Yellow", "Black"] },
-    { title: "3M Magnet Stripe", image: "images/products/6.png", badge: "Best Seller", colors: ["White", "Gray"] },
-    { title: "PVC Stripe", image: "images/products/13.png", colors: ["Silver", "Gold"] },
-    { title: "Mini Door", image: "images/products/11.png", colors: ["Brown", "Beige"] },
+    { 
+        title: "Super Glue (L3)", 
+        images: ["images/products/N (2).png"], // No transition
+        colors: ["Red", "Green", "Blue"] 
+    },
+    { 
+        title: "Corner Clips", 
+        images: ["images/products/22.png", "images/products/17.png"], // 1 extra image
+        colors: ["Yellow", "Black"] 
+    },
+    { 
+        title: "Magnet Stripe", 
+        images: ["images/products/N.png", "images/products/45.png"], // 1 extra images
+        badge: "Best Seller", 
+        colors: ["White", "Gray"] 
+    },
+    { 
+        title: "PVC Stripe", 
+        images: ["images/products/13.png"], // No transition
+        colors: ["Silver", "Gold"] 
+    },
+    { 
+        title: "Mini Doors", 
+        images: ["images/products/11.png", "images/products/9.png"], // 1 extra images
+        colors: ["Brown", "Beige"] 
+    },
 ];
+
+// Function to start image transitions
+function startImageTransition() {
+    document.querySelectorAll('.product-card img').forEach((img, index) => {
+        const product = products[index]; // Get the corresponding product
+        if (product.images.length > 1) { // Apply transition only if multiple images exist
+            let currentImageIndex = 0;
+            
+            setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % product.images.length;
+                img.src = product.images[currentImageIndex]; // Switch image
+            }, 5000); // Change every 5 seconds
+        }
+    });
+}
 
 // Dynamically generate product cards for non-products pages
 function renderFeaturedProducts() {
@@ -260,7 +296,7 @@ function initializeScrollToSection() {
             }
         });
     });
-}
+}   
 
 // Initialize all components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
@@ -269,6 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeProductHoverEffects();
     renderFeaturedProducts();
     renderProductsForSections();
+    startImageTransition();
     initializeScrollToSection();
     initializeBackToTopButton();
     initializeWhatsAppButton();
