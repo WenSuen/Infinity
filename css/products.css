@@ -110,7 +110,7 @@ body {
 /* Product Grid - Ensures Consistent Gaps */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Exactly 3 items per row */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px; /* Consistent spacing between each item */
     justify-content: center;
     align-items: stretch; /* All cards take the same height */
