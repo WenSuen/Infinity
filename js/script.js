@@ -125,7 +125,7 @@ function initializeWhatsAppButton() {
 const products = [
     { 
         title: "Super Glue (L3)", 
-        images: ["images/products/N (2).png"], // No transition
+        images: ["images/products/N (2).png", "images/products/34.png"], // 1 extra image
         colors: ["Red", "Green", "Blue"] 
     },
     { 
@@ -141,7 +141,7 @@ const products = [
     },
     { 
         title: "PVC Stripe", 
-        images: ["images/products/13.png"], // No transition
+        images: ["images/products/13.png", "images/products/15.png"], // 1 extra image
         colors: ["Silver", "Gold"] 
     },
     { 
