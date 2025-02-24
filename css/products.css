@@ -7,20 +7,23 @@ body {
 
 .products-container {
     display: flex;
-    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5em; /* Reduce spacing */
     margin-top: 70px;
 }
 
 /* Navigation Panel */
 .product-navigation {
-    width: 280px;
+    width: 250px; /* Reduce width slightly */
+    min-width: 220px;
+    flex-shrink: 0;
     background-color: #f8f8f8;
     padding: 20px;
     border-right: 2px solid #ddd;
-    position: sticky; /* Ensures it stays fixed while scrolling */
-    top: 80px; /* Adjust based on header height */
-    height: calc(100vh - 80px); /* Ensures full height without overlapping */
-    overflow-y: auto; /* Allows scrolling inside sidebar if needed */
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
     z-index: 10; /* Keeps it below the header */
 }
 
@@ -57,9 +60,8 @@ body {
 
 /* Product Display Area */
 .product-display {
-    margin-left: 20px; /* Adjusted to match the sidebar width */
+    flex-grow: 1; /* Let it take available space */
     padding: 2em;
-    width: calc(100% - 300px); /* Ensures it fills the remaining space */
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; /* Aligns items properly */
