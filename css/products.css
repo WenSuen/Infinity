@@ -101,11 +101,13 @@ body {
 /* Product Grid - Ensures Consistent Gaps */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures even spacing */
-    gap: 1.5em; /* Adjusts gap between items */
-    justify-content: center; /* Centers items properly */
-    align-items: start; /* Aligns items at the top */
+    grid-template-columns: repeat(3, 1fr); /* Ensures exactly 3 items per row */
+    gap: 1.5em; /* Adjust spacing between items */
+    justify-content: center; /* Ensures proper alignment */
+    align-items: start; /* Aligns all items at the top */
     width: 100%;
+    max-width: 1000px; /* Ensures proper width control */
+    margin: 0 auto; /* Centers the grid in the available space */
 }
 
 /* Ensures uniform product card size */
