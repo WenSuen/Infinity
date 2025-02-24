@@ -110,13 +110,13 @@ body {
 /* Product Grid - Ensures Consistent Gaps */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Ensures exactly 3 items per row */
-    gap: 2em; /* Adjust spacing between items */
-    justify-content: center; /* Ensures proper alignment */
-    align-items: start; /* Aligns all items at the top */
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 items per row */
+    gap: 30px; /* Consistent spacing between each item */
+    justify-content: center;
+    align-items: stretch; /* All cards take the same height */
     width: 100%;
-    max-width: 1000px; /* Ensures proper width control */
-    margin: 0 auto; /* Centers the grid in the available space */
+    max-width: 1000px; /* Limits the width to ensure the grid doesn't stretch too much */
+    margin: 0 auto;
 }
 
 /* Ensures uniform product card size */
@@ -134,11 +134,10 @@ body {
     transition: all 0.3s ease-in-out;
     position: relative;
     overflow: hidden; 
-    width: 100%;
-    max-width: 300px;
-    min-height: 450px;
+    width: 300px; /* Fixed width */
+    height: 500px; /* Fixed height for consistency */
     margin: auto;
-}
+}   
 
 .product-card:hover {
     transform: translateY(-5px);
