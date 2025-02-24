@@ -5,6 +5,13 @@ body {
     background-color: #f9f9f9;
 }
 
+.products-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5em; /* Reduce spacing */
+    margin-top: 70px;
+}
+
 .product-container {
     display: flex;
     flex-wrap: wrap;
@@ -12,6 +19,7 @@ body {
     margin-top: 70px;
     gap: 20px; /* Ensures consistent spacing */
 }
+
 
 /* Navigation Panel */
 .product-navigation {
