@@ -107,15 +107,15 @@ body {
     border-radius: 4px;
 }
 
-/* Product Grid - Ensures Consistent Gaps */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Exactly 3 items per row */
-    gap: 30px; /* Consistent spacing between each item */
-    justify-content: center;
-    align-items: stretch; /* All cards take the same height */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center; /* Centers the entire grid */
+    justify-items: center; /* Centers items in incomplete rows */
+    align-items: stretch;
     width: 100%;
-    max-width: 1000px; /* Limits the width to ensure the grid doesn't stretch too much */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
