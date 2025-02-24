@@ -5,11 +5,11 @@ body {
     background-color: #f9f9f9;
 }
 
-.products-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5em; /* Reduce spacing */
-    margin-top: 70px;
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* Adjust for even spacing */
+    justify-content: center;
 }
 
 /* Navigation Panel */
@@ -129,6 +129,7 @@ body {
     max-width: 300px;
     min-height: 450px;
     margin: auto;
+    height: 100%; /* Makes sure all cards are the same height */
 }
 
 .product-card:hover {
