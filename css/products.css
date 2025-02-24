@@ -133,7 +133,7 @@ body {
 
 /* Product Image Adjustments */
 .product-image {
-    width: 95%;
+    width: 94%;
     height: 280px;
     object-fit: contain;
     display: block;
