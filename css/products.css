@@ -5,11 +5,12 @@ body {
     background-color: #f9f9f9;
 }
 
-.products-container {
+.product-container {
     display: flex;
-    align-items: flex-start;
-    gap: 1.5em; /* Reduce spacing */
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 70px;
+    gap: 20px; /* Ensures consistent spacing */
 }
 
 /* Navigation Panel */
