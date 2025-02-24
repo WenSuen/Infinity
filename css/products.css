@@ -150,21 +150,19 @@ body {
     color: #333;
     letter-spacing: 1px;
     
-    /* Set a maximum width to match the button */
-    max-width: 80%; /* Adjust based on button width */
-    margin: 0 auto;
-
-    /* Fixed height for consistent card sizes */
-    height: 50px; /* Adjust to fit 1-2 lines */
+    max-width: 80%;
+    margin: 5px auto; /* Reduce space above and below */
+    
+    height: auto; /* Allow it to adjust dynamically */
     line-height: 1.2;
     
-    /* Ensuring uniform alignment */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     overflow: hidden;
     word-wrap: break-word;
+    padding: 5px 0; /* Reduce top and bottom padding */
 }
 
 /* Underline effect */
