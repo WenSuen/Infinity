@@ -201,12 +201,11 @@ body, html {
 }
 
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min-width for better spacing */
-    gap: 2.5em; /* Increase gap for cleaner layout */
-    justify-content: center;
-    align-items: start; /* Ensure proper alignment */
-    padding: 0 1em;
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+    gap: 1.5em; /* Reduce spacing */
+    padding-bottom: 1em;
 }
 
 /* Product Card Styling */
@@ -220,6 +219,8 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
     overflow: hidden;
+    min-width: 250px; /* Set fixed width for carousel */
+    flex: 0 0 auto; /* Prevent flexbox shrinking */
 }
 
 .product-item:hover {
@@ -254,6 +255,10 @@ body, html {
 
 .product-item h3:hover {
     color: #4CAF50; /* Highlight on hover */
+}
+
+.featured-product-card img {
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* Enhanced Horizontal Badge Styling */
