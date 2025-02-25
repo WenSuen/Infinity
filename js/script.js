@@ -329,9 +329,10 @@ function renderProductsForSections() {
                         console.log(`Loading image: ${product.images[0]}`); // Debugging
                         return `
                             <div class="product-card">
-                                <img src="${product.images[0]}" 
+                                <img src="images/products/placeholder-low.png" 
+                                     data-src="${product.images[0]}" 
                                      alt="${product.title}" 
-                                     class="product-image" 
+                                     class="product-image lazy-load blur-load"
                                      loading="lazy" 
                                      onerror="this.src='images/placeholder.png';">
                                 <h3>${product.title.toUpperCase()}</h3>
@@ -342,8 +343,28 @@ function renderProductsForSections() {
                         `;
                     })
                     .join("");
+
+                // After inserting images, apply lazy loading effect
+                lazyLoadImages();
             }
         }
+    });
+}
+
+function lazyLoadImages() {
+    const lazyImages = document.querySelectorAll(".lazy-load");
+
+    lazyImages.forEach((img) => {
+        const highRes = img.getAttribute("data-src");
+        if (!highRes) return;
+
+        const highResImage = new Image();
+        highResImage.src = highRes;
+
+        highResImage.onload = function () {
+            img.src = highRes; // Swap to high-res
+            img.classList.remove("blur-load"); // Remove blur
+        };
     });
 }
 

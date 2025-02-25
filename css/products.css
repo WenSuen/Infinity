@@ -330,3 +330,16 @@ body {
     display: block;
     margin: 10px auto;
 }
+
+/* Apply a blur effect initially */
+.blur-load {
+    filter: blur(10px);
+    transform: scale(1.05);
+    transition: filter 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Remove blur smoothly when image is swapped */
+.lazy-load {
+    filter: blur(0);
+    transform: scale(1);
+}
