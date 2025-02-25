@@ -951,14 +951,14 @@ body, html {
     background-color: #f9f9f9;
 }
 
-/* Make CTA Banner Full-Height */
+/* Adjusted CTA Banner Height for a Better Fit */
 .cta-banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    background: linear-gradient(135deg, #ff5e62, #ff9966); /* Smooth gradient */
+    min-height: 80vh; /* Reduced from 100vh to 80vh */
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
     color: white;
     text-align: center;
     padding: 20px;
@@ -967,43 +967,43 @@ body, html {
     overflow: hidden;
 }
 
-/* Add a Floating Icon Effect */
+/* Floating Icons - Adjusted for Better Visibility */
 .cta-banner::before {
     content: "💬";
-    font-size: 100px;
+    font-size: 50px; /* Reduced size */
     position: absolute;
-    top: 10%;
-    left: -5%;
-    opacity: 0.1;
+    top: 20%;
+    left: 5%;
+    opacity: 0.15;
     animation: floatIcon 6s infinite alternate ease-in-out;
 }
 
 .cta-banner::after {
     content: "📞";
-    font-size: 100px;
+    font-size: 50px; /* Reduced size */
     position: absolute;
-    bottom: 10%;
-    right: -5%;
-    opacity: 0.1;
+    bottom: 20%;
+    right: 5%;
+    opacity: 0.15;
     animation: floatIcon 6s infinite alternate-reverse ease-in-out;
 }
 
 @keyframes floatIcon {
     from { transform: translateY(0); }
-    to { transform: translateY(15px); }
+    to { transform: translateY(10px); }
 }
 
-/* Text Animation */
+/* Smooth Text Animation */
 .cta-banner h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: bold;
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-15px);
     animation: fadeInDown 1s ease-in-out forwards;
 }
 
 .cta-banner p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-top: 10px;
     opacity: 0;
     animation: fadeInUp 1s ease-in-out 0.3s forwards;
@@ -1017,11 +1017,11 @@ body, html {
     background: white;
     color: #ff5e62;
     padding: 12px 25px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     border-radius: 30px;
     text-decoration: none;
-    margin: 15px;
+    margin: 12px;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -1045,17 +1045,20 @@ body, html {
 
 /* Animations */
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
+    from { opacity: 0; transform: translateY(-15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .cta-banner {
+        min-height: 85vh; /* Slightly taller for small screens */
+    }
     .cta-banner h2 {
         font-size: 2rem;
     }
@@ -1065,5 +1068,8 @@ body, html {
     .cta-button {
         padding: 10px 20px;
         font-size: 1rem;
+    }
+    .cta-banner::before, .cta-banner::after {
+        font-size: 40px; /* Smaller floating icons for mobile */
     }
 }
