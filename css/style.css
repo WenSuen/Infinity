@@ -1010,9 +1010,17 @@ body, html {
     line-height: 1.4;
 }
 
-/* Button Styling */
+/* Button Container */
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the buttons */
+    gap: 12px; /* Adds space between buttons */
+}
+
+/* Default Button */
 .cta-button {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: white;
@@ -1023,13 +1031,12 @@ body, html {
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    padding: 5px 10px; /* Reduced padding */
-    height: 40px; /* Fixed height */
-    min-width: fit-content; /* Matches text & icon */
+    width: 180px; /* Ensure both buttons are the same width */
+    height: 45px; /* Ensure both buttons are the same height */
     white-space: nowrap;
     overflow: hidden;
     gap: 6px;
-    margin-bottom: 12px; /* Spacing between buttons */
+    text-align: center;
 }
 
 /* Button Content */
@@ -1050,7 +1057,7 @@ body, html {
     font-weight: normal;
     color: white;
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-15px);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     height: 0;
     overflow: hidden;
@@ -1058,22 +1065,22 @@ body, html {
     display: block;
 }
 
-/* Hover Effect: Expand & Show Contact Info */
+/* Expand on Hover */
 .cta-button:hover {
     background: #ff3238;
     color: white;
     box-shadow: 0 5px 15px rgba(255, 50, 56, 0.4);
     flex-direction: column;
-    height: 85px; /* Expand height */
-    width: 200px; /* Expand width */
+    height: 90px; /* Expand in height */
+    width: 220px; /* Expand in width */
     justify-content: center;
-    padding: 15px 20px; /* Ensure padding grows only on hover */
+    padding: 15px 20px;
 }
 
-/* Show phone/email on hover */
+/* Show contact details on hover */
 .cta-button:hover .contact-info {
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(5px);
     height: auto;
 }
 
