@@ -1011,10 +1011,10 @@ body, html {
 
 /* Button Styling */
 .cta-button {
-    display: flex;
-    align-items: center;
+    display: inline-flex;  /* Keep inline for better layout */
+    align-items: center;   /* Align icon and text in the same row */
     justify-content: center;
-    gap: 8px;
+    gap: 8px; /* Adds space between icon and text */
     background: white;
     color: #ff5e62;
     padding: 12px 25px;
@@ -1027,7 +1027,7 @@ body, html {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    flex-direction: column; /* Allows the number/email to appear below */
+    flex-direction: row; /* Forces icon & text to stay in the same row */
 }
 
 /* Button Icons */
@@ -1046,6 +1046,7 @@ body, html {
 /* Phone & Email Display BELOW Text on Hover */
 .cta-button::after {
     content: "";
+    display: block;
     font-size: 1rem;
     font-weight: normal;
     color: white;
@@ -1058,13 +1059,14 @@ body, html {
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Specific Hover Effects */
+/* Show phone number when hovering */
 .cta-button.call:hover::after {
     content: "+60193225830";
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Show email when hovering */
 .cta-button.email:hover::after {
     content: "inflexinf@yahoo.com";
     opacity: 1;
