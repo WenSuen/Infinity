@@ -1059,14 +1059,14 @@ body, html {
 
 /* Contact Info (Hidden Initially) */
 .contact-info {
-    font-size: 0.85rem;
+    font-size: 0.9rem; /* Slightly increased size */
     font-weight: bold;
     color: white;
     opacity: 0;
     position: absolute;
-    bottom: 8px; /* Moves it closer to the main text but inside */
+    bottom: 12px; /* Moved up just a bit */
     left: 50%;
-    transform: translateX(-50%) translateY(5px);
+    transform: translateX(-50%) translateY(3px); /* Slight upward adjustment */
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     text-align: center;
     width: 100%;
@@ -1085,7 +1085,7 @@ body, html {
 /* Show contact details on hover */
 .cta-button:hover .contact-info {
     opacity: 1;
-    transform: translateX(-50%) translateY(2px); /* Slight movement up */
+    transform: translateX(-50%) translateY(0px); /* Tiny movement up */
 }
 
 /* Animations */
