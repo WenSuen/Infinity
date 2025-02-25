@@ -215,34 +215,104 @@ function renderFeaturedProducts() {
 // Products Page Logic
 const productsPageCategories = {
     net: [
-        { title: "Fiberglass Net", image: "images/products/1.png", colors: ["Red", "Green"], description: "Durable fiberglass net for various uses." },
-        { title: "Stainless Steel Net", image: "images/magnet-stripe.jpg", colors: ["Silver"], description: "High-quality stainless steel net." },
-        { title: "Polyester Net", image: "images/magnet-stripe.jpg", colors: ["Blue", "Yellow"], description: "Lightweight polyester net for indoor use." },
+        { 
+            title: "Fiberglass Net", 
+            images: ["images/products/1.png", "images/placeholder.png"], 
+            colors: ["Red", "Green"], 
+            description: "Durable fiberglass net for various uses." 
+        },
+        { 
+            title: "Stainless Steel Net", 
+            images: ["images/magnet-stripe.jpg", "images/placeholder.png"], 
+            colors: ["Silver"], 
+            description: "High-quality stainless steel net." 
+        },
+        { 
+            title: "Polyester Net", 
+            images: ["images/magnet-stripe.jpg", "images/placeholder.png"], 
+            colors: ["Blue", "Yellow"], 
+            description: "Lightweight polyester net for indoor use." 
+        },
     ],
     magnet: [
-        { title: "3M Magnet Stripe", image: "images/products/N.png", colors: ["Black", "Gray"], description: "3M high-strength magnet stripe for sealing." },
-        { title: "Magnet Stripe", image: "images/products/45.png", colors: ["White"], description: "Versatile magnetic stripe for multiple applications." },
+        { 
+            title: "3M Magnet Stripe", 
+            images: ["images/products/N.png", "images/placeholder.png"], 
+            colors: ["Black", "Gray"], 
+            description: "3M high-strength magnet stripe for sealing." 
+        },
+        { 
+            title: "Magnet Stripe", 
+            images: ["images/products/45.png", "images/placeholder.png"], 
+            colors: ["White"], 
+            description: "Versatile magnetic stripe for multiple applications." 
+        },
     ],
     "mini-door": [
-        { title: "Mini Door", image: "images/products/N (4).png", colors: ["Brown"], description: "Compact and stylish mini door." },
+        { 
+            title: "Mini Door", 
+            images: ["images/products/N (4).png", "images/placeholder.png"], 
+            colors: ["Brown"], 
+            description: "Compact and stylish mini door." 
+        },
     ],
     "pvc-stripe": [
-        { title: "PVC Stripe", image: "images/products/13.png", colors: ["Clear", "Opaque"], description: "Durable PVC stripe for insulation." },
+        { 
+            title: "PVC Stripe", 
+            images: ["images/products/13.png", "images/placeholder.png"], 
+            colors: ["Clear", "Opaque"], 
+            description: "Durable PVC stripe for insulation." 
+        },
     ],
     corner: [
-        { title: "Corner Up <br> (Flat Corner)", image: "images/products/17.png", colors: ["Silver", "Gold"], description: "Flat corner for seamless jointing." },
-        { title: "Corner Down (Handle Corner)", image: "images/products/22.png", colors: ["Bronze"], description: "Handle corner for added functionality." },
+        { 
+            title: "Corner Up <br> (Flat Corner)", 
+            images: ["images/products/17.png", "images/placeholder.png"], 
+            colors: ["Silver", "Gold"], 
+            description: "Flat corner for seamless jointing." 
+        },
+        { 
+            title: "Corner Down (Handle Corner)", 
+            images: ["images/products/22.png", "images/placeholder.png"], 
+            colors: ["Bronze"], 
+            description: "Handle corner for added functionality." 
+        },
     ],
     clip: [
-        { title: "Clip", image: "images/products/27.png", colors: ["Black", "White"], description: "Sturdy clip for fastening." },
+        { 
+            title: "Clip", 
+            images: ["images/products/27.png", "images/placeholder.png"], 
+            colors: ["Black", "White"], 
+            description: "Sturdy clip for fastening." 
+        },
     ],
     glue: [
-        { title: "Super Glue (L3)", image: "images/products/N (2).png", colors: ["Transparent"], description: "High-strength super glue for bonding." },
+        { 
+            title: "Super Glue (L3)", 
+            images: ["images/products/N (2).png", "images/placeholder.png"], 
+            colors: ["Transparent"], 
+            description: "High-strength super glue for bonding." 
+        },
     ],
     tape: [
-        { title: "3M Tape", image: "images/products/N (3).png", colors: ["Gray"], description: "Reliable 3M tape for sealing." },
-        { title: "Acrylic Form Tape", image: "images/products/38.png", colors: ["White"], description: "Acrylic foam tape for superior adhesion." },
-        { title: "P.E Form Tape", image: "images/products/41.png", colors: ["Black"], description: "P.E foam tape for insulation." },
+        { 
+            title: "3M Tape", 
+            images: ["images/products/N (3).png", "images/placeholder.png"], 
+            colors: ["Gray"], 
+            description: "Reliable 3M tape for sealing." 
+        },
+        { 
+            title: "Acrylic Form Tape", 
+            images: ["images/products/38.png", "images/placeholder.png"], 
+            colors: ["White"], 
+            description: "Acrylic foam tape for superior adhesion." 
+        },
+        { 
+            title: "P.E Form Tape", 
+            images: ["images/products/41.png", "images/placeholder.png"], 
+            colors: ["Black"], 
+            description: "P.E foam tape for insulation." 
+        },
     ],
 };
 
@@ -280,16 +350,27 @@ function openProductPageModal(title, category) {
     const modal = document.getElementById("productModal");
     const modalContent = modal.querySelector(".modal-content");
 
+    // Generate thumbnail images for selection
+    const thumbnails = product.images.map((img, index) => `
+        <img src="${img}" alt="Thumbnail ${index + 1}" class="thumbnail" onclick="changeMainImage('${img}')">
+    `).join("");
+
+    // Set up modal content
     modalContent.innerHTML = `
         <button class="close" onclick="closeProductPageModal()">&times;</button>
         <h2>${product.title}</h2>
-        <img src="${product.image}" alt="${product.title}">
+        <img id="mainProductImage" src="${product.images[0]}" alt="${product.title}" class="main-image">
+        <div class="thumbnail-container">${thumbnails}</div>
         <p>${product.description}</p>
         <p>Available Colors:</p>
         <ul>${product.colors.map((color) => `<li>${color}</li>`).join("")}</ul>
     `;
 
     modal.style.display = "flex";
+}
+
+function changeMainImage(imageSrc) {
+    document.getElementById("mainProductImage").src = imageSrc;
 }
 
 function closeProductPageModal() {
