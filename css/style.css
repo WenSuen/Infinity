@@ -1012,7 +1012,7 @@ body, html {
 
 /* Button Styling */
 .cta-button {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     background: white;
@@ -1021,13 +1021,11 @@ body, html {
     font-weight: bold;
     border-radius: 30px;
     text-decoration: none;
-    margin: 12px;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    padding: 6px 12px; /* Tight around content */
-    width: auto;
-    height: auto; /* Just fits the content */
-    min-width: unset;
+    padding: 5px 10px; /* Minimum padding */
+    height: auto; 
+    width: auto;  /* Fit content */
     white-space: nowrap;
     overflow: hidden;
 }
@@ -1036,7 +1034,7 @@ body, html {
 .cta-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 /* Button Icons */
@@ -1050,7 +1048,7 @@ body, html {
     font-weight: normal;
     color: white;
     opacity: 0;
-    transform: translateY(-20px); /* Moves further down */
+    transform: translateY(-25px); /* Moves text further down */
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     height: 0;
     overflow: hidden;
@@ -1065,16 +1063,16 @@ body, html {
     color: white;
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(255, 50, 56, 0.4);
-    padding: 15px; /* Expands on hover */
+    padding: 15px 20px; /* Expands size */
     flex-direction: column;
     min-width: 180px;
-    height: 85px; /* Increased height for extra spacing */
+    height: 85px; /* Increased height */
 }
 
 /* Show phone/email on hover (further down) */
 .cta-button:hover .contact-info {
     opacity: 1;
-    transform: translateY(5px); /* Moves further down */
+    transform: translateY(10px); /* Moves further down */
     height: auto;
 }
 
