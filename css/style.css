@@ -1012,6 +1012,18 @@ body, html {
     animation: fadeInUp 1s ease-in-out 0.3s forwards;
 }
 
+/* Main CTA Text - Now styled like the previous h2 */
+.cta-main-text {
+    font-size: 2.2rem;  /* Same as h2 */
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transform: translateY(-15px);
+    animation: fadeInDown 1s ease-in-out forwards;
+    max-width: 80%;  /* Limits width for better readability */
+}
+
 /* Button Styling & Hover Effects */
 .cta-button {
     display: inline-flex;
@@ -1043,6 +1055,18 @@ body, html {
     color: white;
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(255, 50, 56, 0.4);
+}
+
+/* Change Call Us button text on hover */
+.cta-button.call:hover::after {
+    content: " +60193225830"; /* Display phone number */
+    font-size: 1rem;
+}
+
+/* Change Email Us button text on hover */
+.cta-button.email:hover::after {
+    content: " inflexinf@yahoo.com"; /* Display email */
+    font-size: 1rem;
 }
 
 /* Remove text duplication */
