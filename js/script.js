@@ -333,6 +333,12 @@ function animateAboutUsTitle() {
             let span = document.createElement("span");
             span.textContent = char;
             span.style.setProperty("--delay", index);
+
+            // Preserve spaces by converting them into non-breaking spaces
+            if (char === " ") {
+                span.innerHTML = "&nbsp;";
+            }
+
             title.appendChild(span);
         });
     }
