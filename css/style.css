@@ -974,7 +974,7 @@ body, html {
     font-size: 50px; /* Kept the original size */
     position: absolute;
     top: 18%; /* Slightly lowered */
-    left: 5%;
+    left: calc(5% + 10px); /* Dynamically adjusted */
     opacity: 0.15;
     animation: floatPulse 6s infinite ease-in-out alternate;
 }
@@ -984,7 +984,7 @@ body, html {
     font-size: 50px; /* Kept the original size */
     position: absolute;
     bottom: 18%; /* Slightly raised */
-    right: 5%;
+    right: calc(5% + 10px); /* Dynamically adjusted */
     opacity: 0.15;
     animation: floatPulse 6s infinite ease-in-out alternate-reverse;
 }
@@ -1031,38 +1031,23 @@ body, html {
     overflow: hidden;
 }
 
+/* Button Icons & Text Adjustments */
+.cta-button i {
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+
 /* Button Hover Animation */
 .cta-button:hover {
     background: #ff3238;
     color: white;
     transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 50, 56, 0.4);
 }
 
-/* Button Icons & Text Adjustments */
-.cta-button:first-child::before {
-    content: "📞 ";
-}
-
-.cta-button:first-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Ensure correct button text */
-.cta-button:first-child span {
-    display: inline-block;
-    font-weight: bold;
-}
-
-/* Update the Call Us text */
+/* Remove text duplication */
 .cta-button:first-child span::after {
-    content: "Call Us"; /* Updated from "Call Us Now" */
-}
-
-/* Email Button */
-.cta-button:last-child::before {
-    content: "✉️ ";
+    content: ""; /* Prevents redundant text */
 }
 
 /* Animations */
@@ -1080,6 +1065,7 @@ body, html {
 @media (max-width: 768px) {
     .cta-banner {
         min-height: 85vh; /* Slightly taller for small screens */
+        padding: 15px; /* Less padding for smaller screens */
     }
     .cta-banner h2 {
         font-size: 2rem;
@@ -1088,7 +1074,7 @@ body, html {
         font-size: 1rem;
     }
     .cta-button {
-        padding: 10px 20px;
+        padding: 10px 18px;
         font-size: 1rem;
     }
     .cta-banner::before, .cta-banner::after {
