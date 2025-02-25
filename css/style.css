@@ -1011,13 +1011,11 @@ body, html {
 
 /* Button Styling */
 .cta-button {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
     background: white;
     color: #ff5e62;
-    padding: 12px 25px;
+    padding: 12px 20px;
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 30px;
@@ -1025,11 +1023,16 @@ body, html {
     margin: 12px;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-    flex-direction: row;
-    flex-wrap: wrap; /* Allows text to break onto a new line */
+    flex-direction: column; /* Ensures number appears below */
     text-align: center;
+    width: fit-content;
+}
+
+/* Button Content (Icon + Text) */
+.cta-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Button Icons */
@@ -1040,6 +1043,14 @@ body, html {
 /* Button Text */
 .cta-button span {
     display: inline-block;
+}
+
+/* Phone/Email Display (Always Below) */
+.contact-info {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #ff5e62;
+    margin-top: 5px;
 }
 
 /* Hidden Contact Info */
