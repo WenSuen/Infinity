@@ -320,7 +320,23 @@ function initializeScrollToSection() {
             }
         });
     });
-}   
+}
+
+function animateAboutUsTitle() {
+    const title = document.querySelector(".about-us-text h3");
+
+    if (title) {
+        let text = title.textContent;
+        title.innerHTML = ""; // Clear existing text
+
+        text.split("").forEach((char, index) => {
+            let span = document.createElement("span");
+            span.textContent = char;
+            span.style.setProperty("--delay", index);
+            title.appendChild(span);
+        });
+    }
+}
 
 // Initialize all components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
@@ -333,4 +349,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeScrollToSection();
     initializeBackToTopButton();
     initializeWhatsAppButton();
+    animateAboutUsTitle(); 
 });
