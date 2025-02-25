@@ -133,7 +133,7 @@ const products = [
     },
     { 
         title: "Corner & Clip", 
-        images: ["images/products/22.png", "images/products/17.png"], // 1 extra image
+        images: ["images/products/22.png", "images/products/17.png", "images/products/27.png"], // 2 extra image
         colors: ["Yellow", "Black"] 
     },
     { 
