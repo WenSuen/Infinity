@@ -924,18 +924,11 @@ body, html {
 
 /* Target individual letters */
 .about-page .about-us-text h3 span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeSlide 1s ease-out forwards;
-}
-
-.about-us-text h3 span {
     color: red; /* Change text color to red */
     display: inline-block;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.5s forwards;
+    animation: fadeSlide 1s ease-out forwards;
     animation-delay: calc(var(--delay) * 0.05s);
 }
 
