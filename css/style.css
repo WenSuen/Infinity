@@ -1023,13 +1023,13 @@ body, html {
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    padding: 5px 12px; /* Ensures exact fit around text & icon */
-    height: auto; 
-    width: auto;  
+    padding: 5px 10px; /* Reduced padding */
+    height: 40px; /* Fixed height */
+    min-width: fit-content; /* Matches text & icon */
     white-space: nowrap;
     overflow: hidden;
-    gap: 6px; /* Space between icon & text */
-    margin-bottom: 10px; /* Adds spacing between buttons */
+    gap: 6px;
+    margin-bottom: 12px; /* Spacing between buttons */
 }
 
 /* Button Content */
@@ -1050,12 +1050,11 @@ body, html {
     font-weight: normal;
     color: white;
     opacity: 0;
-    transform: translateY(-30px); /* Moves text further down */
+    transform: translateY(-20px);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     height: 0;
     overflow: hidden;
     text-align: center;
-    width: 100%;
     display: block;
 }
 
@@ -1064,17 +1063,17 @@ body, html {
     background: #ff3238;
     color: white;
     box-shadow: 0 5px 15px rgba(255, 50, 56, 0.4);
-    padding: 15px 20px; /* Expands size */
     flex-direction: column;
-    min-width: 200px; /* Ensures proper expansion */
-    height: 85px; /* Increased height */
+    height: 85px; /* Expand height */
+    width: 200px; /* Expand width */
     justify-content: center;
+    padding: 15px 20px; /* Ensure padding grows only on hover */
 }
 
 /* Show phone/email on hover */
 .cta-button:hover .contact-info {
     opacity: 1;
-    transform: translateY(15px); /* Moves further down */
+    transform: translateY(10px);
     height: auto;
 }
 
