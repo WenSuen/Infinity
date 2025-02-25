@@ -951,13 +951,14 @@ body, html {
     background-color: #f9f9f9;
 }
 
-/* Adjusted CTA Banner Height for a Better Fit */
+/* Adjusted CTA Banner Height */
 .cta-banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh; /* Reduced from 100vh to 80vh */
+    min-height: 85vh; /* Slightly increased */
+    margin-bottom: 50px; /* Creates space above the footer */
     background: linear-gradient(135deg, #ff5e62, #ff9966);
     color: white;
     text-align: center;
@@ -967,30 +968,32 @@ body, html {
     overflow: hidden;
 }
 
-/* Floating Icons - Adjusted for Better Visibility */
+/* Floating Icons - Adjusted for Height & Smooth Pulse */
 .cta-banner::before {
     content: "💬";
-    font-size: 50px; /* Reduced size */
+    font-size: 50px;
     position: absolute;
-    top: 20%;
+    top: 15%; /* Raised slightly */
     left: 5%;
     opacity: 0.15;
-    animation: floatIcon 6s infinite alternate ease-in-out;
+    animation: floatPulse 4s infinite ease-in-out;
 }
 
 .cta-banner::after {
     content: "📞";
-    font-size: 50px; /* Reduced size */
+    font-size: 50px;
     position: absolute;
-    bottom: 20%;
+    bottom: 15%; /* Lowered slightly */
     right: 5%;
     opacity: 0.15;
-    animation: floatIcon 6s infinite alternate-reverse ease-in-out;
+    animation: floatPulse 4s infinite ease-in-out reverse;
 }
 
-@keyframes floatIcon {
-    from { transform: translateY(0); }
-    to { transform: translateY(10px); }
+/* Floating & Pulsing Effect */
+@keyframes floatPulse {
+    0% { transform: translateY(0) scale(1); opacity: 0.15; }
+    50% { transform: translateY(10px) scale(1.1); opacity: 0.2; }
+    100% { transform: translateY(0) scale(1); opacity: 0.15; }
 }
 
 /* Smooth Text Animation */
@@ -1009,7 +1012,7 @@ body, html {
     animation: fadeInUp 1s ease-in-out 0.3s forwards;
 }
 
-/* Button Styling & Hover Effects */
+/* Button Styling */
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -1028,36 +1031,17 @@ body, html {
     overflow: hidden;
 }
 
-/* Button Hover Animation */
+/* Button Hover Effect */
 .cta-button:hover {
     background: #ff3238;
     color: white;
     transform: scale(1.05);
 }
 
-/* Button Icons */
-.cta-button:first-child::before {
-    content: "📞";
-}
-.cta-button:last-child::before {
-    content: "✉️";
-}
-
-/* Animations */
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .cta-banner {
-        min-height: 85vh; /* Slightly taller for small screens */
+        min-height: 90vh;
     }
     .cta-banner h2 {
         font-size: 2rem;
