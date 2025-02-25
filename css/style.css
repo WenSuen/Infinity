@@ -1015,7 +1015,6 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Increased gap for better spacing */
 }
 
 /* Default Button */
@@ -1041,6 +1040,11 @@ body, html {
     position: relative;
 }
 
+/* Ensure gap between buttons */
+.cta-button + .cta-button {
+    margin-top: 15px; /* Fixes spacing issue */
+}
+
 /* Button Content */
 .cta-header {
     display: flex;
@@ -1055,33 +1059,33 @@ body, html {
 
 /* Contact Info (Hidden Initially) */
 .contact-info {
-    font-size: 0.9rem;
-    font-weight: normal;
+    font-size: 0.85rem; /* Adjusted font size */
+    font-weight: bold;
     color: white;
     opacity: 0;
-    transform: translateY(5px); /* Adjust position */
+    transform: translateY(3px); /* Moved text closer */
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     text-align: center;
     display: block;
     width: 100%;
     position: absolute;
-    bottom: 20px; /* Move text up */
+    bottom: 25px; /* Adjusted positioning */
 }
 
 /* Expand on Hover */
 .cta-button:hover {
     background: #ff3238;
     color: white;
-    width: 220px;
-    height: 75px;
-    padding: 15px;
-    border-radius: 20px; /* Slightly rounded for smoother look */
+    width: 190px; /* Smaller expansion */
+    height: 65px; /* Reduced size */
+    padding: 12px;
+    border-radius: 25px; /* Slightly rounded */
 }
 
 /* Show contact details on hover with better visibility */
 .cta-button:hover .contact-info {
     opacity: 1;
-    transform: translateY(5px);
+    transform: translateY(0px); /* Adjusted for better placement */
     font-weight: bold;
     letter-spacing: 0.5px;
 }
