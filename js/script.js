@@ -151,9 +151,9 @@ const products = [
     },
 ];
 
-// Function to start image transitions with carousel effect
+// Function to start image transitions with a carousel effect (ONLY for featured products)
 function startImageTransition() {
-    document.querySelectorAll('.product-card').forEach((card, index) => {
+    document.querySelectorAll('.featured-product-card').forEach((card, index) => {
         const product = products[index]; // Get the corresponding product
         const img = card.querySelector("img"); // Select the image inside the card
 
