@@ -951,13 +951,13 @@ body, html {
     background-color: #f9f9f9;
 }
 
-/* Adjusted CTA Banner Height for a Better Fit */
+/* CTA Banner */
 .cta-banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 85vh; /* Fits better within the page */
+    min-height: 85vh;
     background: linear-gradient(135deg, #ff5e62, #ff9966);
     color: white;
     text-align: center;
@@ -965,28 +965,29 @@ body, html {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
-    margin-bottom: 50px; /* Adds space between banner & footer */
+    margin-bottom: 50px;
 }
 
-/* Floating Icons - Adjusted for Better Visibility */
-.cta-banner::before {
-    content: "💬";
+/* Floating Icons */
+.cta-banner::before,
+.cta-banner::after {
     font-size: 50px;
     position: absolute;
-    top: 18%;
-    left: calc(5% + 10px);
     opacity: 0.15;
     animation: floatPulse 6s infinite ease-in-out alternate;
 }
 
+.cta-banner::before {
+    content: "💬";
+    top: 18%;
+    left: calc(5% + 10px);
+}
+
 .cta-banner::after {
     content: "📞";
-    font-size: 50px;
-    position: absolute;
     bottom: 18%;
     right: calc(5% + 10px);
-    opacity: 0.15;
-    animation: floatPulse 6s infinite ease-in-out alternate-reverse;
+    animation-direction: alternate-reverse;
 }
 
 /* Floating & Pulsing Effect */
@@ -996,7 +997,7 @@ body, html {
     100% { transform: translateY(0) scale(1); opacity: 0.15; }
 }
 
-/* Main CTA Text - Increased Size */
+/* CTA Main Text */
 .cta-main-text {
     font-size: 2.8rem;
     font-weight: bold;
@@ -1009,10 +1010,11 @@ body, html {
     line-height: 1.4;
 }
 
-/* Button Styling */
+/* CTA Buttons */
 .cta-button {
     display: flex;
     align-items: center;
+    justify-content: center;
     background: white;
     color: #ff5e62;
     padding: 12px 20px;
@@ -1020,15 +1022,17 @@ body, html {
     font-weight: bold;
     border-radius: 30px;
     text-decoration: none;
-    margin: 12px;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    flex-direction: column; /* Ensures number appears below */
-    text-align: center;
-    width: fit-content;
+    width: 200px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    flex-direction: column;
 }
 
-/* Button Content (Icon + Text) */
+/* Button Content */
 .cta-header {
     display: flex;
     align-items: center;
@@ -1040,22 +1044,9 @@ body, html {
     font-size: 1.2em;
 }
 
-/* Button Text */
-.cta-button span {
-    display: inline-block;
-}
-
-/* Phone/Email Display (Always Below) */
+/* Contact Info (Hidden by Default) */
 .contact-info {
-    font-size: 1rem;
-    font-weight: normal;
-    color: #ff5e62;
-    margin-top: 5px;
-}
-
-/* Hidden Contact Info */
-.cta-button .contact-info {
-    display: block; /* Ensures phone/email appears below */
+    display: block;
     font-size: 1rem;
     font-weight: normal;
     color: white;
@@ -1066,43 +1057,22 @@ body, html {
     opacity: 0;
     transform: translateY(-5px);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    width: 100%; /* Forces it to be on a new line */
+    text-align: center;
+    width: 100%;
 }
 
 /* Button Hover Effect */
 .cta-button:hover {
     background: #ff3238;
     color: white;
+    width: 230px;
+    height: 80px;
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(255, 50, 56, 0.4);
 }
 
-/* Phone & Email Display BELOW Text on Hover */
-.cta-button::after {
-    content: "";
-    display: block;
-    font-size: 1rem;
-    font-weight: normal;
-    color: white;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: 5px;
-    opacity: 0;
-    transform: translateY(-5px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-/* Show phone number below on hover */
-.cta-button.call:hover .contact-info {
-    content: "+60193225830";
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Show email below on hover */
-.cta-button.email:hover .contact-info {
-    content: "inflexinf@yahoo.com";
+/* Show Contact Info on Hover */
+.cta-button:hover .contact-info {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1110,11 +1080,6 @@ body, html {
 /* Animations */
 @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
