@@ -1015,7 +1015,7 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Ensure proper spacing between buttons */
+    gap: 15px; /* Added spacing between buttons */
 }
 
 /* Default Button */
@@ -1032,8 +1032,8 @@ body, html {
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    width: 160px; /* Default width */
-    height: 50px; /* Default height */
+    width: 160px;
+    height: 50px;
     padding: 10px 15px;
     white-space: nowrap;
     overflow: hidden;
@@ -1059,29 +1059,31 @@ body, html {
     font-weight: normal;
     color: white;
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
     text-align: center;
     display: block;
     width: 100%;
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
 }
 
 /* Expand on Hover */
 .cta-button:hover {
     background: #ff3238;
     color: white;
-    width: 220px; /* Expand width */
-    height: 90px; /* Expand height */
+    width: 220px;
+    height: 90px;
     padding: 20px;
+    border-radius: 20px; /* Slightly rounded for smoother look */
 }
 
-/* Show contact details on hover */
+/* Show contact details on hover with better visibility */
 .cta-button:hover .contact-info {
     opacity: 1;
     transform: translateY(5px);
-    height: auto;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
 /* Animations */
