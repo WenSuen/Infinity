@@ -1023,11 +1023,13 @@ body, html {
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    padding: 5px 10px; /* Minimum padding */
+    padding: 5px 12px; /* Ensures exact fit around text & icon */
     height: auto; 
-    width: auto;  /* Fit content */
+    width: auto;  
     white-space: nowrap;
     overflow: hidden;
+    gap: 6px; /* Space between icon & text */
+    margin-bottom: 10px; /* Adds spacing between buttons */
 }
 
 /* Button Content */
@@ -1048,7 +1050,7 @@ body, html {
     font-weight: normal;
     color: white;
     opacity: 0;
-    transform: translateY(-25px); /* Moves text further down */
+    transform: translateY(-30px); /* Moves text further down */
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     height: 0;
     overflow: hidden;
@@ -1061,18 +1063,18 @@ body, html {
 .cta-button:hover {
     background: #ff3238;
     color: white;
-    transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(255, 50, 56, 0.4);
     padding: 15px 20px; /* Expands size */
     flex-direction: column;
-    min-width: 180px;
+    min-width: 200px; /* Ensures proper expansion */
     height: 85px; /* Increased height */
+    justify-content: center;
 }
 
-/* Show phone/email on hover (further down) */
+/* Show phone/email on hover */
 .cta-button:hover .contact-info {
     opacity: 1;
-    transform: translateY(10px); /* Moves further down */
+    transform: translateY(15px); /* Moves further down */
     height: auto;
 }
 
