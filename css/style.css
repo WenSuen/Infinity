@@ -1038,12 +1038,31 @@ body, html {
     transform: scale(1.05);
 }
 
-/* Button Icons */
+/* Button Icons & Text Adjustments */
 .cta-button:first-child::before {
-    content: "📞";
+    content: "📞 ";
 }
+
+.cta-button:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure correct button text */
+.cta-button:first-child span {
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Update the Call Us text */
+.cta-button:first-child span::after {
+    content: "Call Us"; /* Updated from "Call Us Now" */
+}
+
+/* Email Button */
 .cta-button:last-child::before {
-    content: "✉️";
+    content: "✉️ ";
 }
 
 /* Animations */
