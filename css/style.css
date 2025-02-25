@@ -950,3 +950,11 @@ body, html {
         transform: translateY(0);
     }
 }
+
+/* Add glowing effect */
+.about-page .about-us-text h3 span:nth-child(odd) {
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+.about-page .about-us-text h3 span:nth-child(even) {
+    animation-delay: calc(var(--delay) * 0.1s);
+}
