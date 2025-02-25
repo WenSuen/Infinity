@@ -217,7 +217,7 @@ const productsPageCategories = {
     net: [
         { 
             title: "Fiberglass Net", 
-            images: ["images/products/1.png", "images/placeholder.png"], 
+            images: ["images/products/1.png", "images/products/2.png"], 
             colors: ["Red", "Green"], 
             description: "Durable fiberglass net for various uses." 
         },
@@ -237,13 +237,13 @@ const productsPageCategories = {
     magnet: [
         { 
             title: "3M Magnet Stripe", 
-            images: ["images/products/N.png", "images/placeholder.png"], 
+            images: ["images/products/N.png", "images/products/4.png", "images/products/5.png", "images/products/6.png"], 
             colors: ["Black", "Gray"], 
             description: "3M high-strength magnet stripe for sealing." 
         },
         { 
             title: "Magnet Stripe", 
-            images: ["images/products/45.png", "images/placeholder.png"], 
+            images: ["images/products/45.png", "images/products/7.png"], 
             colors: ["White"], 
             description: "Versatile magnetic stripe for multiple applications." 
         },
@@ -251,7 +251,7 @@ const productsPageCategories = {
     "mini-door": [
         { 
             title: "Mini Door", 
-            images: ["images/products/N (4).png", "images/placeholder.png"], 
+            images: ["images/products/N (4).png", "images/products/12.png", "images/products/9.png", "images/products/10.png"], 
             colors: ["Brown"], 
             description: "Compact and stylish mini door." 
         },
@@ -259,7 +259,7 @@ const productsPageCategories = {
     "pvc-stripe": [
         { 
             title: "PVC Stripe", 
-            images: ["images/products/13.png", "images/placeholder.png"], 
+            images: ["images/products/13.png", "images/products/14.png", "images/products/15.png", "images/products/16.png"], 
             colors: ["Clear", "Opaque"], 
             description: "Durable PVC stripe for insulation." 
         },
@@ -267,13 +267,13 @@ const productsPageCategories = {
     corner: [
         { 
             title: "Corner Up <br> (Flat Corner)", 
-            images: ["images/products/17.png", "images/placeholder.png"], 
+            images: ["images/products/17.png", "images/products/18.png", "images/products/20.png", "images/products/BL.png", "images/products/BR.png"], 
             colors: ["Silver", "Gold"], 
             description: "Flat corner for seamless jointing." 
         },
         { 
             title: "Corner Down (Handle Corner)", 
-            images: ["images/products/22.png", "images/placeholder.png"], 
+            images: ["images/products/22.png", "images/products/23.png", "images/products/25.png", "images/products/BL (2).png", "images/products/BR (2).png"], 
             colors: ["Bronze"], 
             description: "Handle corner for added functionality." 
         },
@@ -281,7 +281,7 @@ const productsPageCategories = {
     clip: [
         { 
             title: "Clip", 
-            images: ["images/products/27.png", "images/placeholder.png"], 
+            images: ["images/products/27.png", "images/products/31.png", "images/products/30.png", "images/products/BL (3).png", "images/products/BR (3).png"], 
             colors: ["Black", "White"], 
             description: "Sturdy clip for fastening." 
         },
@@ -289,7 +289,7 @@ const productsPageCategories = {
     glue: [
         { 
             title: "Super Glue (L3)", 
-            images: ["images/products/N (2).png", "images/placeholder.png"], 
+            images: ["images/products/N (2).png", "images/products/35.png", "images/products/33.png", "images/products/34.png"], 
             colors: ["Transparent"], 
             description: "High-strength super glue for bonding." 
         },
@@ -297,19 +297,19 @@ const productsPageCategories = {
     tape: [
         { 
             title: "3M Tape", 
-            images: ["images/products/N (3).png", "images/placeholder.png"], 
+            images: ["images/products/N (3).png", "images/products/37.png"], 
             colors: ["Gray"], 
             description: "Reliable 3M tape for sealing." 
         },
         { 
             title: "Acrylic Form Tape", 
-            images: ["images/products/38.png", "images/placeholder.png"], 
+            images: ["images/products/38.png", "images/products/39.png", "images/products/40.png"], 
             colors: ["White"], 
             description: "Acrylic foam tape for superior adhesion." 
         },
         { 
             title: "P.E Form Tape", 
-            images: ["images/products/41.png", "images/placeholder.png"], 
+            images: ["images/products/41.png", "images/products/42.png", "images/products/43.png", "images/products/44.png"], 
             colors: ["Black"], 
             description: "P.E foam tape for insulation." 
         },
