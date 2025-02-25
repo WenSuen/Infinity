@@ -326,10 +326,10 @@ function renderProductsForSections() {
             if (productGrid) {
                 productGrid.innerHTML = productsPageCategories[category]
                     .map((product) => {
-                        console.log(`Loading image: ${product.images ? product.images[0] : product.image}`); // Debugging
+                        console.log(`Loading image: ${product.images[0]}`); // Debugging
                         return `
                             <div class="product-card">
-                                <img src="${product.images ? product.images[0] : product.image}" 
+                                <img src="${product.images[0]}" 
                                      alt="${product.title}" 
                                      class="product-image" 
                                      loading="lazy" 
@@ -357,7 +357,8 @@ function openProductPageModal(title, category) {
 
     // Generate thumbnail images for selection
     const thumbnails = product.images.map((img, index) => `
-        <img src="${img}" alt="Thumbnail ${index + 1}" class="thumbnail" onclick="changeMainImage('${img}')">
+        <img src="${img}" alt="Thumbnail ${index + 1}" class="thumbnail" 
+            onclick="changeMainImage('${img}', this)">
     `).join("");
 
     // Set up modal content
@@ -371,11 +372,36 @@ function openProductPageModal(title, category) {
         <ul>${product.colors.map((color) => `<li>${color}</li>`).join("")}</ul>
     `;
 
+    // Highlight first thumbnail as selected
+    setTimeout(() => {
+        const firstThumbnail = modal.querySelector(".thumbnail");
+        if (firstThumbnail) {
+            firstThumbnail.classList.add("selected");
+        }
+    }, 50);
+
     modal.style.display = "flex";
 }
 
-function changeMainImage(imageSrc) {
-    document.getElementById("mainProductImage").src = imageSrc;
+function changeMainImage(imageSrc, element) {
+    const mainImage = document.getElementById("mainProductImage");
+
+    if (mainImage) {
+        mainImage.style.opacity = "0"; // Fade out
+        setTimeout(() => {
+            mainImage.src = imageSrc;
+            mainImage.style.opacity = "1"; // Fade in
+        }, 300);
+    }
+
+    // Remove 'selected' class from all thumbnails
+    const thumbnails = document.querySelectorAll(".thumbnail");
+    thumbnails.forEach((thumb) => thumb.classList.remove("selected"));
+
+    // Add 'selected' class to clicked thumbnail
+    if (element) {
+        element.classList.add("selected");
+    }
 }
 
 function closeProductPageModal() {
