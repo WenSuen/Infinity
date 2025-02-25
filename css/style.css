@@ -951,14 +951,13 @@ body, html {
     background-color: #f9f9f9;
 }
 
-/* Adjusted CTA Banner Height */
+/* Adjusted CTA Banner Height for a Better Fit */
 .cta-banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 85vh; /* Slightly increased */
-    margin-bottom: 50px; /* Creates space above the footer */
+    min-height: 80vh; /* Fits better within the page */
     background: linear-gradient(135deg, #ff5e62, #ff9966);
     color: white;
     text-align: center;
@@ -966,33 +965,34 @@ body, html {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    margin-bottom: 50px; /* Adds space between banner & footer */
 }
 
-/* Floating Icons - Adjusted for Height & Smooth Pulse */
+/* Floating Icons - Adjusted for Better Visibility */
 .cta-banner::before {
     content: "💬";
-    font-size: 50px;
+    font-size: 50px; /* Kept the original size */
     position: absolute;
-    top: 15%; /* Raised slightly */
+    top: 18%; /* Slightly lowered */
     left: 5%;
     opacity: 0.15;
-    animation: floatPulse 4s infinite ease-in-out;
+    animation: floatPulse 6s infinite ease-in-out alternate;
 }
 
 .cta-banner::after {
     content: "📞";
-    font-size: 50px;
+    font-size: 50px; /* Kept the original size */
     position: absolute;
-    bottom: 15%; /* Lowered slightly */
+    bottom: 18%; /* Slightly raised */
     right: 5%;
     opacity: 0.15;
-    animation: floatPulse 4s infinite ease-in-out reverse;
+    animation: floatPulse 6s infinite ease-in-out alternate-reverse;
 }
 
 /* Floating & Pulsing Effect */
 @keyframes floatPulse {
     0% { transform: translateY(0) scale(1); opacity: 0.15; }
-    50% { transform: translateY(10px) scale(1.1); opacity: 0.2; }
+    50% { transform: translateY(8px) scale(1.1); opacity: 0.2; }
     100% { transform: translateY(0) scale(1); opacity: 0.15; }
 }
 
@@ -1012,7 +1012,7 @@ body, html {
     animation: fadeInUp 1s ease-in-out 0.3s forwards;
 }
 
-/* Button Styling */
+/* Button Styling & Hover Effects */
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -1031,17 +1031,36 @@ body, html {
     overflow: hidden;
 }
 
-/* Button Hover Effect */
+/* Button Hover Animation */
 .cta-button:hover {
     background: #ff3238;
     color: white;
     transform: scale(1.05);
 }
 
+/* Button Icons */
+.cta-button:first-child::before {
+    content: "📞";
+}
+.cta-button:last-child::before {
+    content: "✉️";
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .cta-banner {
-        min-height: 90vh;
+        min-height: 85vh; /* Slightly taller for small screens */
     }
     .cta-banner h2 {
         font-size: 2rem;
