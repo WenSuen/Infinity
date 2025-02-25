@@ -1059,35 +1059,38 @@ body, html {
 
 /* Contact Info (Hidden Initially) */
 .contact-info {
-    font-size: 0.85rem; /* Adjusted font size */
+    font-size: 0.85rem;
     font-weight: bold;
     color: white;
     opacity: 0;
-    transform: translateY(3px); /* Moved text closer */
+    position: absolute;
+    bottom: -25px; /* Moves text below the button */
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     text-align: center;
-    display: block;
-    width: 100%;
-    position: absolute;
-    bottom: 25px; /* Adjusted positioning */
+    width: max-content;
+    background: rgba(255, 50, 56, 0.9);
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
 }
 
 /* Expand on Hover */
 .cta-button:hover {
     background: #ff3238;
     color: white;
-    width: 190px; /* Smaller expansion */
-    height: 65px; /* Reduced size */
+    width: 190px;
+    height: 65px;
     padding: 12px;
-    border-radius: 25px; /* Slightly rounded */
+    border-radius: 25px;
 }
 
-/* Show contact details on hover with better visibility */
+/* Show contact details on hover */
 .cta-button:hover .contact-info {
     opacity: 1;
-    transform: translateY(0px); /* Adjusted for better placement */
-    font-weight: bold;
-    letter-spacing: 0.5px;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* Animations */
