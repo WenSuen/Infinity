@@ -316,7 +316,6 @@ const productsPageCategories = {
     ],
 };
 
-// Render Products on the Products Page
 function renderProductsForSections() {
     console.log("Rendering Products...");
 
@@ -327,12 +326,18 @@ function renderProductsForSections() {
             if (productGrid) {
                 productGrid.innerHTML = productsPageCategories[category]
                     .map((product) => {
-                        console.log(`Loading image: ${product.image}`); // Debugging
+                        console.log(`Loading image: ${product.images ? product.images[0] : product.image}`); // Debugging
                         return `
                             <div class="product-card">
-                                <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy" onerror="this.src='images/placeholder.png';">
+                                <img src="${product.images ? product.images[0] : product.image}" 
+                                     alt="${product.title}" 
+                                     class="product-image" 
+                                     loading="lazy" 
+                                     onerror="this.src='images/placeholder.png';">
                                 <h3>${product.title.toUpperCase()}</h3>
-                                <button class="view-details" onclick="openProductPageModal('${product.title}', '${category}')">More Details</button>
+                                <button class="view-details" onclick="openProductPageModal('${product.title}', '${category}')">
+                                    More Details
+                                </button>
                             </div>
                         `;
                     })
