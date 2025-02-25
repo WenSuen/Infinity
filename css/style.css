@@ -944,7 +944,7 @@ body, html {
     }
 }
 
-/* Contact Page Styles */
+/* Contact Page Styling */
 .contact-page {
     text-align: center;
     padding: 4em 2em;
@@ -960,11 +960,13 @@ body, html {
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2em;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .cta-banner h2 {
     font-size: 2.5rem;
     margin-bottom: 0.5em;
+    font-weight: bold;
 }
 
 .cta-banner p {
@@ -972,6 +974,7 @@ body, html {
     margin-bottom: 1em;
 }
 
+/* CTA Buttons */
 .cta-button {
     display: inline-block;
     padding: 0.8em 1.5em;
@@ -990,54 +993,19 @@ body, html {
     color: white;
 }
 
-/* FAQ Section */
-.faq-section {
-    background: white;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 0 auto;
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.faq-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1em;
-}
-
-.faq-item {
-    text-align: left;
-    background: #f5f5f5;
-    padding: 1em;
-    border-radius: 5px;
-    margin-bottom: 1em;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.faq-item h3 {
-    font-size: 1.2rem;
-    cursor: pointer;
-    position: relative;
-    margin-bottom: 0.5em;
-}
-
-.faq-item p {
-    font-size: 1rem;
-    color: #333;
-    display: none; /* Hide text by default */
-}
-
-/* FAQ Expand Effect */
-.faq-item.active p {
-    display: block; /* Show text when active */
-}
-
-.faq-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Responsive Design */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .cta-banner {
         padding: 2em;
@@ -1047,11 +1015,8 @@ body, html {
         font-size: 2rem;
     }
 
-    .faq-section {
-        padding: 1.5em;
-    }
-
-    .faq-item h3 {
+    .cta-button {
         font-size: 1rem;
+        padding: 0.6em 1.2em;
     }
 }
