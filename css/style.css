@@ -1010,26 +1010,26 @@ body, html {
     line-height: 1.4;
 }
 
-/* CTA Buttons */
+/* Button Styling */
 .cta-button {
     display: flex;
     align-items: center;
     justify-content: center;
     background: white;
     color: #ff5e62;
-    padding: 12px 20px;
-    font-size: 1.1rem;
+    padding: 10px 15px;
+    font-size: 1rem;
     font-weight: bold;
     border-radius: 30px;
     text-decoration: none;
+    margin: 12px;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    width: 200px;
-    height: 50px;
+    width: auto;
+    height: 40px;
     overflow: hidden;
-    position: relative;
     white-space: nowrap;
-    flex-direction: column;
+    min-width: 150px;
 }
 
 /* Button Content */
@@ -1044,37 +1044,35 @@ body, html {
     font-size: 1.2em;
 }
 
-/* Contact Info (Hidden by Default) */
+/* Contact Info (Hidden Initially) */
 .contact-info {
     display: block;
     font-size: 1rem;
     font-weight: normal;
-    color: white;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: 5px;
+    color: #ff5e62;
     opacity: 0;
     transform: translateY(-5px);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    text-align: center;
-    width: 100%;
+    height: 0;
+    overflow: hidden;
 }
 
-/* Button Hover Effect */
+/* Hover Effect: Expand & Show Contact Info */
 .cta-button:hover {
     background: #ff3238;
     color: white;
-    width: 230px;
-    height: 80px;
-    transform: scale(1.05);
+    transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(255, 50, 56, 0.4);
+    height: 80px; /* Expands vertically */
+    min-width: 180px; /* Expands horizontally */
+    padding: 15px;
 }
 
-/* Show Contact Info on Hover */
+/* Show phone/email on hover */
 .cta-button:hover .contact-info {
     opacity: 1;
     transform: translateY(0);
+    height: auto;
 }
 
 /* Animations */
