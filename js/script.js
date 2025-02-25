@@ -60,9 +60,11 @@ function handleHeaderScroll() {
     const header = document.querySelector('#main-header');
     if (!header) return;
 
-    const isProductsPage = document.body.classList.contains('products-page');
+    // Check if the page is either the Products or About page
+    const isSolidHeaderPage = document.body.classList.contains('products-page') || 
+                              document.body.classList.contains('about-page');
 
-    if (!isProductsPage) {
+    if (!isSolidHeaderPage) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('solid-header');
