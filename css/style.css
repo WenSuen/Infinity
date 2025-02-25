@@ -957,6 +957,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 15px; /* Adjust this value slightly */
     min-height: 85vh;
     background: linear-gradient(135deg, #ff5e62, #ff9966);
     color: white;
