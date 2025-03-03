@@ -1113,55 +1113,50 @@ body, html {
     }
 }
 
-/* Gallery Grid Layout */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px; /* Adds spacing between images */
+/* Adjustments for Gallery Page */
+.gallery-container {
+    margin-top: 70px; /* Prevents header overlap */
     padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
-/* Gallery Images */
-.gallery-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* Slight rounding for a modern look */
-    cursor: pointer;
-    transition: transform 0.3s ease;
+.gallery-item {
+    width: calc(25% - 20px); /* Ensures four images per row with padding */
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.gallery-img:hover {
+.gallery-item:hover {
     transform: scale(1.05);
 }
 
-/* Lightbox Styling */
+/* Lightbox (Fullscreen View) */
 .lightbox {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 
-.lightbox-img {
+.lightbox img {
     max-width: 90%;
     max-height: 90vh;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Lightbox Close Button */
-.close-lightbox {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
+/* Ensure Visibility */
+.gallery-section {
+    background: #f8f8f8; /* Light background to fix dark issue */
+    color: #333;
+    padding: 20px;
 }
