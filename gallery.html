@@ -14,24 +14,28 @@
     
     <section class="gallery-section">
         <h2>Project Gallery</h2>
-        <div class="gallery-categories">
-            <button class="category-btn active" data-category="window">Window</button>
-            <button class="category-btn" data-category="door">Door</button>
+
+        <!-- Window Gallery -->
+        <div class="gallery-category">
+            <h3>Window Projects</h3>
+            <div class="gallery-grid" id="windowGallery">
+                <!-- Window images will be loaded dynamically -->
+            </div>
         </div>
-        
-        <div class="gallery-grid" id="galleryGrid">
-            <!-- Images will be loaded dynamically -->
+
+        <!-- Door Gallery -->
+        <div class="gallery-category">
+            <h3>Door Projects</h3>
+            <div class="gallery-grid" id="doorGallery">
+                <!-- Door images will be loaded dynamically -->
+            </div>
         </div>
     </section>
     
     <!-- Lightbox for Fullscreen View -->
     <div id="lightbox" class="lightbox">
-        <div class="lightbox-content">
-            <button id="prevImg">&#10094;</button> <!-- Previous button -->
-            <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Image">
-            <button id="nextImg">&#10095;</button> <!-- Next button -->
-            <span class="close-lightbox">&times;</span> <!-- Close button -->
-        </div>
+        <span class="close-lightbox">&times;</span>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Image">
     </div>
     
     <!-- Footer Container -->

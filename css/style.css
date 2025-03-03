@@ -1120,13 +1120,22 @@ body, html {
     text-align: center;
 }
 
-/* Gallery grid layout */
-#galleryGrid {
+/* Section titles for Window & Door categories */
+.gallery-category {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+/* Separate gallery sections for Window & Door */
+#windowGallery, #doorGallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 40px auto; /* Adds spacing between categories */
 }
 
 /* Style for gallery images */

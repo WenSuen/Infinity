@@ -479,9 +479,10 @@ function animateAboutUsTitle() {
     }
 }
 
+// Function to initialize gallery with categories and lightbox
 function initializeGallery() {
-    const galleryGrid = document.getElementById("galleryGrid");
-    const categoryButtons = document.querySelectorAll(".category-btn");
+    const windowGallery = document.getElementById("windowGallery");
+    const doorGallery = document.getElementById("doorGallery");
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightboxImg");
     const closeLightbox = document.querySelector(".close-lightbox");
@@ -501,26 +502,25 @@ function initializeGallery() {
         ]
     };
 
-    let currentCategory = "window"; 
+    let currentCategory = null;
     let currentIndex = 0;
 
-    // Function to load gallery images based on category
-    function loadGallery(category) {
-        galleryGrid.innerHTML = ""; // Clear existing images
+    // Function to load images into a given gallery
+    function loadGallery(category, galleryElement) {
+        galleryElement.innerHTML = ""; // Clear existing images
         images[category].forEach((img, index) => {
             const imgElement = document.createElement("img");
             imgElement.src = img;
             imgElement.alt = `${category} project`;
             imgElement.classList.add("gallery-item");
             imgElement.addEventListener("click", () => openLightbox(category, index));
-            galleryGrid.appendChild(imgElement);
+            galleryElement.appendChild(imgElement);
         });
-        currentCategory = category;
     }
 
-    // Function to open lightbox only when an image is clicked
+    // Function to open lightbox with navigation support
     function openLightbox(category, index) {
-        lightbox.style.display = "flex"; // Show lightbox
+        lightbox.style.display = "flex";
         lightboxImg.src = images[category][index];
         currentCategory = category;
         currentIndex = index;
@@ -528,40 +528,31 @@ function initializeGallery() {
 
     // Function to close lightbox
     function closeLightboxHandler() {
-        lightbox.style.display = "none"; // Hide lightbox when closed
+        lightbox.style.display = "none";
     }
 
     // Function to show next image in lightbox
     function showNextImage() {
+        if (!currentCategory) return;
         currentIndex = (currentIndex + 1) % images[currentCategory].length;
         lightboxImg.src = images[currentCategory][currentIndex];
     }
 
     // Function to show previous image in lightbox
     function showPrevImage() {
+        if (!currentCategory) return;
         currentIndex = (currentIndex - 1 + images[currentCategory].length) % images[currentCategory].length;
         lightboxImg.src = images[currentCategory][currentIndex];
     }
 
-    // Add event listeners
+    // Add event listeners for lightbox controls
     closeLightbox.addEventListener("click", closeLightboxHandler);
     nextButton.addEventListener("click", showNextImage);
     prevButton.addEventListener("click", showPrevImage);
 
-    // Category button event listeners
-    categoryButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            document.querySelector(".category-btn.active")?.classList.remove("active");
-            button.classList.add("active");
-            loadGallery(button.getAttribute("data-category"));
-        });
-    });
-
-    // Load default category on page load
-    loadGallery(currentCategory);
-
-    // Ensure lightbox is hidden by default
-    lightbox.style.display = "none";
+    // Load images into respective sections
+    loadGallery("window", windowGallery);
+    loadGallery("door", doorGallery);
 }
 
 // Initialize all components when DOM is fully loaded
