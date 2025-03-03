@@ -518,17 +518,26 @@ function initializeGallery() {
         });
     }
 
-    // Function to open lightbox with navigation support
+    // Function to open lightbox with animation
     function openLightbox(category, index) {
-        lightbox.style.display = "flex";
+        lightbox.classList.add("show"); // Add animation class
         lightboxImg.src = images[category][index];
         currentCategory = category;
         currentIndex = index;
+
+        // Prevent scrolling while lightbox is open
+        document.body.style.overflow = "hidden";
     }
 
-    // Function to close lightbox
+    // Function to close lightbox with animation
     function closeLightboxHandler() {
-        lightbox.style.display = "none";
+        lightbox.classList.remove("show"); // Remove animation class
+        setTimeout(() => {
+            lightbox.style.display = "none";
+        }, 300); // Allow animation to finish
+
+        // Re-enable scrolling
+        document.body.style.overflow = "";
     }
 
     // Function to show next image in lightbox
@@ -545,10 +554,31 @@ function initializeGallery() {
         lightboxImg.src = images[currentCategory][currentIndex];
     }
 
+    // Handle keyboard navigation
+    function handleKeydown(event) {
+        if (lightbox.classList.contains("show")) {
+            if (event.key === "ArrowRight") {
+                showNextImage();
+            } else if (event.key === "ArrowLeft") {
+                showPrevImage();
+            } else if (event.key === "Escape") {
+                closeLightboxHandler();
+            }
+        }
+    }
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+            closeLightboxHandler();
+        }
+    });
+
     // Add event listeners for lightbox controls
     closeLightbox.addEventListener("click", closeLightboxHandler);
     nextButton.addEventListener("click", showNextImage);
     prevButton.addEventListener("click", showPrevImage);
+    document.addEventListener("keydown", handleKeydown); // Keyboard controls
 
     // Load images into respective sections
     loadGallery("window", windowGallery);
