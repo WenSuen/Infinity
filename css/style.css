@@ -1115,7 +1115,7 @@ body, html {
 
 /* Ensure the gallery is below the header */
 .gallery-section {
-    margin-top: 80px; /* Push the entire section down */
+    margin-top: 80px; /* Reduced from 120px */
     padding-bottom: 50px; /* Prevent sticking to footer */
     text-align: center;
 }
@@ -1149,17 +1149,11 @@ body, html {
 /* Style the gallery grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Max 5 per row */
-    gap: 15px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Increased min size */
+    gap: 20px; /* Slightly increased spacing */
+    max-width: 1300px; /* Increased width slightly */
     margin: 0 auto 40px auto; /* Centered */
     justify-content: center;
-}
-
-/* Center the last row if it has fewer than 5 images */
-.gallery-grid::after {
-    content: "";
-    flex-grow: 1;
 }
 
 /* Gallery images */
@@ -1167,12 +1161,12 @@ body, html {
     width: 100%;
     height: auto;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px; /* Slightly rounded corners */
     transition: transform 0.3s ease-in-out;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.08); /* Increased hover effect slightly */
 }
 
 /* Lightbox overlay */
@@ -1193,7 +1187,7 @@ body, html {
 .lightbox-content {
     position: relative;
     width: 90%;
-    max-width: 800px;
+    max-width: 850px; /* Increased max width */
     text-align: center;
 }
 
@@ -1204,8 +1198,8 @@ body, html {
 
 /* Lightbox image */
 #lightboxImg {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 92%; /* Slightly increased */
+    max-height: 92%;
     object-fit: contain; /* Ensures the image scales without distortion */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -1230,7 +1224,7 @@ body, html {
     color: white;
     border: none;
     padding: 15px;
-    font-size: 20px;
+    font-size: 22px; /* Increased size slightly */
     cursor: pointer;
     border-radius: 50%;
 }
