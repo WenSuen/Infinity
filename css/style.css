@@ -1114,31 +1114,55 @@ body, html {
 }
 
 /* Ensure the gallery is below the header */
-.gallery-container {
-    margin-top: 80px;
-    padding: 20px;
+.gallery-section {
+    margin-top: 120px; /* Push the entire section down */
+    padding-bottom: 50px; /* Prevent sticking to footer */
     text-align: center;
 }
 
-/* Style the gallery grid to ensure proper layout and spacing */
+/* Project Gallery Title */
+.gallery-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #222;
+    border-bottom: 3px solid #4CAF50;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Category Titles (Window & Door Projects) */
+.gallery-category h3 {
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 30px 0 20px;
+    letter-spacing: 1px;
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Style the gallery grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates a responsive grid */
+    grid-template-columns: repeat(5, 1fr); /* Max 5 per row */
     gap: 15px;
     max-width: 1200px;
-    margin: 0 auto 40px auto; /* Centers the gallery */
+    margin: 0 auto 40px auto; /* Centered */
+    justify-content: center;
 }
 
-/* Section titles for Window & Door categories */
-.gallery-category {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    color: #333;
+/* Center the last row if it has fewer than 5 images */
+.gallery-grid::after {
+    content: "";
+    flex-grow: 1;
 }
 
-/* Style for gallery images */
+/* Gallery images */
 .gallery-item {
     width: 100%;
     height: auto;
