@@ -486,7 +486,9 @@ function initializeGallery() {
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightboxImg");
     const closeLightbox = document.querySelector(".close-lightbox");
-    
+    const prevButton = document.getElementById("prevImg");
+    const nextButton = document.getElementById("nextImg");
+
     const images = {
         window: [
             "images/gallery/window/46.png", "images/gallery/window/49.png", "images/gallery/window/50.png",
@@ -497,24 +499,44 @@ function initializeGallery() {
             "images/gallery/door/47.png", "images/gallery/door/48.png", "images/gallery/door/51.png",
             "images/gallery/door/52.png", "images/gallery/door/57.png", "images/gallery/door/59.png"
         ]
-    };    
-
-    function loadGallery(category) {
-        galleryGrid.innerHTML = images[category].map(img => `
-            <div class="gallery-item">
-                <img src="${img}" alt="${category} project" class="gallery-img" onclick="openLightbox('${img}')">
-            </div>
-        `).join("");
-    }
-
-    window.openLightbox = function(imgSrc) {
-        lightbox.style.display = "flex";
-        lightboxImg.src = imgSrc;
     };
 
-    closeLightbox.addEventListener("click", () => {
+    let currentCategory = "window";
+    let currentIndex = 0;
+
+    function loadGallery(category) {
+        galleryGrid.innerHTML = images[category].map((img, index) => `
+            <div class="gallery-item">
+                <img src="${img}" alt="${category} project" class="gallery-img" onclick="openLightbox('${category}', ${index})">
+            </div>
+        `).join("");
+        currentCategory = category;
+    }
+
+    window.openLightbox = function(category, index) {
+        lightbox.style.display = "flex";
+        lightboxImg.src = images[category][index];
+        currentCategory = category;
+        currentIndex = index;
+    };
+
+    function closeLightboxHandler() {
         lightbox.style.display = "none";
-    });
+    }
+
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % images[currentCategory].length;
+        lightboxImg.src = images[currentCategory][currentIndex];
+    }
+
+    function showPrevImage() {
+        currentIndex = (currentIndex - 1 + images[currentCategory].length) % images[currentCategory].length;
+        lightboxImg.src = images[currentCategory][currentIndex];
+    }
+
+    closeLightbox.addEventListener("click", closeLightboxHandler);
+    nextButton.addEventListener("click", showNextImage);
+    prevButton.addEventListener("click", showPrevImage);
 
     categoryButtons.forEach(button => {
         button.addEventListener("click", () => {
