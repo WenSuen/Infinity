@@ -520,7 +520,10 @@ function initializeGallery() {
 
     // Function to open lightbox with animation
     function openLightbox(category, index) {
-        lightbox.classList.add("show"); // Add animation class
+        lightbox.classList.add("show"); // Add class for animation
+        lightbox.classList.remove("hide"); // Remove closing animation class
+        lightbox.style.visibility = "visible"; // Ensure it can be seen
+        lightbox.style.opacity = "1"; // Fade in
         lightboxImg.src = images[category][index];
         currentCategory = category;
         currentIndex = index;
@@ -531,10 +534,12 @@ function initializeGallery() {
 
     // Function to close lightbox with animation
     function closeLightboxHandler() {
-        lightbox.classList.remove("show"); // Remove animation class
+        lightbox.classList.add("hide"); // Add hide animation
+        lightbox.classList.remove("show"); // Remove show class
         setTimeout(() => {
-            lightbox.style.display = "none";
-        }, 300); // Allow animation to finish
+            lightbox.style.visibility = "hidden"; // Hide properly
+            lightbox.style.opacity = "0"; // Fade out
+        }, 300); // Delay for smooth transition
 
         // Re-enable scrolling
         document.body.style.overflow = "";
