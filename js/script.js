@@ -479,7 +479,6 @@ function animateAboutUsTitle() {
     }
 }
 
-// Function to initialize gallery with categories and lightbox
 function initializeGallery() {
     const galleryGrid = document.getElementById("galleryGrid");
     const categoryButtons = document.querySelectorAll(".category-btn");
@@ -519,9 +518,9 @@ function initializeGallery() {
         currentCategory = category;
     }
 
-    // Function to open lightbox
+    // Function to open lightbox only when an image is clicked
     function openLightbox(category, index) {
-        lightbox.style.display = "flex";
+        lightbox.style.display = "flex"; // Show lightbox
         lightboxImg.src = images[category][index];
         currentCategory = category;
         currentIndex = index;
@@ -529,7 +528,7 @@ function initializeGallery() {
 
     // Function to close lightbox
     function closeLightboxHandler() {
-        lightbox.style.display = "none";
+        lightbox.style.display = "none"; // Hide lightbox when closed
     }
 
     // Function to show next image in lightbox
@@ -560,6 +559,9 @@ function initializeGallery() {
 
     // Load default category on page load
     loadGallery(currentCategory);
+
+    // Ensure lightbox is hidden by default
+    lightbox.style.display = "none";
 }
 
 // Initialize all components when DOM is fully loaded
