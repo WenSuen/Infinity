@@ -1115,24 +1115,24 @@ body, html {
 
 /* Adjustments for Gallery Page */
 .gallery-container {
-    margin-top: 70px; /* Prevents header overlap */
+    margin-top: 100px; /* Increased to prevent header overlap */
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .gallery-item {
-    width: calc(25% - 20px); /* Ensures four images per row with padding */
-    max-height: 250px;
+    width: calc(33.33% - 20px); /* Ensures three images per row */
+    max-height: 200px; /* Adjust height to maintain aspect ratio */
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px; /* Softer edges */
     transition: transform 0.3s ease-in-out;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* Lightbox (Fullscreen View) */
@@ -1149,14 +1149,14 @@ body, html {
 }
 
 .lightbox img {
-    max-width: 90%;
-    max-height: 90vh;
-    border-radius: 10px;
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 12px;
 }
 
 /* Ensure Visibility */
 .gallery-section {
-    background: #f8f8f8; /* Light background to fix dark issue */
+    background: #f8f8f8;
     color: #333;
     padding: 20px;
 }
