@@ -1115,7 +1115,7 @@ body, html {
 
 /* Ensure the gallery is below the header */
 .gallery-section {
-    margin-top: 80px; /* Reduced from 120px */
+    margin-top: 70px; /* Reduced from 120px */
     padding-bottom: 50px; /* Prevent sticking to footer */
     text-align: center;
 }
