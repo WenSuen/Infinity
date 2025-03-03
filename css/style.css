@@ -1148,20 +1148,21 @@ body, html {
 
 /* Style the gallery grid */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Increased min size */
-    gap: 20px; /* Slightly increased spacing */
-    max-width: 1300px; /* Increased width slightly */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust spacing */
+    max-width: 1300px; /* Limit width */
     margin: 0 auto 40px auto; /* Centered */
-    justify-content: center;
+    justify-content: center; /* Ensures last row is centered */
 }
 
 /* Gallery images */
 .gallery-item {
-    width: 100%;
+    flex: 1 1 calc(20% - 20px); /* Ensures 5 items per row with spacing */
+    max-width: calc(20% - 20px); /* Prevents stretching */
     height: auto;
     cursor: pointer;
-    border-radius: 8px; /* Slightly rounded corners */
+    border-radius: 8px;
     transition: transform 0.3s ease-in-out;
 }
 
