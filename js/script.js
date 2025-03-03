@@ -478,6 +478,54 @@ function animateAboutUsTitle() {
     }
 }
 
+// Function to initialize gallery with categories and lightbox
+function initializeGallery() {
+    const galleryGrid = document.getElementById("galleryGrid");
+    const categoryButtons = document.querySelectorAll(".category-btn");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeLightbox = document.querySelector(".close-lightbox");
+    
+    const images = {
+        window: [
+            "images/gallery/window/46.png", "images/gallery/window/49.png", "images/gallery/window/50.png",
+            "images/gallery/window/53.png", "images/gallery/window/54.png", "images/gallery/window/55.png",
+            "images/gallery/window/56.png", "images/gallery/window/58.png"
+        ],
+        door: [
+            "images/gallery/door/47.png", "images/gallery/door/48.png", "images/gallery/door/51.png",
+            "images/gallery/door/52.png", "images/gallery/door/57.png", "images/gallery/door/59.png"
+        ]
+    };    
+
+    function loadGallery(category) {
+        galleryGrid.innerHTML = images[category].map(img => `
+            <div class="gallery-item">
+                <img src="${img}" alt="${category} project" class="gallery-img" onclick="openLightbox('${img}')">
+            </div>
+        `).join("");
+    }
+
+    window.openLightbox = function(imgSrc) {
+        lightbox.style.display = "flex";
+        lightboxImg.src = imgSrc;
+    };
+
+    closeLightbox.addEventListener("click", () => {
+        lightbox.style.display = "none";
+    });
+
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            document.querySelector(".category-btn.active").classList.remove("active");
+            button.classList.add("active");
+            loadGallery(button.getAttribute("data-category"));
+        });
+    });
+
+    loadGallery("window"); // Load default category on page load
+}
+
 // Initialize all components when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     loadComponents();
@@ -490,4 +538,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeBackToTopButton();
     initializeWhatsAppButton();
     animateAboutUsTitle(); 
+    initializeGallery();
 });

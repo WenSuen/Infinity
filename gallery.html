@@ -3,17 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Mosquito Net Business</title>
+    <title>Gallery - Infinity Industrial Supplies</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
 </head>
-<body>
+<body class="gallery-page">
+    
+    <!-- Header Container -->
     <div class="header-container"></div>
-    <main>
-        <section>
-            <p>Check out our collection of premium mosquito nets.</p>
-        </section>
-    </main>
+    
+    <section class="gallery-section">
+        <h2>Project Gallery</h2>
+        <div class="gallery-categories">
+            <button class="category-btn active" data-category="window">Window</button>
+            <button class="category-btn" data-category="door">Door</button>
+        </div>
+        
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Images will be loaded dynamically -->
+        </div>
+    </section>
+    
+    <!-- Lightbox for Fullscreen View -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Image">
+    </div>
+    
+    <!-- Footer Container -->
     <div class="footer-container"></div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            loadComponents();
+            initializeGallery();
+        });
+    </script>
 </body>
 </html>
