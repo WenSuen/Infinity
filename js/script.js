@@ -489,6 +489,7 @@ function initializeGallery() {
     const prevButton = document.getElementById("prevImg");
     const nextButton = document.getElementById("nextImg");
 
+    // Image paths for each category
     const images = {
         window: [
             "images/gallery/window/46.png", "images/gallery/window/49.png", "images/gallery/window/50.png",
@@ -501,52 +502,64 @@ function initializeGallery() {
         ]
     };
 
-    let currentCategory = "window";
+    let currentCategory = "window"; 
     let currentIndex = 0;
 
+    // Function to load gallery images based on category
     function loadGallery(category) {
-        galleryGrid.innerHTML = images[category].map((img, index) => `
-            <div class="gallery-item">
-                <img src="${img}" alt="${category} project" class="gallery-img" onclick="openLightbox('${category}', ${index})">
-            </div>
-        `).join("");
+        galleryGrid.innerHTML = ""; // Clear existing images
+        images[category].forEach((img, index) => {
+            const imgElement = document.createElement("img");
+            imgElement.src = img;
+            imgElement.alt = `${category} project`;
+            imgElement.classList.add("gallery-item");
+            imgElement.addEventListener("click", () => openLightbox(category, index));
+            galleryGrid.appendChild(imgElement);
+        });
         currentCategory = category;
     }
 
-    window.openLightbox = function(category, index) {
+    // Function to open lightbox
+    function openLightbox(category, index) {
         lightbox.style.display = "flex";
         lightboxImg.src = images[category][index];
         currentCategory = category;
         currentIndex = index;
-    };
+    }
 
+    // Function to close lightbox
     function closeLightboxHandler() {
         lightbox.style.display = "none";
     }
 
+    // Function to show next image in lightbox
     function showNextImage() {
         currentIndex = (currentIndex + 1) % images[currentCategory].length;
         lightboxImg.src = images[currentCategory][currentIndex];
     }
 
+    // Function to show previous image in lightbox
     function showPrevImage() {
         currentIndex = (currentIndex - 1 + images[currentCategory].length) % images[currentCategory].length;
         lightboxImg.src = images[currentCategory][currentIndex];
     }
 
+    // Add event listeners
     closeLightbox.addEventListener("click", closeLightboxHandler);
     nextButton.addEventListener("click", showNextImage);
     prevButton.addEventListener("click", showPrevImage);
 
+    // Category button event listeners
     categoryButtons.forEach(button => {
         button.addEventListener("click", () => {
-            document.querySelector(".category-btn.active").classList.remove("active");
+            document.querySelector(".category-btn.active")?.classList.remove("active");
             button.classList.add("active");
             loadGallery(button.getAttribute("data-category"));
         });
     });
 
-    loadGallery("window"); // Load default category on page load
+    // Load default category on page load
+    loadGallery(currentCategory);
 }
 
 // Initialize all components when DOM is fully loaded

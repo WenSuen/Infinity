@@ -26,8 +26,12 @@
     
     <!-- Lightbox for Fullscreen View -->
     <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Image">
+        <div class="lightbox-content">
+            <button id="prevImg">&#10094;</button> <!-- Previous button -->
+            <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Image">
+            <button id="nextImg">&#10095;</button> <!-- Next button -->
+            <span class="close-lightbox">&times;</span> <!-- Close button -->
+        </div>
     </div>
     
     <!-- Footer Container -->
