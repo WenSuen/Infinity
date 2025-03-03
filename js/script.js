@@ -556,8 +556,10 @@ function initializeGallery() {
 }
 
 // Initialize all components when DOM is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
-    loadComponents();
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadComponents();  // Ensure header/footer loads first
+
+    // Now initialize everything else
     preloadBackgroundImage();
     initializeProductHoverEffects();
     renderFeaturedProducts();

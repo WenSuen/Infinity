@@ -36,14 +36,16 @@
     <div id="lightbox" class="lightbox">
         <span class="close-lightbox">&times;</span>
         <img id="lightboxImg" class="lightbox-img" src="" alt="Gallery Image">
+        <button id="prevImg" class="lightbox-nav">&lt;</button>
+        <button id="nextImg" class="lightbox-nav">&gt;</button>
     </div>
     
     <!-- Footer Container -->
     <div class="footer-container"></div>
     
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            loadComponents();
+        document.addEventListener("DOMContentLoaded", async () => {
+            await loadComponents(); // Ensure header and footer load before running scripts
             initializeGallery();
         });
     </script>
