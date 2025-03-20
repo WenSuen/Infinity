@@ -6,6 +6,10 @@ body, html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: #E7D4BE !important;
+}
+
 /* Header */
 #main-header {
     position: fixed;
