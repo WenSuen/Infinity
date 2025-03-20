@@ -6,7 +6,7 @@ body, html {
     scroll-behavior: smooth;
 }
 
-body {
+.about-page, .contact-page, .gallery-page {
     background-color: #E7D4BE !important;
 }
 
