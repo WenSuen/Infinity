@@ -14,6 +14,10 @@ body, html {
     margin-bottom: 50px; /* Adjust this value as needed */
 }
 
+.about-us-section {
+    padding-top: 50px; /* Creates space above "About Us" */
+}
+
 /* Header */
 #main-header {
     position: fixed;
