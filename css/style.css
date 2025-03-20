@@ -10,6 +10,10 @@ body, html {
     background-color: #E7D4BE !important;
 }
 
+.testimonial-section {
+    margin-bottom: 50px; /* Adjust this value as needed */
+}
+
 /* Header */
 #main-header {
     position: fixed;
