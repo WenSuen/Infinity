@@ -268,7 +268,7 @@ const productsPageCategories = {
     ],
     corner: [
         {
-            title: "Corner Up <br> (Flat Corner)",
+            title: "Corner Up (Flat Corner)",
             images: ["images/products/17.png", "images/products/18.png", "images/products/20.png", "images/products/BL.png", "images/products/BR.png"],
             colors: ["Black", "White", "Grey", "Brown"],
             quantity: ["100 pieces per pack"]
@@ -394,7 +394,6 @@ function generateProductDetails(product) {
         .join("");
 }
 
-// Product Modal Logic
 function openProductPageModal(title, category) {
     const product = productsPageCategories[category].find((p) => p.title === title);
     if (!product) return;
@@ -408,20 +407,29 @@ function openProductPageModal(title, category) {
             onclick="changeMainImage('${img}', this)">
     `).join("");
 
+    // Safe color mapping
+    const colorMap = {
+        Black: "#000000",
+        White: "#FFFFFF",
+        Grey: "#808080",
+        Brown: "#8B4513",
+        Transparent: "#f0f0f0" // Light gray so it shows on white background
+    };
+
     // Dynamically generate optional details
     const extraDetails = generateProductDetails(product);
     const colors = product.colors?.length
-    ? `
-        <div class="product-colors">
-            <p>Available Colors:</p>
-            <div class="color-swatches">
-                ${product.colors.map((color) => `
-                    <span class="color-swatch" title="${color}" style="background-color: ${color.toLowerCase()};"></span>
-                `).join("")}
+        ? `
+            <div class="product-colors">
+                <p>Available Colors:</p>
+                <div class="color-swatches">
+                    ${product.colors.map((color) => `
+                        <span class="color-swatch" title="${color}" style="background-color: ${colorMap[color]};"></span>
+                    `).join("")}
+                </div>
             </div>
-        </div>
-    `
-    : "";
+        `
+        : "";
 
     // Set up modal content
     modalContent.innerHTML = `
