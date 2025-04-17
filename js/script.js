@@ -411,8 +411,17 @@ function openProductPageModal(title, category) {
     // Dynamically generate optional details
     const extraDetails = generateProductDetails(product);
     const colors = product.colors?.length
-        ? `<p>Available Colors:</p><ul>${product.colors.map((color) => `<li>${color}</li>`).join("")}</ul>`
-        : "";
+    ? `
+        <div class="product-colors">
+            <p>Available Colors:</p>
+            <div class="color-swatches">
+                ${product.colors.map((color) => `
+                    <span class="color-swatch" title="${color}" style="background-color: ${color.toLowerCase()};"></span>
+                `).join("")}
+            </div>
+        </div>
+    `
+    : "";
 
     // Set up modal content
     modalContent.innerHTML = `
@@ -420,7 +429,6 @@ function openProductPageModal(title, category) {
         <h2>${product.title}</h2>
         <img id="mainProductImage" src="${product.images[0]}" alt="${product.title}" class="main-image">
         <div class="thumbnail-container">${thumbnails}</div>
-        <p>${product.description}</p>
         ${colors}
         ${extraDetails ? `<ul class="product-details">${extraDetails}</ul>` : ""}
     `;
