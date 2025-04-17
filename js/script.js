@@ -380,7 +380,7 @@ function generateProductDetails(product) {
         Dimension: product.dimension,
         Size: product.size,
         Material: product.material,
-        Mesh: product.mesh,
+        "Mesh/Inch": product.mesh,
         Weight: product.weight,
         Quantity: product.quantity
     };
