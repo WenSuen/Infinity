@@ -348,12 +348,13 @@ body {
 }
 
 .product-colors {
-    text-align: left;
+    text-align: center; /* Center the label and swatches */
     margin-top: 10px;
 }
 
 .color-swatches {
     display: flex;
+    justify-content: center; /* Center swatches */
     flex-wrap: nowrap;
     gap: 8px;
     margin-top: 4px;

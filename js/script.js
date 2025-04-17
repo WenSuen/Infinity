@@ -412,24 +412,24 @@ function openProductPageModal(title, category) {
         Black: "#000000",
         White: "#FFFFFF",
         Grey: "#808080",
-        Brown: "#8B4513",
+        Brown: "#402F1D",
         Transparent: "#f0f0f0" // Light gray so it shows on white background
     };
 
     // Dynamically generate optional details
     const extraDetails = generateProductDetails(product);
     const colors = product.colors?.length
-        ? `
-            <div class="product-colors">
-                <p>Available Colors:</p>
-                <div class="color-swatches">
-                    ${product.colors.map((color) => `
-                        <span class="color-swatch" title="${color}" style="background-color: ${colorMap[color]};"></span>
-                    `).join("")}
-                </div>
+    ? `
+        <div class="product-colors">
+            <p><strong>Available Colors:</strong></p>
+            <div class="color-swatches">
+                ${product.colors.map((color) => `
+                    <span class="color-swatch" title="${color}" style="background-color: ${colorMap[color]};"></span>
+                `).join("")}
             </div>
-        `
-        : "";
+        </div>
+    `
+    : "";
 
     // Set up modal content
     modalContent.innerHTML = `
