@@ -301,7 +301,6 @@ const productsPageCategories = {
         {
             title: "3M Tape",
             images: ["images/products/N (3).png", "images/products/37.png"],
-            colors: ["Transparent"],
             type: ["3M 300LSE"],
             dimension: ['55" x 12mm']
         },
