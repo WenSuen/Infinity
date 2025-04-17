@@ -221,6 +221,7 @@ const productsPageCategories = {
             images: ["images/products/1.png", "images/products/2.png"],
             colors: ["Black"],
             dimension: ['48" x 30 meters', '60" x 30 meters', '72" x 30 meters'],
+            mesh: ["18 x 16 (+/-1)"],
             material: "Fiberglass",
             brand: "Polar Bear"
         },
