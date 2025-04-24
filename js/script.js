@@ -1,12 +1,11 @@
-// Function to load HTML components (header, footer)
 function loadComponents() {
     const components = [
         { selector: ".header-container", file: "static/header.html" },
         { selector: ".footer-container", file: "static/footer.html" },
     ];
 
-    components.forEach((component) => {
-        fetch(component.file)
+    const loadPromises = components.map((component) => {
+        return fetch(component.file)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Failed to load ${component.file}`);
@@ -16,14 +15,22 @@ function loadComponents() {
             .then((data) => {
                 document.querySelector(component.selector).innerHTML = data;
 
-                // Initialize header behavior and highlight the active page after the header is loaded
+                // If header, initialize behavior
                 if (component.selector === ".header-container") {
-                    handleHeaderScroll(); // Handles header scroll behavior
-                    highlightActivePage(); // Highlights the active page in the navigation
+                    handleHeaderScroll();
+                    highlightActivePage();
                 }
-            })
-            .catch((error) => console.error("Error loading component:", error));
+            });
     });
+
+    // Once all components are loaded, apply layout class
+    Promise.all(loadPromises)
+        .then(() => {
+            document.body.classList.add('layout-ready');
+        })
+        .catch((error) => {
+            console.error("Error loading components:", error);
+        });
 }
 
 // Highlight the active link based on the current page name

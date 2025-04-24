@@ -395,18 +395,18 @@ body {
     cursor: default;
 }
 
-/* Contact Page Layout Fix */
-.contact-page,
-.contact-page .contact-wrapper {
+/* Only apply this after all components are loaded */
+.contact-page.layout-ready,
+.contact-page.layout-ready .contact-wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.contact-page .contact-wrapper {
+.contact-page.layout-ready .contact-wrapper {
     flex: 1;
 }
 
-.contact-page .footer-container {
+.contact-page.layout-ready .footer-container {
     margin-top: auto;
 }
