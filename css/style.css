@@ -1294,28 +1294,25 @@ body, html {
 
 .more-products-cta {
     text-align: center;
-    margin: 0.5rem 0 1rem;
+    margin: 0.5rem 0 1.5rem;
     font-family: 'Oswald', sans-serif;
-}
-
-.more-products-cta p {
     font-size: 1rem;
-    margin-bottom: 0.3rem;
     color: #333;
 }
 
-.cta-button {
+.more-products-cta p {
     display: inline-block;
-    padding: 0.4rem 1rem;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.95rem;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+    font-weight: 400;
 }
 
-.cta-button:hover {
-    background-color: #0056b3;
+.cta-link {
+    color: #007bff;
+    text-decoration: underline;
+    margin-left: 5px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.cta-link:hover {
+    color: #0056b3;
 }
