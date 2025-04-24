@@ -192,7 +192,7 @@ body, html {
 
 .product-gallery h2 {
     font-size: 2.8rem; /* Slightly larger */
-    margin-bottom: 2em; /* Extra space below */
+    margin-bottom: 0.5em !important; /* Reduce space below heading */
     color: #333;
     font-weight: bold;
     letter-spacing: 1px; /* Add letter spacing */
@@ -1335,8 +1335,8 @@ body, html {
 
 /* CTA section (featured product) */
 .more-products-cta {
+    margin: 0.2rem 0 1.5rem; /* Reduce top space, keep bottom space */
     text-align: center;
-    margin: 0.5rem 0 1.5rem;
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
     color: #333;
