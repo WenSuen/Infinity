@@ -214,10 +214,10 @@ body, html {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min-width for better spacing */
-    gap: 2.5em; /* Increase gap for cleaner layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2em;
     justify-content: center;
-    align-items: start; /* Ensure proper alignment */
+    align-items: start;
     padding: 0 1em;
 }
 
