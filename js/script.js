@@ -186,22 +186,22 @@ function startImageTransition() {
 
 // Dynamically generate product cards for non-products pages
 function renderFeaturedProducts() {
-    const productGrid = document.getElementById("featuredProductGrid"); // Update the ID
+    const productGrid = document.getElementById("featuredProductGrid");
     if (!productGrid) return;
 
     productGrid.innerHTML = products
-    .map((product) => `
-        <div class="product-item">
-            ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
-            <div class="featured-product-card"> <!-- image wrapper here -->
-                <div class="image-wrapper">
-                    <img src="${product.images[0]}" alt="${product.title}">
+        .map((product) => `
+            <div class="product-item">
+                ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
+                <div class="featured-product-card">
+                    <div class="image-wrapper">
+                        <img src="${product.images[0]}" alt="${product.title}">
+                    </div>
                 </div>
-                <h3>${product.title}</h3>
+                <h3>${product.title}</h3> <!-- ✅ Title placed outside of the image/card -->
             </div>
-        </div>
-    `)
-    .join("");
+        `)
+        .join("");
 
     startImageTransition(); // Start the carousel effect after rendering
 }

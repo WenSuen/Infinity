@@ -298,12 +298,11 @@ body, html {
 .product-item h3 {
     font-size: 1.3rem;
     color: #333;
-    margin: 0.5em 0;
-    font-weight: bold;
-    text-transform: uppercase; /* Make titles more distinct */
+    margin: 1em 0 0.5em; /* 👈 This spacing keeps it visually balanced */
+    font-weight: 600;
+    text-transform: uppercase;
     letter-spacing: 0.3px;
     transition: color 0.3s ease;
-    font-weight: 600; /* Lighten font weight */
 }
 
 .product-item h3:hover {
