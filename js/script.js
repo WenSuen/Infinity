@@ -418,10 +418,11 @@ function openProductPageModal(title, category) {
 
     // Dynamically generate optional details
     const extraDetails = generateProductDetails(product);
+    const isMiniDoor = category === "mini-door" && product.title === "Mini Door";
     const colors = product.colors?.length
     ? `
         <div class="product-colors">
-            <p><strong>Available Colors:</strong></p>
+            <p><strong>${isMiniDoor ? "Available Colors for frame:" : "Available Colors:"}</strong></p>
             <div class="color-swatches">
                 ${product.colors.map((color) => `
                     <span class="color-swatch" title="${color}" style="background-color: ${colorMap[color]};"></span>
