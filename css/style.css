@@ -1414,3 +1414,19 @@ body, html {
     color: #ffcc00;
     transform: translateY(-50%) scale(1.2);
 }
+
+/* Only apply this after all components are loaded */
+.contact-page.layout-ready,
+.contact-page.layout-ready .contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contact-page.layout-ready .contact-wrapper {
+    flex: 1;
+}
+
+.contact-page.layout-ready .footer-container {
+    margin-top: auto;
+}
