@@ -488,7 +488,12 @@ function showNextModalImage() {
     if (!imageList.length) return;
 
     currentModalImageIndex = (currentModalImageIndex + 1) % imageList.length;
-    changeMainImage(imageList[currentModalImageIndex]);
+    
+    const thumbnails = modal.querySelectorAll(".thumbnail");
+    const nextThumb = thumbnails[currentModalImageIndex];
+    if (nextThumb) {
+        nextThumb.click();
+    }
 }
 
 function showPrevModalImage() {
@@ -497,7 +502,12 @@ function showPrevModalImage() {
     if (!imageList.length) return;
 
     currentModalImageIndex = (currentModalImageIndex - 1 + imageList.length) % imageList.length;
-    changeMainImage(imageList[currentModalImageIndex]);
+
+    const thumbnails = modal.querySelectorAll(".thumbnail");
+    const prevThumb = thumbnails[currentModalImageIndex];
+    if (prevThumb) {
+        prevThumb.click();
+    }
 }
 
 function closeProductPageModal() {
