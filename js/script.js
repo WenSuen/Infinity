@@ -675,4 +675,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     initializeWhatsAppButton();
     animateAboutUsTitle(); 
     initializeGallery();
+
+    // Enable arrow key and Escape navigation for product modal
+    document.addEventListener("keydown", (e) => {
+        const modal = document.getElementById("productModal");
+        if (modal && modal.style.display === "flex") {
+            if (e.key === "ArrowRight") {
+                showNextModalImage();
+            } else if (e.key === "ArrowLeft") {
+                showPrevModalImage();
+            } else if (e.key === "Escape") {
+                closeProductPageModal();
+            }
+        }
+    });
 });
+

@@ -1292,7 +1292,7 @@ body, html {
     transform: translateY(-50%);
 }
 
-/* CTA section (featured product)
+/* CTA section (featured product) */
 .more-products-cta {
     text-align: center;
     margin: 0.5rem 0 1.5rem;
@@ -1327,18 +1327,22 @@ body, html {
     margin-bottom: 1rem;
 }
 
-/* Reuse gallery button styles */
-#prevProductImg {
-    left: 20px;
-    position: absolute;
-}
-
+/* Hide arrows by default */
+#prevProductImg,
 #nextProductImg {
-    right: 20px;
-    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
-/* Product Modal Navigation Arrows */
+/* Show arrows when hovering the image wrapper */
+.modal-image-wrapper:hover #prevProductImg,
+.modal-image-wrapper:hover #nextProductImg {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Arrow base styles */
 #prevProductImg,
 #nextProductImg {
     position: absolute;
@@ -1354,7 +1358,7 @@ body, html {
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* Position closer to the edge */
+/* Positioning */
 #prevProductImg {
     left: 10px;
 }
@@ -1363,9 +1367,9 @@ body, html {
     right: 10px;
 }
 
-/* Hover effect for visual feedback */
+/* Hover effect for feedback */
 #prevProductImg:hover,
 #nextProductImg:hover {
-    color: #ffcc00; /* Optional: soft highlight color */
+    color: #ffcc00;
     transform: translateY(-50%) scale(1.2);
 }
