@@ -332,15 +332,15 @@ function renderProductsForSections() {
                     .map((product) => {
                         console.log(`Loading image: ${product.images[0]}`); // Debugging
                         return `
-                            <div class="product-card">
+                            <div class="product-card" onclick="openProductPageModal('${product.title}', '${category}')">
                                 <img src="images/products/placeholder-low.png" 
-                                     data-src="${product.images[0]}" 
-                                     alt="${product.title}" 
-                                     class="product-image lazy-load blur-load"
-                                     loading="lazy" 
-                                     onerror="this.src='images/placeholder.png';">
+                                    data-src="${product.images[0]}" 
+                                    alt="${product.title}" 
+                                    class="product-image lazy-load blur-load"
+                                    loading="lazy" 
+                                    onerror="this.src='images/placeholder.png';">
                                 <h3>${product.title.toUpperCase()}</h3>
-                                <button class="view-details" onclick="openProductPageModal('${product.title}', '${category}')">
+                                <button class="view-details" onclick="event.stopPropagation(); openProductPageModal('${product.title}', '${category}')">
                                     More Details
                                 </button>
                             </div>
