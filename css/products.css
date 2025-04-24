@@ -122,6 +122,7 @@ body {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
+    margin-bottom: 3rem;
 }
 
 .product-grid > *:nth-last-child(1):nth-child(3n + 1),
