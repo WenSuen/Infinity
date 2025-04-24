@@ -394,6 +394,8 @@ function generateProductDetails(product) {
         .join("");
 }
 
+let currentModalImageIndex = 0; // Keep track of the current image index
+
 function openProductPageModal(title, category) {
     const product = productsPageCategories[category].find((p) => p.title === title);
     if (!product) return;
@@ -404,7 +406,7 @@ function openProductPageModal(title, category) {
     // Generate thumbnail images for selection
     const thumbnails = product.images.map((img, index) => `
         <img src="${img}" alt="Thumbnail ${index + 1}" class="thumbnail" 
-            onclick="changeMainImage('${img}', this)">
+            onclick="changeMainImage('${img}', this); currentModalImageIndex = ${index};">
     `).join("");
 
     // Safe color mapping
@@ -420,37 +422,43 @@ function openProductPageModal(title, category) {
     const extraDetails = generateProductDetails(product);
     const isMiniDoor = category === "mini-door" && product.title === "Mini Door";
     const colors = product.colors?.length
-    ? `
-        <div class="product-colors">
-            <p><strong>${isMiniDoor ? "Available Colors for frame:" : "Available Colors:"}</strong></p>
-            <div class="color-swatches">
-                ${product.colors.map((color) => `
-                    <span class="color-swatch" title="${color}" style="background-color: ${colorMap[color]};"></span>
-                `).join("")}
+        ? `
+            <div class="product-colors">
+                <p><strong>${isMiniDoor ? "Available Colors for frame:" : "Available Colors:"}</strong></p>
+                <div class="color-swatches">
+                    ${product.colors.map((color) => `
+                        <span class="color-swatch" title="${color}" style="background-color: ${colorMap[color]};"></span>
+                    `).join("")}
+                </div>
             </div>
-        </div>
-    `
-    : "";
+        `
+        : "";
 
-    // Set up modal content
+    const imageList = product.images;
+    currentModalImageIndex = 0;
+    modal.dataset.images = JSON.stringify(imageList); // Save image array to modal
+
+    // Set up modal content with arrows beside image
     modalContent.innerHTML = `
         <button class="close" onclick="closeProductPageModal()">&times;</button>
         <h2>${product.title}</h2>
-        <img id="mainProductImage" src="${product.images[0]}" alt="${product.title}" class="main-image">
+        <div class="modal-image-wrapper">
+            <button class="modal-arrow left" onclick="showPrevModalImage()">&larr;</button>
+            <img id="mainProductImage" src="${imageList[0]}" alt="${product.title}" class="main-image">
+            <button class="modal-arrow right" onclick="showNextModalImage()">&rarr;</button>
+        </div>
         <div class="thumbnail-container">${thumbnails}</div>
         ${colors}
         ${extraDetails ? `<ul class="product-details">${extraDetails}</ul>` : ""}
     `;
 
-    // Highlight first thumbnail as selected
+    modal.style.display = "flex";
+
+    // Highlight the first thumbnail
     setTimeout(() => {
         const firstThumbnail = modal.querySelector(".thumbnail");
-        if (firstThumbnail) {
-            firstThumbnail.classList.add("selected");
-        }
+        if (firstThumbnail) firstThumbnail.classList.add("selected");
     }, 50);
-
-    modal.style.display = "flex";
 }
 
 function changeMainImage(imageSrc, element) {
@@ -472,6 +480,24 @@ function changeMainImage(imageSrc, element) {
     if (element) {
         element.classList.add("selected");
     }
+}
+
+function showNextModalImage() {
+    const modal = document.getElementById("productModal");
+    const imageList = JSON.parse(modal.dataset.images || "[]");
+    if (!imageList.length) return;
+
+    currentModalImageIndex = (currentModalImageIndex + 1) % imageList.length;
+    changeMainImage(imageList[currentModalImageIndex]);
+}
+
+function showPrevModalImage() {
+    const modal = document.getElementById("productModal");
+    const imageList = JSON.parse(modal.dataset.images || "[]");
+    if (!imageList.length) return;
+
+    currentModalImageIndex = (currentModalImageIndex - 1 + imageList.length) % imageList.length;
+    changeMainImage(imageList[currentModalImageIndex]);
 }
 
 function closeProductPageModal() {
@@ -553,9 +579,9 @@ function initializeGallery() {
     let currentCategory = null;
     let currentIndex = 0;
 
-    // Function to load images into a given gallery
+    // Load images into the gallery section
     function loadGallery(category, galleryElement) {
-        galleryElement.innerHTML = ""; // Clear existing images
+        galleryElement.innerHTML = ""; // Clear existing
         images[category].forEach((img, index) => {
             const imgElement = document.createElement("img");
             imgElement.src = img;
@@ -566,48 +592,44 @@ function initializeGallery() {
         });
     }
 
-    // Function to open lightbox with animation
+    // Open lightbox and show selected image
     function openLightbox(category, index) {
-        lightbox.classList.add("show"); // Add class for animation
-        lightbox.classList.remove("hide"); // Remove closing animation class
-        lightbox.style.visibility = "visible"; // Ensure it can be seen
-        lightbox.style.opacity = "1"; // Fade in
+        lightbox.classList.add("show");
+        lightbox.classList.remove("hide");
+        lightbox.style.visibility = "visible";
+        lightbox.style.opacity = "1";
         lightboxImg.src = images[category][index];
         currentCategory = category;
         currentIndex = index;
-
-        // Prevent scrolling while lightbox is open
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden"; // Lock scroll
     }
 
-    // Function to close lightbox with animation
+    // Close lightbox with fade animation
     function closeLightboxHandler() {
-        lightbox.classList.add("hide"); // Add hide animation
-        lightbox.classList.remove("show"); // Remove show class
+        lightbox.classList.add("hide");
+        lightbox.classList.remove("show");
         setTimeout(() => {
-            lightbox.style.visibility = "hidden"; // Hide properly
-            lightbox.style.opacity = "0"; // Fade out
-        }, 300); // Delay for smooth transition
-
-        // Re-enable scrolling
-        document.body.style.overflow = "";
+            lightbox.style.visibility = "hidden";
+            lightbox.style.opacity = "0";
+        }, 300);
+        document.body.style.overflow = ""; // Unlock scroll
     }
 
-    // Function to show next image in lightbox
+    // Show next image in current category
     function showNextImage() {
         if (!currentCategory) return;
         currentIndex = (currentIndex + 1) % images[currentCategory].length;
         lightboxImg.src = images[currentCategory][currentIndex];
     }
 
-    // Function to show previous image in lightbox
+    // Show previous image
     function showPrevImage() {
         if (!currentCategory) return;
         currentIndex = (currentIndex - 1 + images[currentCategory].length) % images[currentCategory].length;
         lightboxImg.src = images[currentCategory][currentIndex];
     }
 
-    // Handle keyboard navigation
+    // Handle arrow keys and escape
     function handleKeydown(event) {
         if (lightbox.classList.contains("show")) {
             if (event.key === "ArrowRight") {
@@ -620,20 +642,20 @@ function initializeGallery() {
         }
     }
 
-    // Close lightbox when clicking outside the image
+    // Close lightbox by clicking outside image
     lightbox.addEventListener("click", (event) => {
         if (event.target === lightbox) {
             closeLightboxHandler();
         }
     });
 
-    // Add event listeners for lightbox controls
+    // Lightbox control buttons
     closeLightbox.addEventListener("click", closeLightboxHandler);
     nextButton.addEventListener("click", showNextImage);
     prevButton.addEventListener("click", showPrevImage);
-    document.addEventListener("keydown", handleKeydown); // Keyboard controls
+    document.addEventListener("keydown", handleKeydown);
 
-    // Load images into respective sections
+    // Load both galleries
     loadGallery("window", windowGallery);
     loadGallery("door", doorGallery);
 }
