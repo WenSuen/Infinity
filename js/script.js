@@ -158,38 +158,42 @@ const products = [
 // Function to start image transitions with a carousel effect (ONLY for featured products)
 function startImageTransition() {
     document.querySelectorAll('.featured-product-card').forEach((card, index) => {
-        const product = products[index]; // Get the corresponding product
-        const img = card.querySelector("img"); // Select the image inside the card
+        const product = products[index];
+        const img = card.querySelector("img");
 
-        if (!img) return; // Ensure the image exists
+        if (!img || product.images.length < 2) return;
 
-        img.src = product.images[0]; // Always load the first image initially
+        let currentImageIndex = 0;
 
-        if (product.images.length > 1) { // Apply transition only if multiple images exist
-            let currentImageIndex = 0;
+        // Create a clone img for fade transition
+        const fadeImg = img.cloneNode();
+        fadeImg.style.position = "absolute";
+        fadeImg.style.top = "0";
+        fadeImg.style.left = "0";
+        fadeImg.style.width = "100%";
+        fadeImg.style.height = "100%";
+        fadeImg.style.transition = "opacity 1s ease-in-out";
+        fadeImg.style.opacity = "0";
 
-            setInterval(() => {
-                const nextImageIndex = (currentImageIndex + 1) % product.images.length;
-                const nextImage = product.images[nextImageIndex];
+        // Ensure parent is relatively positioned
+        const wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+        wrapper.style.overflow = "hidden";
 
-                // Apply carousel slide effect
-                img.style.transition = "transform 0.5s ease-in-out";
-                img.style.transform = "translateX(100%)"; // Move out to the right
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+        wrapper.appendChild(fadeImg);
 
-                setTimeout(() => {
-                    img.src = nextImage; // Switch image
-                    img.style.transition = "none";
-                    img.style.transform = "translateX(-100%)"; // Move new image to the left instantly
+        setInterval(() => {
+            currentImageIndex = (currentImageIndex + 1) % product.images.length;
+            fadeImg.src = product.images[currentImageIndex];
+            fadeImg.style.opacity = "1";
 
-                    setTimeout(() => {
-                        img.style.transition = "transform 0.5s ease-in-out";
-                        img.style.transform = "translateX(0)"; // Slide image back to center
-                    }, 50); // Short delay to reset transform
-
-                    currentImageIndex = nextImageIndex;
-                }, 500); // Wait 0.5s before switching image
-            }, 5000); // Change every 5 seconds
-        }
+            setTimeout(() => {
+                img.src = fadeImg.src;
+                fadeImg.style.opacity = "0";
+            }, 1000);
+        }, 5000);
     });
 }
 
