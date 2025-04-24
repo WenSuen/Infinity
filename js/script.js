@@ -443,9 +443,9 @@ function openProductPageModal(title, category) {
         <button class="close" onclick="closeProductPageModal()">&times;</button>
         <h2>${product.title}</h2>
         <div class="modal-image-wrapper">
-            <button class="modal-arrow left" onclick="showPrevModalImage()">&larr;</button>
+            <span id="prevProductImg" class="lightbox-nav" onclick="showPrevModalImage()">&#10094;</span>
             <img id="mainProductImage" src="${imageList[0]}" alt="${product.title}" class="main-image">
-            <button class="modal-arrow right" onclick="showNextModalImage()">&rarr;</button>
+            <span id="nextProductImg" class="lightbox-nav" onclick="showNextModalImage()">&#10095;</span>
         </div>
         <div class="thumbnail-container">${thumbnails}</div>
         ${colors}
