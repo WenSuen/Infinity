@@ -159,29 +159,16 @@ const products = [
 function startImageTransition() {
     document.querySelectorAll('.featured-product-card').forEach((card, index) => {
         const product = products[index];
-        const img = card.querySelector("img");
+        const wrapper = card.querySelector(".image-wrapper");
+        const img = wrapper.querySelector("img");
 
         if (!img || product.images.length < 2) return;
 
         let currentImageIndex = 0;
 
-        // Create a clone img for fade transition
+        // Create a fading image clone
         const fadeImg = img.cloneNode();
-        fadeImg.style.position = "absolute";
-        fadeImg.style.top = "0";
-        fadeImg.style.left = "0";
-        fadeImg.style.width = "100%";
-        fadeImg.style.height = "100%";
-        fadeImg.style.transition = "opacity 1s ease-in-out";
-        fadeImg.style.opacity = "0";
-
-        // Ensure parent is relatively positioned
-        const wrapper = document.createElement("div");
-        wrapper.style.position = "relative";
-        wrapper.style.overflow = "hidden";
-
-        img.parentNode.insertBefore(wrapper, img);
-        wrapper.appendChild(img);
+        fadeImg.classList.add("fade-image"); // Add the class instead of inline styles
         wrapper.appendChild(fadeImg);
 
         setInterval(() => {
@@ -203,16 +190,18 @@ function renderFeaturedProducts() {
     if (!productGrid) return;
 
     productGrid.innerHTML = products
-        .map((product) => `
-            <div class="product-item">
-                ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
-                <div class="featured-product-card product-card"> <!-- Ensure this class is present -->
+    .map((product) => `
+        <div class="product-item">
+            ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
+            <div class="featured-product-card"> <!-- image wrapper here -->
+                <div class="image-wrapper">
                     <img src="${product.images[0]}" alt="${product.title}">
-                    <h3>${product.title}</h3>
                 </div>
+                <h3>${product.title}</h3>
             </div>
-        `)
-        .join("");
+        </div>
+    `)
+    .join("");
 
     startImageTransition(); // Start the carousel effect after rendering
 }
