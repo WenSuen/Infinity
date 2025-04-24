@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Infinity Industrial Supplies</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Your main CSS -->
-    <link rel="stylesheet" href="css/contact.css"> <!-- 💡 Add this new contact-specific CSS -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Your main CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="js/script.js" defer></script>
@@ -13,12 +12,13 @@
 <body class="contact-page">
 
     <div class="contact-wrapper">
-        <!-- Header Container -->
+        <!-- Header Container (loaded via JS) -->
         <div class="header-container"></div>
 
-        <!-- CTA Banner -->
+        <!-- CTA Banner Section -->
         <section class="cta-banner">
             <p class="cta-main-text">🤝 We’re happy to assist you! Reach out today for expert advice on our products and services.</p>
+            
             <a href="tel:+60193225830" class="cta-button">
                 <div class="cta-header">
                     <i class="fas fa-phone"></i>
@@ -36,7 +36,7 @@
             </a>
         </section>
 
-        <!-- Footer Container -->
+        <!-- Footer Container (loaded via JS) -->
         <div class="footer-container"></div>
     </div>
 
@@ -46,7 +46,6 @@
     </div>
 
     <script>
-        // Load header and footer dynamically
         loadComponents();
     </script>
 </body>

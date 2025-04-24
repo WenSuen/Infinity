@@ -1430,3 +1430,19 @@ body, html {
 .contact-page.layout-ready .footer-container {
     margin-top: auto;
 }
+
+/* Sticky footer fix only for Contact Us page */
+.contact-page,
+.contact-page .contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contact-page .contact-wrapper {
+    flex: 1;
+}
+
+.contact-page .footer-container {
+    margin-top: auto;
+}
